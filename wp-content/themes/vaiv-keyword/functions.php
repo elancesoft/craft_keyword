@@ -167,7 +167,8 @@ function vaiv_keyword_scripts()
 
 	wp_style_add_data('vaiv-keyword-style', 'rtl', 'replace');
 
-	wp_enqueue_script('vaiv-keyword-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+	// wp_enqueue_script('vaiv-keyword-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+	wp_enqueue_script('vaiv-keyword-navigation', get_template_directory_uri() . '/js/navigation.js?v=' . time(), array(), false, true);
 	wp_enqueue_script('customizer', get_template_directory_uri() . '/js/customizer.js?v=' . time(), array(), false, true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {

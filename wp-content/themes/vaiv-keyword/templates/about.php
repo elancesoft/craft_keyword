@@ -7,20 +7,34 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main-aboutus">
   <div class="container">
-    <div class="aboutus-banner main-banner-section">
-
+    <div id="aboutus-banner" class="aboutus-banner main-banner-section">
       <div class="aboutus-banner-text text-center">
+        <?php
+        $banner_text = get_field('banner_text', get_the_ID());
+        $banner_title_line1 = get_field('banner_title_line1', get_the_ID());
+        $banner_title_line2 = get_field('banner_title_line2', get_the_ID());
+        ?>
+
         <h1 class="entry-title">
-          <span class="main-color-black">상식의 변화,</span><br>
-          그 이상의 데이터
+          <span class="main-color-black"><?php echo $banner_title_line1; ?></span><br>
+          <?php echo $banner_title_line2; ?>
         </h1>
-        <div class="aboutus-banner-desc">
-          “데이터는 사실의 집합이며<br>
-          더 중요한 것은 그 안에서 ‘이야기’를 읽어내는 능력입니다.<br>
-          생활변화관측소는 사실에서 통찰을 읽어 콘텐츠를 만듭니다.”
-        </div>
+        <div class="aboutus-banner-desc"><?php echo $banner_text; ?></div>
+      </div>
+
+      <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
       </div>
     </div>
 
@@ -40,80 +54,81 @@ get_header();
       ?>
     </div>
 
-    <div class="aboutus-activity">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="aboutus-activity-item" data-aos="fade-right">
-            <div class="aboutus-activity-image"><img src="<?php echo get_template_directory_uri() . '/assets/images/aboutus-activity-1.png' ?>" /></div>
-            <h3 class="aboutus-activity-title">빅데이터 관측 경험 19년</h3>
-            <div class="aboutus-activity-desc">2004년 VOC 분석 시스템 구축</div>
+    <?php
+    // SHOW ACTIVITIES
+    if (have_rows('activity')) :
+      echo '<div class="aboutus-activity">';
+      echo '<div class="row">';
+      while (have_rows('activity')) : the_row();
+        // Load sub field value.
+        $the_title = get_sub_field('about_title');
+        $the_icon = get_sub_field('about_icon');
+        $the_desc = get_sub_field('about_description');
+
+        echo '
+          <div class="col-md-4">
+            <div class="aboutus-activity-item aos-init aos-animate" data-aos="fade-right">
+              <div class="aboutus-activity-image"><img src="' . $the_icon['url'] . '" /></div>
+              <h3 class="aboutus-activity-title">' . $the_title . '</h3>
+              <div class="aboutus-activity-desc">' . $the_desc . '</div>
+            </div>
           </div>
-        </div>
+          ';
+      endwhile;
+      echo '</div>';
+      echo '</div>';
+    endif;
+    ?>
 
-        <div class="col-md-4">
-          <div class="aboutus-activity-item" data-aos="fade-right" data-aos-delay="500">
-            <div class="aboutus-activity-image"><img src="<?php echo get_template_directory_uri() . '/assets/images/aboutus-activity-2.png' ?>" /></div>
-            <h3 class="aboutus-activity-title">빅데이터 커버리지 326억 건</h3>
-            <div class="aboutus-activity-desc">블로그·인스타그램·트위터·커뮤니티· 유튜브 채널의 소셜 빅데이터 분석</div>
+    <?php
+    // SHOW INTRODUCTION
+    if (have_rows('introductions')) :
+      echo '<div class="aboutus-introduction text-center text-md-start">';
+      echo '<h2 class="widget-title main-color-blue" data-aos="fade-up">활동 소개</h2>';
+      while (have_rows('introductions')) : the_row();
+        // Load sub field value.
+        $introduction_title = get_sub_field('introduction_title');
+        $introduction_description = get_sub_field('introduction_description');
+        $introduction_link = get_sub_field('introduction_link');
+
+        $introduction_link_html = '';
+        if (strlen($introduction_link) > 0) {
+          $introduction_link_html = '<p class="aboutus-introduction-link-more text-end text-md-start mt-3"><a href="' . $introduction_link . '" target="_blank">더 알아보기 <i class="bi-chevron-right"></i></a></p>';
+        }
+
+        $table_attribute = '';
+        if (have_rows('atributes')) :
+          $table_attribute = '<div class="table-responsive mt-4">';
+          $table_attribute .= '<table class="table table-borderless">';
+          while (have_rows('atributes')) : the_row();
+            $attribute_title = get_sub_field('attribute_title');
+            $attribute_description = get_sub_field('attribute_description');
+            $attribute_link = get_sub_field('attribute_link');
+
+            $table_attribute .= '
+            <tr>
+              <td><a href="' . $attribute_link . '"><span class="main-color-blue">' . $attribute_title . '</span></a></td>
+              <td><a href="' . $attribute_link . '">' . $attribute_description . '</a></td>
+              <td><a href="' . $attribute_link . '"><i class="bi-chevron-right"></i></a></td>
+            </tr>';
+          endwhile;
+          $table_attribute .= '</table>';
+          $table_attribute .= '</div>';
+        endif;
+
+        echo '
+        <div class="row mt-5" data-aos="fade-up">
+          <div class="col-md-3">
+            <h3 class="module-sub-title main-color-black bg-border d-inline-block pb-1 mb-3">' . $introduction_title . '</h3>
           </div>
+          <div class="col-md-9">' . $introduction_description . $table_attribute . $introduction_link_html . '</div>
         </div>
-
-        <div class="col-md-4">
-          <div class="aboutus-activity-item" data-aos="fade-right" data-aos-delay="1000">
-            <div class="aboutus-activity-image"><img src="<?php echo get_template_directory_uri() . '/assets/images/aboutus-activity-3.png' ?>" /></div>
-            <h3 class="aboutus-activity-title">모니터링 키워드 1만 9000개</h3>
-            <div class="aboutus-activity-desc">일상에서 사용하는 대화·브랜드·상황에 대한 모든 키워드 모니터링</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="aboutus-introduction text-center text-md-start">
-      <h2 class="module-title main-color-blue" data-aos="fade-up">활동 소개</h2>
-
-      <div class="row mt-5" data-aos="fade-up">
-        <div class="col-md-3">
-          <h3 class="module-sub-title main-color-black bg-border d-inline-block pb-1 mb-3">트렌드 관측</h3>
-        </div>
-        <div class="col-md-9">
-          <p>
-            다양한 산업 분야에 대해 전문성을 갖춘 빅데이터 연구원들이<br>
-            매주 데이터를 관측하고, 그 안에서 찾아낸 새로운 인사이트를 소개합니다.
-          </p>
-          <p class="aboutus-introduction-link-more text-end text-md-start"><a href="#">더 알아보기 ></a></p>
-        </div>
-      </div>
-
-      <div class="row mt-5" data-aos="fade-up">
-        <div class="col-md-3">
-          <h3 class="module-sub-title main-color-black bg-border d-inline-block pb-1 mb-3">세미나</h3>
-        </div>
-        <div class="col-md-9">
-          <p>
-            생활변화관측소에서는 매년 연구한 트렌드 바탕으로 트렌드 보고회를 개최합니다.<br>
-            학술 콘퍼런스와 세미나를 통해 거시적인 트렌드를 확인하고 각 산업 군의 동향을 파악 할 수 있습니다.
-          </p>
-        </div>
-      </div>
-
-      <div class="row mt-5" data-aos="fade-up">
-        <div class="col-md-3">
-          <h3 class="module-sub-title main-color-black bg-border d-inline-block pb-1 mb-3">트렌드 관측</h3>
-        </div>
-        <div class="col-md-9">
-          <p>
-            <트렌드 노트>는 생활변화관측소에서 매년 발간하는 트렌드 서적입니다.<br>
-              빅데이터 분석 결과를 바탕으로 우리가 살아가는 세상의 변화를 관측하고 완결된 이야기로 전달합니다.
-          </p>
-          <p class="aboutus-introduction-link-more text-end text-md-start"><a href="#">더 알아보기 ></a></p>
-        </div>
-      </div>
-    </div>
-
-
+        ';
+      endwhile;
+      echo '</div>';
+    endif;
+    ?>
   </div><!-- container -->
-
 </main><!-- #main -->
 
 <?php

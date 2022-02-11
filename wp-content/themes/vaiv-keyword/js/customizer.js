@@ -1,9 +1,8 @@
 jQuery(document).ready(function ($) {
 	AOS.init();
 
-
 	// Hot Brand click action
-	$('.host-brand-item').click(function () {
+	$('.host-brand-item-123123').click(function () {
 		$('.host-brand-item').removeClass('active');
 		$(this).toggleClass('active');
 
@@ -46,7 +45,7 @@ jQuery(document).ready(function ($) {
 
 
 	// Top3 Slider
-	$('.brandranking-detail-top3-slider').slick({
+	$('.brandranking-detail-top3-slider-123').slick({
 		infinite: true,
 		centerMode: true,
 		variableWidth: true,
@@ -73,4 +72,42 @@ jQuery(document).ready(function ($) {
 			}
 		]
 	});
+
+
+	// TODAY PICK ACTION
+	$('#today-pick-previous, #today-pick-previous-desktop').on('click', function () {
+		var $list = $('.today-pick-slider-list'),
+			$items = $list.children(),
+			$lastItem = $items.last();
+
+		$items.removeClass('active');
+		$items.eq(0).before($lastItem).addClass('active');
+	});
+
+	$('#today-pick-next, #today-pick-next-desktop').on('click', function () {
+		var $list = $('.today-pick-slider-list'),
+			$items = $list.children(),
+			$firstItem = $items.first();
+
+		$items.removeClass('active');
+		$items.eq(2).after($firstItem).addClass('active');
+	});
+
+
+	// SEARCH
+	$('.search-icon-wrap').on('click', function () {
+		$("#overlay").fadeIn(300);
+		$(this).addClass('d-none');
+	});
+
+	$('#search-close').on('click', function () {
+		$("#overlay").fadeOut(300);
+		$('.search-icon-wrap').removeClass('d-none');
+	});
+
+	$('#share-by-copy').on('click', function () {
+		let data_link = $(this).data('link');
+		navigator.clipboard.writeText(data_link);
+	});
+	
 });

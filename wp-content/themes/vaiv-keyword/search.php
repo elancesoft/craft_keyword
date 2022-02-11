@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying search results pages
  *
@@ -8,46 +9,45 @@
  */
 
 get_header();
+
+global $wp_query;
+$post_count = $wp_query->found_posts;
 ?>
 
-	<main id="primary" class="site-main">
+<main id="primary" class="site-main">
+	<div class="container">
+		<div class="search_form">
+			<div class="row justify-content-center">
+				<div class="col-6">
+					<?php get_search_form(); ?>
+				</div>
+			</div>
 
-		<?php if ( have_posts() ) : ?>
+		</div>
 
+		<?php if (have_posts()) : ?>
 			<header class="page-header">
-				<h1 class="page-title">
+				<h1 class="widget-title my-5 text-center">
 					<?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'vaiv-keyword' ), '<span>' . get_search_query() . '</span>' );
+					printf(esc_html__('"%s" 검색결과', 'vaiv-keyword'), '<span>' . get_search_query() . '</span>');
+					echo ' <span class="main-color-blue">' . $post_count . '</span>';
 					?>
 				</h1>
 			</header><!-- .page-header -->
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
+		<?php
+			while (have_posts()) :
 				the_post();
-
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
-
+				get_template_part('template-parts/content', 'search');
 			endwhile;
-
 			the_posts_navigation();
-
 		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
+			get_template_part('template-parts/content', 'none');
 		endif;
 		?>
-
-	</main><!-- #main -->
+	</div>
+</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

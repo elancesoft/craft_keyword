@@ -11,8 +11,6 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-
 	<header class="entry-header">
 		<div class="row">
 			<div class="col-md-6">
@@ -39,7 +37,6 @@
 				<div class="author-info mt-3 mb-3"><?php echo $author_info; ?></div>
 
 				<div class="content-detail-hastag">
-
 					<?php
 					$categories = $wpdb->get_results("
 					SELECT DISTINCT(terms.term_id) as ID, terms.name, terms.slug
@@ -54,11 +51,7 @@
 					ORDER BY terms.name ASC
 					");
 
-					//$tags = get_the_tags(get_the_ID());
-					//print_r($tags);
-
 					foreach ($categories as $category) {
-						// print_r($tag);
 						echo '<span class="content-detail-tag"># ' . $category->name . '</span>';
 					}
 
@@ -134,10 +127,18 @@
 					<div class="author-category mt-4">
 						<?php
 						foreach ($categories as $category) {
-							echo '<a href="" class="entry-content-author-category"># ' . $category->name . '</a>';
+							$category_link = get_category_link($category->ID);
+							echo '<a href="' . $category_link . '" class="entry-content-author-category"># ' . $category->name . '</a>';
 						}
 						?>
 					</div>
+
+					<div class="entry-meta">
+				<?php
+				vaiv_keyword_posted_on();
+				vaiv_keyword_posted_by();
+				?>
+			</div><!-- .entry-meta -->
 				</div>
 				<div class="tab-pane fade" id="comment-form" role="tabpanel" aria-labelledby="comment-form-tab">
 					<?php
@@ -149,25 +150,19 @@
 					);
 
 					$current_user_posts = get_posts($args);
-					
-					// print_r($current_user_posts);
 
 					if (sizeof($current_user_posts) > 0) {
-						echo '<ul class="">';
-						foreach($current_user_posts as $post_item) {
-							echo '<li><a href="' . get_permalink($post_item->ID) . '">' . $post_item->post_title . '</a></li>';
+						echo '<ul class="author-post-list">';
+						foreach ($current_user_posts as $post_item) {
+							echo '<li class="author-post-list-item"><a href="' . get_permalink($post_item->ID) . '">' . $post_item->post_title . '</a></li>';
 						}
 						echo '</ul';
 					} else {
 						echo '이 사용자는 더 이상 게시물이 없습니다';
 					}
-					
 					?>
-
-					sdsfdf
 				</div>
 			</div>
-
 		</div>
 	</div><!-- .entry-content -->
 

@@ -6,6 +6,8 @@
  */
 ( function() {
 	const siteNavigation = document.getElementById( 'site-navigation' );
+	const siteHeader = document.getElementById( 'masthead' );
+	const overlay = document.getElementById( 'overlay-menu' );
 
 	// Return early if the navigation doesn't exist.
 	if ( ! siteNavigation ) {
@@ -37,8 +39,12 @@
 
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
+			siteHeader.setAttribute('class', 'site-header');
+			overlay.setAttribute('class', '');
 		} else {
 			button.setAttribute( 'aria-expanded', 'true' );
+			siteHeader.setAttribute('class', 'site-header with-menu');
+			overlay.setAttribute('class', 'd-block');
 		}
 	} );
 
@@ -49,6 +55,8 @@
 		if ( ! isClickInside ) {
 			siteNavigation.classList.remove( 'toggled' );
 			button.setAttribute( 'aria-expanded', 'false' );
+			siteHeader.setAttribute('class', 'site-header');
+			overlay.setAttribute('class', '');
 		}
 	} );
 
