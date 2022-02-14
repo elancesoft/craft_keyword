@@ -11,16 +11,18 @@ get_header();
   <div class="container">
     <div class="content-list-wrap">
       <div class="row">
-        <div class="col-md-5 order-2 order-md-1">
-          <?php
-          while (have_posts()) :
-            the_post();
-            the_title('<h1 class="entry-title mb-5">', '</h1>');
-            the_content();
-          endwhile; // End of the loop.
-          ?>
+        <div class="col-md-6 order-2 order-md-1">
+          <div class="content-list-inner">
+            <?php
+            while (have_posts()) :
+              the_post();
+              the_title('<h1 class="entry-title mb-5">', '</h1>');
+              the_content();
+            endwhile; // End of the loop.
+            ?>
+          </div>
         </div>
-        <div class="col-md-7 order-1 order-md-2">
+        <div class="col-md-6 order-1 order-md-2">
           <?php vaiv_keyword_post_thumbnail(); ?>
         </div>
       </div>

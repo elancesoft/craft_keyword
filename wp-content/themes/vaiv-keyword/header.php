@@ -71,7 +71,7 @@
 								</nav><!-- #site-navigation -->
 							</div>
 							<div class="search-wrap d-block d-sm-none">
-								<button class="search-icon-wrap"><i class="bi-search"></i></button>
+								<button class="search-icon-wrap">&nbsp;</button>
 							</div>
 						</div>
 					</div>
@@ -80,7 +80,7 @@
 							<a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo get_template_directory_uri() . '/assets/images/logo-vaiv-black.png'; ?>" alt="logo" /></a>
 						</div>
 						<div class="search-wrap d-none d-md-block">
-							<button class="search-icon-wrap"><i class="bi-search"></i></button>
+							<button class="search-icon-wrap">&nbsp;</button>
 						</div>
 					</div>
 				</div>

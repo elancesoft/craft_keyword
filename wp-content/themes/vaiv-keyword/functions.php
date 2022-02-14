@@ -158,6 +158,11 @@ function vaiv_keyword_scripts()
 	wp_enqueue_style('slick-theme', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css');
 	wp_enqueue_script('slick', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array(), '', true);
 
+	// Owl Carousel
+	wp_enqueue_style('owl-carousel', get_template_directory_uri() . '/assets/owlcarousel/owl.carousel.min.css');
+	wp_enqueue_style('owl-carousel-theme', get_template_directory_uri() . '/assets/owlcarousel/owl.theme.default.min.css');
+	wp_enqueue_script('owl-carousel', get_template_directory_uri() . '/assets/owlcarousel/owl.carousel.min.js', array(), '', true);
+
 	// AOS
 	wp_enqueue_style('aos', 'https://unpkg.com/aos@2.3.1/dist/aos.css');
 	wp_enqueue_script('aos', 'https://unpkg.com/aos@2.3.1/dist/aos.js', array(), '', true);

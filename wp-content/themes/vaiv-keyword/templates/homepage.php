@@ -72,14 +72,6 @@ $monthly_view_more_url = $monthly_setting['monthly_view_more_url'];
               echo '<img src="' . $hot_brand_image['url'] . '" />';
             endif;
             ?>
-            <ul class="hot-brand-list">
-              <?php
-              foreach ($hot_brand_post as $index => $post) :
-                $active = ($index == 0) ? 'active' : '';
-                echo '<li class="host-brand-item ' . $active . '" data-alias="hot-brand-top1"><span>' . ($index + 1) . '. ' . $post->post_title . '</span></li>';
-              endforeach;
-              ?>
-            </ul>
           </div>
         </div>
       </div>
@@ -273,18 +265,21 @@ $monthly_view_more_url = $monthly_setting['monthly_view_more_url'];
               // Get Author
               $post_author_id = (int) $wpdb->get_var($wpdb->prepare("SELECT post_author FROM {$wpdb->posts} WHERE ID = %d ", get_the_ID()));
               $author =  new WP_User($post_author_id);
+              //$writer = $author->display_name;
+              $writer = '박현영 소장';
+
               //$post_thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
               $post_thumbnail = 'http://some.craft.support/wp-content/uploads/2022/01/content-month-image.png';
 
               echo '
               <div class="col-md-4" data-aos="fade-right">
-                <a href="' . get_permalink() . '"><img src="' . $post_thumbnail . '" class="img-fluid" alt="' . get_the_title() . '" /></a>
+                <div class="monthly-insight-content-thumb"<a href="' . get_permalink() . '"><img src="' . $post_thumbnail . '" class="img-fluid" alt="' . get_the_title() . '" /></a></div>
               </div>
 
               <div class="col-md-4 offset-md-2" data-aos="fade-left">
                 <p class="monthly-insight-content-date">' . get_the_date('Y년 m월') . ' 호</p>
                 <h3 class="monthly-insight-content-title"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>
-                <p class="monthly-insight-content-writer">' . $author->display_name . '</p>
+                <p class="monthly-insight-content-writer">' . $writer . '</p>
                 <div class="monthly-insight-content-desc"><a href="' . get_permalink() . '">' . $text_except . '</a></div>
               </div>
               ';

@@ -27,7 +27,7 @@ $link_share = get_permalink($post_id);
 		<div class="brandranking-detail">
 			<div class="row">
 				<div class="col-md-4 order-2 order-md-1 text-center text-md-start">
-					<h2 class="widget-title">브랜드 랭킹</h2>
+					<h2 class="widget-title brandranking-detail-title">브랜드 랭킹</h2>
 					<div class="brandranking-detail-date"><?php echo get_the_date("Y년 m월 d주"); ?></div>
 
 					<div class="brandranking-detail-hastag">
@@ -65,16 +65,6 @@ $link_share = get_permalink($post_id);
 				<div class="col-md-7 offset-md-1 order-1 order-md-2">
 					<div class="brandranking-detail-image">
 						<img src="<?php echo get_template_directory_uri() . '/assets/images/brand-ranking-detail-bg.png' ?>" class="img-fluid" alt="brank ranking">
-						<div class="brandranking-detail-top3">
-							<ul class="brandranking-detail-top3-list">
-								<?php
-								foreach ($top_3_brand_posts as $index => $post) :
-									$active = ($index == 0) ? 'active' : '';
-									echo '<li class="brandranking-detail-top3-item ' . $active . '"><span>' . ($index + 1) . '. ' . $post->post_title . '</span></li>';
-								endforeach;
-								?>
-							</ul>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -211,10 +201,10 @@ $link_share = get_permalink($post_id);
 					<div class="col-md-3 text-center text-md-start">
 						<h2 class="brandranking-detail-top10-subtitle"><span class="main-color-blue">TOP 10</span> 랭킹</h2>
 					</div>
-					<div class="col-5 col-md-5">
+					<div class="col-6 col-md-5">
 						<a href="#" class="brandranking-detail-download">이미지로 저장 <i class="bi-download"></i></a>
 					</div>
-					<div class="col-4 col-md-4 mb-3 text-end">
+					<div class="col-6 col-md-4 mb-3 text-end">
 						<span class="brandranking-detail-viewcount"><i class="bi-eye"></i> <?php echo pvc_get_post_views($post_id); ?></span>
 						<div class="btn-group dropup">
 							<button type="button" class="brandranking-detail-share" data-bs-toggle="dropdown"><i class="bi-share"></i></button>
@@ -244,28 +234,28 @@ $link_share = get_permalink($post_id);
 					<table class="table table-brandranking-detail">
 						<thead>
 							<tr>
-								<th scope="col">순위</th>
-								<th scope="col">&nbsp;</th>
-								<th scope="col" class="text-start">브랜드명</th>
-								<th scope="col" style="min-width: 180px;">
+								<th class="align-middle">순위</th>
+								<th class="align-middle">&nbsp;</th>
+								<th class="align-middle text-start">브랜드명</th>
+								<th class="align-middle" style="min-width: 180px;">
 									관련이슈 키워드
 									<button type="button" class="btn btn-tooltip-question" data-bs-toggle="tooltip" data-bs-placement="bottom" title="분석 기간 직전 8일에<br>없었던 새롭게 등장한 연관어">
 										<i class="bi-question"></i>
 									</button>
 								</th>
-								<th scope="col" style="min-width: 130px;">
+								<th class="align-middle" style="min-width: 130px;">
 									HOT 채널
 									<button type="button" class="btn btn-tooltip-question" data-bs-toggle="tooltip" data-bs-placement="bottom" title="언급량 증가를<br>이끈 소셜 채널">
 										<i class="bi-question"></i>
 									</button>
 								</th>
-								<th scope="col" style="min-width: 110px;">
+								<th class="align-middle" style="min-width: 110px;">
 									SCORE
 									<button type="button" class="btn btn-tooltip-question" data-bs-toggle="tooltip" data-bs-placement="bottom" title="최근 8일 간의 언급량과 직전 8일 대비<br>언급량 변동성을 합산한 점수">
 										<i class="bi-question"></i>
 									</button>
 								</th>
-								<th scope="col"><i class="bi-dash"></i></th>
+								<th class="align-middle"><i class="bi-dash"></i></th>
 							</tr>
 						</thead>
 						<tbody>

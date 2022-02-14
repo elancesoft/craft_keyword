@@ -11,7 +11,7 @@ get_header();
   <div class="container">
     <div class="content-list-wrap">
       <div class="row">
-        <div class="col-md-5 order-2 order-md-1">
+        <div class="col-md-6 order-2 order-md-1">
           <?php
           while (have_posts()) :
             the_post();
@@ -20,7 +20,7 @@ get_header();
           endwhile; // End of the loop.
           ?>
         </div>
-        <div class="col-md-7 order-1 order-md-2">
+        <div class="col-md-6 order-1 order-md-2">
           <?php vaiv_keyword_post_thumbnail(); ?>
         </div>
       </div>

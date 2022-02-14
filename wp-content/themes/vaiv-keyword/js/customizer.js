@@ -73,6 +73,13 @@ jQuery(document).ready(function ($) {
 		]
 	});
 
+	// $('.trend-list .row').owlCarousel({
+	// 	margin: 10,
+	// 	loop: true,
+	// 	autoWidth: true,
+	// 	items: 3
+	// });
+
 
 	// TODAY PICK ACTION
 	$('#today-pick-previous, #today-pick-previous-desktop').on('click', function () {
@@ -109,5 +116,5 @@ jQuery(document).ready(function ($) {
 		let data_link = $(this).data('link');
 		navigator.clipboard.writeText(data_link);
 	});
-	
+
 });
