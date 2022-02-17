@@ -22,7 +22,7 @@
 					</div>
 					<p class="site-info">
 						(주)바이브컴퍼니ㅣ대표자: 이재용ㅣ사업자등록번호 : <a href="tel:120-86-08334">120-86-08334</a><br>
-						생활변화관측소 서비스 문의 <a href="mailto:7outof1000@vaiv.kr">7outof1000@vaiv.kr</a>ㅣCopyrightⓒVAIV Company inc. All Ri ghts Reserved.
+						생활변화관측소 서비스 문의 <a href="mailto:7outof1000@vaiv.kr">7outof1000@vaiv.kr</a>ㅣCopyrightⓒVAIV Company inc. All Rights Reserved.
 					</p>
 				</div>
 			</div>

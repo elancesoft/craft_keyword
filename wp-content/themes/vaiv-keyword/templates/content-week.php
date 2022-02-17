@@ -11,7 +11,7 @@ get_header();
   <div class="container">
     <div class="content-list-wrap">
       <div class="row">
-        <div class="col-md-6 order-2 order-md-1">
+        <div class="col-md-6 order-2 order-md-1" data-aos="fade-up">
           <div class="content-list-inner">
             <?php
             while (have_posts()) :
@@ -22,13 +22,13 @@ get_header();
             ?>
           </div>
         </div>
-        <div class="col-md-6 order-1 order-md-2">
+        <div class="col-md-6 order-1 order-md-2" data-aos="fade-right">
           <?php vaiv_keyword_post_thumbnail(); ?>
         </div>
       </div>
 
       <div class="content-item-wrap">
-        <div class="row">
+        <div class="row g-custom-x">
           <?php
           // Build meta query
           $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -44,22 +44,36 @@ get_header();
           $query = new WP_Query($args);
 
           if ($query->have_posts()) {
+            $index = 1;
             while ($query->have_posts()) {
               $query->the_post();
               $featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+
+              $the_title = get_the_title();
+
+              if (mb_strlen($the_title) > 48) {
+                $the_title = mb_substr($the_title, 0, 48) . '...';
+              }
+
           ?>
-              <div class="col-md-4">
+              <div class="col-md-4" data-aos="fade-up">
                 <div class="content-item">
                   <div class="content-item-thumbnail">
                     <a href="<?php echo get_permalink(); ?>"><img src="<?php echo $featured_img_url; ?>" class="img-fluid" alt="<?php echo get_the_title(); ?>" /></a>
                   </div>
-                  <p class="content-item-date"><?php echo get_the_date('Y년 m월 d주'); ?></p>
+                  <div class="d-flex">
+                    <div class="content-item-date">
+                      <?php echo get_the_date('Y년 m월 d주'); ?>
+                      <?php if (($index == 1) && ($paged == 1)) { ?><span class="ms-4 badge bg-primary">New</span><?php } ?>
+                    </div>
+                  </div>
                   <h3 class="content-item-title">
-                    <a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a>
+                    <a href="<?php echo get_permalink(); ?>"><?php echo $the_title; ?></a>
                   </h3>
                 </div>
               </div>
             <?php
+              $index++;
             }
           } else {
             ?>
@@ -76,18 +90,21 @@ get_header();
         <div class="col-12">
           <div class="pagination-wrap">
             <?php
+            $max_page = $query->max_num_pages;
             $big = 999999999; // need an unlikely integer
+
+            if ($paged == 1) echo '<a class="prev page-numbers isDisabled"><i class="bi-chevron-left"></i></a>';
 
             echo paginate_links(array(
               'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
               'format' => '?paged=%#%',
               'current' => max(1, get_query_var('paged')),
-              'total' => $query->max_num_pages,
+              'total' => $max_page,
               'prev_text'          => __('<i class="bi-chevron-left"></i>'),
               'next_text'          => __('<i class="bi-chevron-right"></i>'),
             ));
+            if ($paged == $max_page) echo '<a class="next page-numbers isDisabled"><i class="bi-chevron-right"></i></a>';
             ?>
-
             <a href="https://some.co.kr/magazine/home" target="_blank" class="page-archive">썸매거진 아카이브 <i class="bi-chevron-right"></i></a>
           </div>
         </div>

@@ -20,8 +20,8 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Open+Sans:wght@700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Open+Sans:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 	<?php wp_head(); ?>
 </head>
@@ -32,9 +32,46 @@
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'vaiv-keyword'); ?></a>
 
 		<div id="overlay">
-			<div class="cv-spinner">
-				<span id="search-close"><i class="bi-x-lg"></i></span>
-				<?php get_search_form(); ?>
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="search-form-wrap"><?php get_search_form(); ?></div>
+						<div class="search-suggestion-wrap">
+							<h3>지금 뜨는 콘텐츠</h3>
+							<div class="search-suggestion-list owl-carousel owl-theme">
+								<a href="https://some.craft.support/brand-1/">
+								<div class="search-suggestion-list-item">
+									<div class="search-suggestion-list-thumb"><img src="https://some.craft.support/wp-content/uploads/2022/01/trend-3.png" /></div>
+									<div class="row">
+										<div class="col-md-6"><div class="search-suggestion-list-title">브랜드 랭킹</div></div>
+										<div class="col-md-6"><div class="search-suggestion-list-date">2022년 10월 1주</div></div>
+									</div>
+								</div>
+								</a>
+
+								<a href="https://some.craft.support/content-week-item-test/">
+								<div class="search-suggestion-list-item">
+									<div class="search-suggestion-list-thumb"><img src="https://some.craft.support/wp-content/uploads/2022/01/trend-2.png" /></div>
+									<div class="row">
+										<div class="col-md-6"><div class="search-suggestion-list-title">주간관측소</div></div>
+										<div class="col-md-6"><div class="search-suggestion-list-date">2022년 10월 1주</div></div>
+									</div>
+								</div>
+								</a>
+
+								<a href="https://some.craft.support/content-month-item-test/">
+								<div class="search-suggestion-list-item">
+									<div class="search-suggestion-list-thumb"><img src="https://some.craft.support/wp-content/uploads/2022/01/post-1.png" /></div>
+									<div class="row">
+										<div class="col-md-6"><div class="search-suggestion-list-title">월간관측소</div></div>
+										<div class="col-md-6"><div class="search-suggestion-list-date">2022년 10월 1주</div></div>
+									</div>
+								</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -71,7 +108,8 @@
 								</nav><!-- #site-navigation -->
 							</div>
 							<div class="search-wrap d-block d-sm-none">
-								<button class="search-icon-wrap">&nbsp;</button>
+								<button class="search-icon">&nbsp;</button>
+								<button class="search-icon-close d-none">&nbsp;</button>
 							</div>
 						</div>
 					</div>
@@ -80,7 +118,8 @@
 							<a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo get_template_directory_uri() . '/assets/images/logo-vaiv-black.png'; ?>" alt="logo" /></a>
 						</div>
 						<div class="search-wrap d-none d-md-block">
-							<button class="search-icon-wrap">&nbsp;</button>
+							<button class="search-icon">&nbsp;</button>
+							<button class="search-icon-close d-none">&nbsp;</button>
 						</div>
 					</div>
 				</div>

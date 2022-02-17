@@ -154,9 +154,9 @@ function vaiv_keyword_scripts()
 	wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/bootstrap-5.1.3-dist/js/bootstrap.bundle.js', array(), '', true);
 
 	// Slick
-	wp_enqueue_style('slick', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
-	wp_enqueue_style('slick-theme', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css');
-	wp_enqueue_script('slick', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array(), '', true);
+	// wp_enqueue_style('slick', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+	// wp_enqueue_style('slick-theme', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css');
+	// wp_enqueue_script('slick', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array(), '', true);
 
 	// Owl Carousel
 	wp_enqueue_style('owl-carousel', get_template_directory_uri() . '/assets/owlcarousel/owl.carousel.min.css');
@@ -217,29 +217,13 @@ if (class_exists('WooCommerce')) {
 }
 
 
-// function gt_get_post_view()
-// {
-// 	$count = get_post_meta(get_the_ID(), 'post_views_count', true);
-// 	return "$count views";
-// }
-// function gt_set_post_view()
-// {
-// 	$key = 'post_views_count';
-// 	$post_id = get_the_ID();
-// 	$count = (int) get_post_meta($post_id, $key, true);
-// 	$count++;
-// 	update_post_meta($post_id, $key, $count);
-// }
-// function gt_posts_column_views($columns)
-// {
-// 	$columns['post_views'] = 'Views';
-// 	return $columns;
-// }
-// function gt_posts_custom_column_views($column)
-// {
-// 	if ($column === 'post_views') {
-// 		echo gt_get_post_view();
-// 	}
-// }
-// add_filter('manage_posts_columns', 'gt_posts_column_views');
-// add_action('manage_posts_custom_column', 'gt_posts_custom_column_views');
+if (function_exists('acf_add_options_page')) {
+	acf_add_options_page(
+		array(
+			'page_title' => 'Website Settings',
+			'menu_title' => 'Website Settings',
+			'menu_slug' => 'website-settings',
+			'capability' => 'edit_posts'
+		)
+	);
+}

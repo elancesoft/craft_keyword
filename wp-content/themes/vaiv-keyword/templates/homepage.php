@@ -78,6 +78,34 @@ $monthly_view_more_url = $monthly_setting['monthly_view_more_url'];
     </div>
 
     <div class="today-pick">
+      <?php
+      // Get 3 most viewing count from brand, week content, month content
+      $latest_post_from_each_category = [];
+      $categories = [
+        [
+          'key' => 'content-week'
+        ],
+        [
+          'key' => 'content-month'
+        ],
+        [
+          'key' => 'brand-ranking'
+        ]
+      ];
+
+      // Cicle trough categories to get each cat's latest post ID
+      foreach ($categories as $cat) {
+        $today_pick_args = [
+          'category_name' => $cat['key'],
+          'posts_per_page' => 1,
+          'orderby'        => array(
+            'post_views' => 'DESC'
+          )
+        ];
+        $the_post = PVC_GET_MOST_VIEWED_POSTS($today_pick_args);
+        $latest_post_from_each_category = array_merge($latest_post_from_each_category, $the_post);
+      };
+      ?>
       <button id="today-pick-previous-desktop" class="d-none d-md-inline-block"><i class="bi-chevron-left"></i></button>
       <button id="today-pick-next-desktop" class="d-none d-md-inline-block"><i class="bi-chevron-right"></i></button>
       <div class="row">
@@ -92,51 +120,31 @@ $monthly_view_more_url = $monthly_setting['monthly_view_more_url'];
               if (strlen($today_pick_sub_title) > 0) :
                 echo '<p class="mb-0">' . $today_pick_sub_title . '</p>';
               endif;
+
+              foreach ($latest_post_from_each_category as $index => $today_pick_post) :
+                if ($index == 1) {
+                  $post_title = '누림의 대중화 ' . ($index + 1);
+                  echo '<h4 id="today-pick-post-title" class="widget-title today-pick-sub-title bg-border d-none d-md-inline-block">' . $post_title . '</h4>';
+                  break;
+                }
+              endforeach;
               ?>
-              <h4 class="widget-title today-pick-sub-title bg-border d-none d-md-inline-block">누림의 대중화</h4>
             </div>
           </div>
         </div>
         <div class="col-md-8 text-center text-md-end">
-          <?php
-          // Get 3 most viewing count from brand, week content, month content
-          $latest_post_from_each_category = [];
-          $categories = [
-            [
-              'key' => 'content-week'
-            ],
-            [
-              'key' => 'content-month'
-            ],
-            [
-              'key' => 'brand-ranking'
-            ]
-          ];
-
-          // Cicle trough categories to get each cat's latest post ID
-          foreach ($categories as $cat) {
-            $today_pick_args = [
-              'category_name' => $cat['key'],
-              'posts_per_page' => 1,
-              'orderby'        => array(
-                'post_views' => 'DESC'
-              )
-            ];
-            $the_post = PVC_GET_MOST_VIEWED_POSTS($today_pick_args);
-            $latest_post_from_each_category = array_merge($latest_post_from_each_category, $the_post);
-          };
-          ?>
           <div class="today-pick-slider" data-aos="fade-up">
             <button id="today-pick-previous" class="d-md-none"><i class="bi-chevron-left"></i></button>
             <button id="today-pick-next" class="d-md-none"><i class="bi-chevron-right"></i></button>
             <ul class="today-pick-slider-list">
               <?php
-              $i = 0;
               foreach ($latest_post_from_each_category as $index => $today_pick_post) {
-                $active = ($i == 1) ? ' active' : '';
+                $active = ($index == 1) ? ' active' : '';
 
-                $post_title = $today_pick_post->post_title;
-                $post_title = '주간 관측소';
+                // $post_title = $today_pick_post->post_title;
+                $post_title = '누림의 대중화 ' . ($index + 1);
+
+                $cat_title = get_the_category($today_pick_post->ID)[0]->name;
 
                 $post_link = get_permalink($today_pick_post->ID);
                 $post_date = get_the_date("Y년 m월 d주", $today_pick_post->ID);
@@ -151,14 +159,13 @@ $monthly_view_more_url = $monthly_setting['monthly_view_more_url'];
                 }
 
                 echo '
-                <li class="today-pick-slider-item' . $active . '">
-                <p class="today-pick-slider-item-title mb-2"><a href="' . $post_link . '">' . $post_title . '</a></p>
+                <li class="today-pick-slider-item' . $active . '" data-title="' . $post_title . '">
+                <div class="today-pick-slider-item-overlay">&nbsp;</div>
+                <p class="today-pick-slider-item-title mb-2"><a href="' . $post_link . '">' . $cat_title . '</a></p>
                 <a href="' . $post_link . '"><img src="' . $post_thumbnail . '" /></a>
                 <p class="today-pick-slider-item-date mt-2">' . $post_date . '</p>
                 </li>
                 ';
-
-                $i++;
               }
               ?>
             </ul>
@@ -194,84 +201,78 @@ $monthly_view_more_url = $monthly_setting['monthly_view_more_url'];
       );
       $trend_query = new WP_Query($trend_args);
       ?>
-      <div class="trend-list" data-aos="fade-up">
-        <div class="row">
-          <?php
-          if ($trend_query->have_posts()) :
-            while ($trend_query->have_posts()) :
-              $trend_query->the_post();
-              $text_except = get_the_excerpt();
+      <div class="trend-list-owl owl-carousel owl-theme" data-aos="fade-up">
+        <?php
+        if ($trend_query->have_posts()) :
+          while ($trend_query->have_posts()) :
+            $trend_query->the_post();
+            $text_except = get_the_excerpt();
 
-              echo '
-              <div class="col-md-4 mb-3 mb-md-0">
-                <div class="card">
-                  <a href="' . get_permalink() . '"><img src="' . get_the_post_thumbnail_url(get_the_ID(), 'full') . '" class="img-fluid" alt="' . get_the_title() . '" /></a>
-                  <div class="card-body">
-                    <h5 class="card-title"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h5>
-                    <p class="card-date">' . get_the_date("Y년 m월 d주") . '</p>
-                    <div><a href="' . get_permalink() . '">' . $text_except . '</a></div>
-                  </div>
+            echo '
+              <div class="trend-list-owl-item">
+                <a href="' . get_permalink() . '"><img src="' . get_the_post_thumbnail_url(get_the_ID(), 'full') . '" class="img-fluid" alt="' . get_the_title() . '" /></a>
+                <div class="trend-list-owl-item-body">
+                  <h5 class="trend-list-owl-item-title"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h5>
+                  <p class="trend-list-owl-item-date">' . get_the_date("Y년 m월 d주") . '</p>
+                  <div class="trend-list-owl-item-content"><a href="' . get_permalink() . '">' . $text_except . '</a></div>
                 </div>
               </div>
               ';
-            endwhile;
-          endif;
-          ?>
-        </div>
-
-        <?php
-        if ((strlen($trend_view_more_url) > 0) && (strlen($trend_view_more_text) > 0)) :
-          echo '
+          endwhile;
+        endif;
+        ?>
+      </div>
+      <?php
+      if ((strlen($trend_view_more_url) > 0) && (strlen($trend_view_more_text) > 0)) :
+        echo '
           <div class="trend-link-more">
             <a href="' . $trend_view_more_url . '">' . $trend_view_more_text . ' <i class="bi-chevron-right"></i></a>
           </div>
           ';
-        endif; ?>
-      </div>
-    </div>
+      endif; ?>
 
-    <div class="monthly-insight">
-      <div data-aos="fade-up">
-        <?php
-        if (strlen($monthly_title) > 0) :
-          echo '<h3 class="widget-title">' . $monthly_title . '</h3>';
-        endif;
-
-        if (strlen($monthly_sub_title) > 0) :
-          echo '<p class="monthly-insight-sub-title">' . $monthly_sub_title . '</p>';
-        endif;
-        ?>
-      </div>
-
-      <div class="monthly-insight-content">
-        <?php
-        // Get 3 latest monthly content
-        $monthly_args = array(
-          'category_name' => 'content-month',
-          'posts_per_page' => 1,
-          'orderby'        => array(
-            'ID' => 'DESC'
-          )
-        );
-        $monthly_query = new WP_Query($monthly_args);
-        ?>
-        <div class="row">
+      <div class="monthly-insight">
+        <div data-aos="fade-up">
           <?php
-          if ($monthly_query->have_posts()) :
-            while ($monthly_query->have_posts()) :
-              $monthly_query->the_post();
-              $text_except = get_the_excerpt();
+          if (strlen($monthly_title) > 0) :
+            echo '<h3 class="widget-title">' . $monthly_title . '</h3>';
+          endif;
 
-              // Get Author
-              $post_author_id = (int) $wpdb->get_var($wpdb->prepare("SELECT post_author FROM {$wpdb->posts} WHERE ID = %d ", get_the_ID()));
-              $author =  new WP_User($post_author_id);
-              //$writer = $author->display_name;
-              $writer = '박현영 소장';
+          if (strlen($monthly_sub_title) > 0) :
+            echo '<p class="monthly-insight-sub-title">' . $monthly_sub_title . '</p>';
+          endif;
+          ?>
+        </div>
 
-              //$post_thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
-              $post_thumbnail = 'http://some.craft.support/wp-content/uploads/2022/01/content-month-image.png';
+        <div class="monthly-insight-content">
+          <?php
+          // Get 3 latest monthly content
+          $monthly_args = array(
+            'category_name' => 'content-month',
+            'posts_per_page' => 1,
+            'orderby'        => array(
+              'ID' => 'DESC'
+            )
+          );
+          $monthly_query = new WP_Query($monthly_args);
+          ?>
+          <div class="row">
+            <?php
+            if ($monthly_query->have_posts()) :
+              while ($monthly_query->have_posts()) :
+                $monthly_query->the_post();
+                $text_except = get_the_excerpt();
 
-              echo '
+                // Get Author
+                $post_author_id = (int) $wpdb->get_var($wpdb->prepare("SELECT post_author FROM {$wpdb->posts} WHERE ID = %d ", get_the_ID()));
+                $author =  new WP_User($post_author_id);
+                //$writer = $author->display_name;
+                $writer = '박현영 소장';
+
+                //$post_thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                $post_thumbnail = 'http://some.craft.support/wp-content/uploads/2022/01/content-month-image.png';
+
+                echo '
               <div class="col-md-4" data-aos="fade-right">
                 <div class="monthly-insight-content-thumb"<a href="' . get_permalink() . '"><img src="' . $post_thumbnail . '" class="img-fluid" alt="' . get_the_title() . '" /></a></div>
               </div>
@@ -283,22 +284,22 @@ $monthly_view_more_url = $monthly_setting['monthly_view_more_url'];
                 <div class="monthly-insight-content-desc"><a href="' . get_permalink() . '">' . $text_except . '</a></div>
               </div>
               ';
-            endwhile;
-          endif;
-          ?>
-        </div>
-        <?php
-        if ((strlen($monthly_view_more_url) > 0) && (strlen($monthly_view_more_text) > 0)) :
-          echo '
+              endwhile;
+            endif;
+            ?>
+          </div>
+          <?php
+          if ((strlen($monthly_view_more_url) > 0) && (strlen($monthly_view_more_text) > 0)) :
+            echo '
           <div class="monthly-insight-link-more">
             <a href="' . $monthly_view_more_url . '">' . $monthly_view_more_text . ' <i class="bi-chevron-right"></i></a>
           </div>
           ';
-        endif;
-        ?>
+          endif;
+          ?>
+        </div>
       </div>
     </div>
-  </div>
 </main><!-- #main -->
 
 <?php

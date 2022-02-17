@@ -20,6 +20,9 @@ $top_3_brand_posts = get_posts($top_3_brands);
 $post_id = get_the_ID();
 
 $link_share = get_permalink($post_id);
+
+// Get brand ranking options from ACF
+$brandranking_options = get_field('brand_ranking_options', 'options');
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -127,8 +130,7 @@ $link_share = get_permalink($post_id);
 
 				<div class="row justify-content-center">
 					<div class="col col-md-10">
-						<div class="brandranking-detail-top3-slider">
-
+						<div class="brandranking-detail-top3-slider d-none d-md-flex">
 							<?php
 							if (isset($top_3_brand_posts[1])) :
 								$top_2 = $top_3_brand_posts[1];
@@ -137,7 +139,7 @@ $link_share = get_permalink($post_id);
 								$score = empty(get_field('brand_score', $top_2->ID)) ? '-' : get_field('brand_score', $top_2->ID);
 
 								echo '
-								<div class="brandranking-detail-top3-slider-item d-none d-md-inline-block">
+								<div class="brandranking-detail-top3-slider-item">
 									<h3 class="brandranking-detail-top3-slider-item-order">2<span>nd</span></h3>
 									<div class="brandranking-detail-top3-slider-item-title">' . $top_2->post_title . '</div>
 									<div class="brandranking-detail-top3-slider-item-logo">
@@ -177,7 +179,7 @@ $link_share = get_permalink($post_id);
 								$score = empty(get_field('brand_score', $top_3->ID)) ? '-' : get_field('brand_score', $top_3->ID);
 
 								echo '
-								<div class="brandranking-detail-top3-slider-item d-none d-md-inline-block">
+								<div class="brandranking-detail-top3-slider-item">
 									<h3 class="brandranking-detail-top3-slider-item-order">3<span>rd</span></h3>
 									<div class="brandranking-detail-top3-slider-item-title">' . $top_3->post_title . '</div>
 									<div class="brandranking-detail-top3-slider-item-logo">
@@ -189,7 +191,29 @@ $link_share = get_permalink($post_id);
 									</div>
 								</div>';
 							endif;
+							?>
+						</div>
 
+						<div class="brandranking-detail-top3-slider-mobile owl-carousel owl-theme d-block d-md-none">
+							<?php
+							foreach ($top_3_brand_posts as $index => $top3_post) :
+								$keyword = empty(get_field('brand_keyword', $top3_post->ID)) ? '-' : get_field('brand_keyword', $top3_post->ID);
+								$hotsns = get_field('brand_hot_sns', $top3_post->ID);
+								$score = empty(get_field('brand_score', $top3_post->ID)) ? '-' : get_field('brand_score', $top3_post->ID);
+
+								echo '
+								<div class="brandranking-detail-top3-slider-mobile-item number-' . ($index + 1) . '">
+									<h3 class="brandranking-detail-top3-slider-mobile-item-order">' . ($index + 1) . '<span>rd</span></h3>
+									<div class="brandranking-detail-top3-slider-mobile-item-title">' . $top3_post->post_title . '</div>
+									<div class="brandranking-detail-top3-slider-mobile-item-logo">
+										<img src="' . get_the_post_thumbnail_url($top3_post->ID, 'full') . '" alt="Logo" />
+									</div>
+									<div class="brandranking-detail-top3-slider-mobile-item-keyword">' . $keyword . '</div>
+									<div class="brandranking-detail-top3-slider-mobile-tem-social">
+										<i class="' . $hotsns . '"></i> <span class="main-color-blue">' . $score . '</span>
+									</div>
+								</div>';
+							endforeach;
 							?>
 						</div>
 					</div>
@@ -198,23 +222,35 @@ $link_share = get_permalink($post_id);
 
 			<div class="brandranking-detail-top10">
 				<div class="row g-0">
-					<div class="col-md-3 text-center text-md-start">
-						<h2 class="brandranking-detail-top10-subtitle"><span class="main-color-blue">TOP 10</span> 랭킹</h2>
+					<?php
+					$download_image = $brandranking_options['brandranking_download_image'];
+					?>
+					<div class="col-md-6 text-center text-md-start">
+						<div class="d-block d-md-flex align-items-md-center">
+							<h2 class="brandranking-detail-top10-subtitle"><span class="main-color-blue">TOP 10</span> 랭킹</h2>
+							<a href="<?php echo $download_image; ?>" class="brandranking-detail-download d-none d-md-inline-block" download>이미지로 저장 <i class="bi-download"></i></a>
+						</div>
 					</div>
-					<div class="col-6 col-md-5">
-						<a href="#" class="brandranking-detail-download">이미지로 저장 <i class="bi-download"></i></a>
+					<div class="col-6 d-md-none text-start">
+						<a href="<?php echo $download_image; ?>" class="brandranking-detail-download mobile-version d-inline-block d-md-none" download>이미지로 저장 <i class="bi-download"></i></a>
 					</div>
-					<div class="col-6 col-md-4 mb-3 text-end">
-						<span class="brandranking-detail-viewcount"><i class="bi-eye"></i> <?php echo pvc_get_post_views($post_id); ?></span>
-						<div class="btn-group dropup">
-							<button type="button" class="brandranking-detail-share" data-bs-toggle="dropdown"><i class="bi-share"></i></button>
-							<ul class="dropdown-menu dropdown-menu-share">
-								<li><a class="dropdown-item" href="https://story.kakao.com/s/share?url=<?php echo $link_share; ?>" target="_blank"><i class="bi-kakao"></i></a></li>
-								<li><a class="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $link_share; ?>" target="_blank"><i class="bi-facebook"></i></a></li>
-								<li><a class="dropdown-item" href="https://twitter.com/intent/tweet?url=<?php echo $link_share; ?>" target="_blank"><i class="bi-twitter"></i></a></li>
-								<li><a class="dropdown-item" href="http://blog.naver.com/openapi/share?url==<?php echo $link_share; ?>" target="_blank"><i class="bi-naver-blog"></i></a></li>
-								<li><a class="dropdown-item" id="share-by-copy" data-link="<?php echo $link_share; ?>"><i class="bi-link-45deg"></i></a></li>
-							</ul>
+					<div class="col-6 col-md-6 text-end">
+						<div class="viewcount-share-section">
+							<div class="toast-message">URL 링크가 복사되었습니다.</div>
+							<span class="brandranking-detail-viewcount"><?php echo pvc_get_post_views($post_id); ?></span>
+							<div class="d-none d-md-inline-flex">
+								<div class="btn-group dropup">
+									<button type="button" class="brandranking-detail-share" data-bs-toggle="dropdown">&nbsp;</button>
+									<ul class="dropdown-menu content-share-dropdown" data-aos="fade-up" data-aos-anchor-placement="center-center">
+										<li><a class="content-share-item" href="https://story.kakao.com/s/share?url=<?php echo $link_share; ?>" target="_blank"><i class="vaiv-kakao"></i></a></li>
+										<li><a class="content-share-item" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $link_share; ?>" target="_blank"><i class="vaiv-facebook"></i></a></li>
+										<li><a class="content-share-item" href="https://twitter.com/intent/tweet?url=<?php echo $link_share; ?>" target="_blank"><i class="vaiv-twitter"></i></a></li>
+										<li><a class="content-share-item" href="http://blog.naver.com/openapi/share?url==<?php echo $link_share; ?>" target="_blank"><i class="vaiv-naver-blog"></i></a></li>
+										<li><a class="content-share-item share-by-copy" data-link="<?php echo $link_share; ?>"><i class="vaiv-link"></i></a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="d-inline-flex d-md-none"><a class="content-share-item share-by-copy mobile-version" data-link="<?php echo $link_share; ?>"><i class="vaiv-link"></i></a></div>
 						</div>
 					</div>
 				</div>
@@ -229,29 +265,31 @@ $link_share = get_permalink($post_id);
 				];
 				$top10_brand_posts = get_posts($top10_brand_args);
 				?>
-
-				<div class="table-responsive">
+				<div class="table-brandranking-detail-wrap">
 					<table class="table table-brandranking-detail">
 						<thead>
 							<tr>
 								<th class="align-middle">순위</th>
-								<th class="align-middle">&nbsp;</th>
+								<th class="align-middle d-none d-md-table-cell">&nbsp;</th>
 								<th class="align-middle text-start">브랜드명</th>
-								<th class="align-middle" style="min-width: 180px;">
+								<th class="align-middle">
 									관련이슈 키워드
+									<br>
 									<button type="button" class="btn btn-tooltip-question" data-bs-toggle="tooltip" data-bs-placement="bottom" title="분석 기간 직전 8일에<br>없었던 새롭게 등장한 연관어">
 										<i class="bi-question"></i>
 									</button>
 								</th>
-								<th class="align-middle" style="min-width: 130px;">
+								<th class="align-middle">
 									HOT 채널
+									<br>
 									<button type="button" class="btn btn-tooltip-question" data-bs-toggle="tooltip" data-bs-placement="bottom" title="언급량 증가를<br>이끈 소셜 채널">
 										<i class="bi-question"></i>
 									</button>
 								</th>
-								<th class="align-middle" style="min-width: 110px;">
+								<th class="align-middle">
 									SCORE
-									<button type="button" class="btn btn-tooltip-question" data-bs-toggle="tooltip" data-bs-placement="bottom" title="최근 8일 간의 언급량과 직전 8일 대비<br>언급량 변동성을 합산한 점수">
+									<br>
+									<button type="button" class="btn btn-tooltip-question" data-bs-toggle="tooltip" data-bs-placement="bottom" title="최근 8일 간의 언급량과 직전 8일 대비 언급량 변동성을 합산한 점수">
 										<i class="bi-question"></i>
 									</button>
 								</th>
@@ -264,24 +302,27 @@ $link_share = get_permalink($post_id);
 								$keyword = empty(get_field('brand_keyword', $post->ID)) ? '-' : get_field('brand_keyword', $post->ID);
 								$hotsns = get_field('brand_hot_sns', $post->ID);
 								$score = empty(get_field('brand_score', $post->ID)) ? '-' : get_field('brand_score', $post->ID);
-
 							?>
 								<tr>
 									<td class="text-center align-middle table-brandranking-detail-no"><?php echo $index + 1; ?></td>
-									<td class="align-middle"><?php vaiv_keyword_post_thumbnail($post->ID); ?></td>
-									<td class="align-middle table-brandranking-detail-title"><?php echo $post->post_title; ?></td>
+									<td class="align-middle d-none d-md-table-cell"><?php vaiv_keyword_post_thumbnail($post->ID); ?></td>
+									<td class="align-middle table-brandranking-detail-title text-center text-md-start">
+										<div class="d-block d-md-none"><?php vaiv_keyword_post_thumbnail($post->ID); ?></div>
+										<?php echo $post->post_title; ?>
+									</td>
 									<td class="text-center align-middle table-brandranking-detail-keyword"><?php echo $keyword; ?></td>
 									<td class="text-center align-middle table-brandranking-detail-hotsns"><i class="<?php echo $hotsns; ?>"></i></td>
 									<td class="main-color-blue text-center align-middle table-brandranking-detail-score"><?php echo $score; ?></td>
 									<td class="text-center align-middle table-brandranking-detail-arrow">
-										<span class="table-brandranking-detail-collapse" data-bs-toggle="collapse" data-bs-target="#brandranking-detail-item-<?php echo $index; ?>" aria-expanded="false">
-											<i class="arrow-direction bi-chevron-down"></i>
-										</span>
+										<button class="table-brandranking-detail-collapse" data-trindex="<?php echo $index; ?>"><i class="arrow-direction bi-chevron-down"></i></button>
 									</td>
 								</tr>
-								<tr id="brandranking-detail-item-<?php echo $index; ?>" class="brandranking-detail-item-collapse collapse">
-									<td colspan="7" class="text-center py-4 table-brandranking-detail-desc"><?php echo $post->post_content; ?></td>
+								<tr id="tr-brandranking-detail-item-<?php echo $index; ?>" class="tr-brandranking-detail-item-details">
+									<td colspan="7" class="">
+										<div class="brandranking-detail-item-details"><?php echo $post->post_content; ?></div>
+									</td>
 								</tr>
+
 							<?php
 							endforeach;
 							?>

@@ -34,7 +34,7 @@ $link_share = get_permalink();
 					$post_author_id = (int) $wpdb->get_var($wpdb->prepare("SELECT post_author FROM {$wpdb->posts} WHERE ID = %d ", get_the_ID()));
 					$author =  new WP_User($post_author_id);
 
-					$author_info = $author->display_name . ' | <a href="mailto:' . $author->user_email . '">' . $author->user_email . '</a>';
+					$author_info = $author->display_name . ' | ' . $author->user_email;
 					?>
 					<div class="content-detail-authorinfo"><?php echo $author_info; ?></div>
 					<div class="content-detail-hastag">
@@ -102,13 +102,16 @@ $link_share = get_permalink();
 						<span class="brandranking-detail-viewcount"><i class="bi-eye"></i> <?php echo pvc_get_post_views($post_id); ?></span>
 					</div>
 					<div class="col-6 text-end">
-						<ul class="content-share">
-							<li><a class="content-share-item" href="https://story.kakao.com/s/share?url=<?php echo $link_share; ?>" target="_blank"><i class="vaiv-kakao"></i></a></li>
-							<li><a class="content-share-item" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $link_share; ?>" target="_blank"><i class="vaiv-facebook"></i></a></li>
-							<li><a class="content-share-item" href="https://twitter.com/intent/tweet?url=<?php echo $link_share; ?>" target="_blank"><i class="vaiv-twitter"></i></a></li>
-							<li><a class="content-share-item" href="http://blog.naver.com/openapi/share?url==<?php echo $link_share; ?>" target="_blank"><i class="vaiv-naver-blog"></i></a></li>
-							<li><a class="content-share-item" id="share-by-copy" data-link="<?php echo $link_share; ?>"><i class="vaiv-link"></i></a></li>
-						</ul>
+						<div class="content-share-wrap">
+							<div class="toast-message">URL 링크가 복사되었습니다.</div>
+							<ul class="content-share">
+								<li><a class="content-share-item" href="https://story.kakao.com/s/share?url=<?php echo $link_share; ?>" target="_blank"><i class="vaiv-kakao"></i></a></li>
+								<li><a class="content-share-item" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $link_share; ?>" target="_blank"><i class="vaiv-facebook"></i></a></li>
+								<li><a class="content-share-item" href="https://twitter.com/intent/tweet?url=<?php echo $link_share; ?>" target="_blank"><i class="vaiv-twitter"></i></a></li>
+								<li><a class="content-share-item" href="http://blog.naver.com/openapi/share?url==<?php echo $link_share; ?>" target="_blank"><i class="vaiv-naver-blog"></i></a></li>
+								<li><a class="content-share-item" id="share-by-copy" data-link="<?php echo $link_share; ?>"><i class="vaiv-link"></i></a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>

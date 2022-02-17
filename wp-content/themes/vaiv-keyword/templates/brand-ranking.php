@@ -14,7 +14,7 @@ $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : null;
   <div class="container">
     <div class="brandrakinglist-description">
       <div class="row">
-        <div class="col-md-6 order-2 order-md-1" data-aos="fade-right">
+        <div class="col-md-6 order-2 order-md-1" data-aos="fade-up">
           <?php
           while (have_posts()) :
             the_post();
@@ -26,7 +26,7 @@ $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : null;
           ?>
         </div>
 
-        <div class="col-md-6 order-1 order-md-2 text-center text-md-end">
+        <div class="col-md-6 order-1 order-md-2 text-center text-md-end" data-aos="fade-right">
           <div class="brandrankinglist-thumbnail"><?php vaiv_keyword_post_thumbnail(); ?></div>
         </div>
       </div>
@@ -39,19 +39,21 @@ $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : null;
       ?>
       <div class="brandranking-top10-header" data-aos="fade-up">
         <?php
-        if (strlen($brandrankinglist_title) > 0 ) :
+        if (strlen($brandrankinglist_title) > 0) :
           echo $brandrankinglist_title;
         endif;
 
-        if (strlen($brandrankinglist_sub_title) > 0 ) :
-          echo '<p class="brandrankinglist_sub_title">' . $brandrankinglist_sub_title .'</p>';
+        if (strlen($brandrankinglist_sub_title) > 0) :
+          echo '<p class="brandrankinglist_sub_title">' . $brandrankinglist_sub_title . '</p>';
         endif;
         ?>
       </div>
 
       <div class="brandranking-top10-list">
-        <div class="row">
+        <div class="row g-custom-x">
           <?php
+          $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+          $meta_query_array = array();
           $args = array(
             'category_name' => 'brand-ranking',
             'paged' => $paged,
@@ -63,25 +65,33 @@ $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : null;
           $query = new WP_Query($args);
 
           if ($query->have_posts()) {
+            $index = 1;
             while ($query->have_posts()) {
               $query->the_post();
           ?>
               <div class="col-md-4">
                 <div class="brandranking-top10-item aos-init aos-animate" data-aos="fade-up">
-                  <h3 class="brandranking-top10-item-month"><?php echo get_the_date('m'); ?></h3>
-                  <p class="brandranking-top10-item-week"><a href="<?php echo get_permalink(); ?>"><?php echo get_the_date('Y년 m월 d주'); ?></a></p>
-                  <p class="brandranking-top10-item-period">10.25 - 10.31</p>
-                  <div class="brandranking-top10-item-hastag">
+                  <a href="<?php echo get_permalink(); ?>">
+                    <h3 class="brandranking-top10-item-month"><?php echo get_the_date('m'); ?></h3>
+                    <p class="brandranking-top10-item-week"><?php echo get_the_date('Y년 m월 d주'); ?></p>
+                    <div class="d-flex brandranking-top10-item-period">
+                      <div class="brandranking-top10-item-period-text">10.25 - 10.31</div>
+                      <?php if (($index == 1) && ($paged == 1)) { ?><div><span class="badge bg-primary">New</span></div><?php } ?>
+                    </div>
+                  </a>
+                  <div class="brandranking-top10-item-hastag page-<?php echo $paged; ?>">
                     <?php
                     $tags = get_the_tags(get_the_ID());
                     foreach ($tags as $tag) {
-                      echo '<a href="' . get_tag_link($tag->term_id) . '"><span># ' . $tag->name . '</span></a>';
+                      //echo '<a href="' . get_tag_link($tag->term_id) . '"><span># ' . $tag->name . '</span></a>';
+                      echo '<span># ' . $tag->name . '</span>';
                     }
                     ?>
                   </div>
                 </div>
               </div>
             <?php
+              $index++;
             }
           } else {
             ?>
@@ -97,8 +107,10 @@ $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : null;
           <div class="col-12">
             <div class="pagination-wrap brandrakinglist-pagination">
               <?php
+              $max_page = $query->max_num_pages;
               $big = 999999999; // need an unlikely integer
-
+  
+              if ($paged == 1) echo '<a class="prev page-numbers isDisabled"><i class="bi-chevron-left"></i></a>';
               echo paginate_links(array(
                 'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
                 'format' => '?paged=%#%',
@@ -107,6 +119,7 @@ $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : null;
                 'prev_text'          => __('<i class="bi-chevron-left"></i>'),
                 'next_text'          => __('<i class="bi-chevron-right"></i>'),
               ));
+              if ($paged == $max_page) echo '<a class="next page-numbers isDisabled"><i class="bi-chevron-right"></i></a>';
               ?>
             </div>
           </div>
