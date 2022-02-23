@@ -8,6 +8,12 @@
  * @package VAIV_Keyword
  */
 
+// Connect to external db
+require_once(ABSPATH . 'conn_external_db.php');
+
+
+
+
 
 $top_3_brands = [
 	'category_name' => 'brand-ranking',
@@ -31,10 +37,17 @@ $brandranking_options = get_field('brand_ranking_options', 'options');
 			<div class="row">
 				<div class="col-md-4 order-2 order-md-1 text-center text-md-start">
 					<h2 class="widget-title brandranking-detail-title">브랜드 랭킹</h2>
-					<div class="brandranking-detail-date"><?php echo get_the_date("Y년 m월 d주"); ?></div>
+					<div class="brandranking-detail-date">
+						<?php
+						$brandranking_detail_date = elancesoft_get_brand_date($conn);
+						echo $brandranking_detail_date;
+						?>
+					</div>
 
 					<div class="brandranking-detail-hastag">
 						<?php
+						//$tags = elancesoft_get_top5_brand_categories($conn);
+
 						$tags = get_the_tags();
 						$tag_top2 = $tag_rest = array();
 
@@ -239,16 +252,16 @@ $brandranking_options = get_field('brand_ranking_options', 'options');
 						<div class="viewcount-share-section">
 							<div class="toast-message">URL 링크가 복사되었습니다.</div>
 							<span class="brandranking-detail-viewcount"><?php echo pvc_get_post_views($post_id); ?></span>
-								<div class="btn-group dropup">
-									<button type="button" class="brandranking-detail-share" data-bs-toggle="dropdown">&nbsp;</button>
-									<ul class="dropdown-menu content-share-dropdown" data-aos="fade-up" data-aos-anchor-placement="center-center">
-										<li><a class="content-share-item" href="https://story.kakao.com/s/share?url=<?php echo $link_share; ?>" target="_blank"><i class="vaiv-kakao"></i></a></li>
-										<li><a class="content-share-item" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $link_share; ?>" target="_blank"><i class="vaiv-facebook"></i></a></li>
-										<li><a class="content-share-item" href="https://twitter.com/intent/tweet?url=<?php echo $link_share; ?>" target="_blank"><i class="vaiv-twitter"></i></a></li>
-										<li><a class="content-share-item" href="http://blog.naver.com/openapi/share?url==<?php echo $link_share; ?>" target="_blank"><i class="vaiv-naver-blog"></i></a></li>
-										<li><a class="content-share-item share-by-copy" data-link="<?php echo $link_share; ?>"><i class="vaiv-link"></i></a></li>
-									</ul>
-								</div>
+							<div class="btn-group dropup">
+								<button type="button" class="brandranking-detail-share" data-bs-toggle="dropdown">&nbsp;</button>
+								<ul class="dropdown-menu content-share-dropdown" data-aos="fade-up" data-aos-anchor-placement="center-center">
+									<li><a class="content-share-item" href="https://story.kakao.com/s/share?url=<?php echo $link_share; ?>" target="_blank"><i class="vaiv-kakao"></i></a></li>
+									<li><a class="content-share-item" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $link_share; ?>" target="_blank"><i class="vaiv-facebook"></i></a></li>
+									<li><a class="content-share-item" href="https://twitter.com/intent/tweet?url=<?php echo $link_share; ?>" target="_blank"><i class="vaiv-twitter"></i></a></li>
+									<li><a class="content-share-item" href="http://blog.naver.com/openapi/share?url==<?php echo $link_share; ?>" target="_blank"><i class="vaiv-naver-blog"></i></a></li>
+									<li><a class="content-share-item share-by-copy" data-link="<?php echo $link_share; ?>"><i class="vaiv-link"></i></a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>

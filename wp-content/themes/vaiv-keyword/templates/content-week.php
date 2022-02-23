@@ -93,7 +93,7 @@ get_header();
             $max_page = $query->max_num_pages;
             $big = 999999999; // need an unlikely integer
 
-            if ($paged == 1) echo '<a class="prev page-numbers isDisabled"><i class="bi-chevron-left"></i></a>';
+            if (($paged == 1) && ($max_page > 1)) echo '<a class="prev page-numbers isDisabled"><i class="bi-chevron-left"></i></a>';
 
             echo paginate_links(array(
               'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big) . '#content')),
@@ -103,7 +103,7 @@ get_header();
               'prev_text'          => __('<i class="bi-chevron-left"></i>'),
               'next_text'          => __('<i class="bi-chevron-right"></i>'),
             ));
-            if ($paged == $max_page) echo '<a class="next page-numbers isDisabled"><i class="bi-chevron-right"></i></a>';
+            if (($paged == $max_page) && ($max_page > 1)) echo '<a class="next page-numbers isDisabled"><i class="bi-chevron-right"></i></a>';
             ?>
             <a href="https://some.co.kr/magazine/home" target="_blank" class="page-archive">썸매거진 아카이브 <i class="bi-chevron-right"></i></a>
           </div>

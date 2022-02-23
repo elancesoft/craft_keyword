@@ -5,10 +5,10 @@
  */
 
 get_header();
-?>
 
-<?php
-$id = isset($_REQUEST['id']) ? $_REQUEST['id'] : null;
+// Connect to external db
+require_once(ABSPATH . 'conn_external_db.php');
+
 ?>
 <main id="primary" class="site-main">
   <div class="container px-custom">

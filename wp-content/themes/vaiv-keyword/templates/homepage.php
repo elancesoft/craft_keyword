@@ -25,12 +25,21 @@ $monthly_title = $monthly_setting['monthly_title'];
 $monthly_sub_title = $monthly_setting['monthly_sub_title'];
 $monthly_view_more_text = $monthly_setting['monthly_view_more_text'];
 $monthly_view_more_url = $monthly_setting['monthly_view_more_url'];
+
+// Connect to external db
+require_once(ABSPATH . 'conn_external_db.php');
+
 ?>
 
 <main id="primary" class="site-main">
   <div class="container px-custom">
-    <div class="hot-brand">
+    <div class="hot-brand d-none">
       <?php
+      // Get hot brand data
+      $hot_brand_date = elancesoft_get_brand_date($conn);
+      $hot_brand_name = elancesoft_get_hot_brand_name($conn);
+      $hot_brand_desc = elancesoft_get_hot_brand_description($conn);
+
       $hot_brand_args = [
         'category_name' => 'brand-ranking',
         'posts_per_page' => 1,
@@ -48,11 +57,9 @@ $monthly_view_more_url = $monthly_setting['monthly_view_more_url'];
             $hot_brand_post_link = get_permalink();
             echo '
               <div data-aos="fade-up">
-                <h4 class="hot-brand-date fade show">' . get_the_date("Y년 m월 d주") . '</h4>';
-            if (strlen($hot_brand_title) > 0) :
-              echo '<h3 class="widget-title hot-brand-title">' . $hot_brand_title . '</h3>';
-            endif;
-            echo '</div>';
+                <h4 class="hot-brand-date fade show">' . $hot_brand_date . '</h4>
+                <h3 class="widget-title hot-brand-title">' . $hot_brand_name . '</h3>
+              </div>';
 
             echo '
               <div class="hot-brand-detail" data-aos="fade-up" id="hot-brand-top1">
@@ -88,9 +95,6 @@ $monthly_view_more_url = $monthly_setting['monthly_view_more_url'];
         ],
         [
           'key' => 'content-month'
-        ],
-        [
-          'key' => 'brand-ranking'
         ]
       ];
 
@@ -139,11 +143,21 @@ $monthly_view_more_url = $monthly_setting['monthly_view_more_url'];
             <button id="today-pick-next" class="d-md-none"><i class="bi-chevron-right"></i></button>
             <ul class="today-pick-slider-list">
               <?php
-              foreach ($latest_post_from_each_category as $index => $today_pick_post) {
-                $active = ($index == 1) ? ' active' : '';
+              // Show data of the Brand Ranking
+              echo '
+                <li class="today-pick-slider-item" data-title="">
+                <div class="today-pick-slider-item-overlay">&nbsp;</div>
+                <p class="today-pick-slider-item-title mb-2">브랜드 랭킹</p>
+                <img src="http://some.craft.support/wp-content/uploads/2022/02/today-pick-2.png" />
+                <p class="today-pick-slider-item-date mt-2">' . $hot_brand_date . '</p>
+                </li>
+              ';
 
-                // $post_title = $today_pick_post->post_title;
-                $post_title = '누림의 대중화 ' . ($index + 1);
+              foreach ($latest_post_from_each_category as $index => $today_pick_post) {
+                $active = ($index == 0) ? ' active' : '';
+
+                $post_title = $today_pick_post->post_title;
+                // $post_title = '누림의 대중화 ' . ($index + 1);
 
                 $cat_title = get_the_category($today_pick_post->ID)[0]->name;
 
@@ -154,18 +168,18 @@ $monthly_view_more_url = $monthly_setting['monthly_view_more_url'];
                 if ($index == 0) {
                   $post_thumbnail = 'http://some.craft.support/wp-content/uploads/2022/02/today-pick-1.png';
                 } else if ($index == 1) {
-                  $post_thumbnail = 'http://some.craft.support/wp-content/uploads/2022/02/today-pick-2.png';
+                  $post_thumbnail = 'http://some.craft.support/wp-content/uploads/2022/02/today-pick-3.png';
                 } else {
                   $post_thumbnail = 'http://some.craft.support/wp-content/uploads/2022/02/today-pick-3.png';
                 }
 
                 echo '
-                <li class="today-pick-slider-item' . $active . '" data-title="' . $post_title . '">
-                <div class="today-pick-slider-item-overlay">&nbsp;</div>
-                <p class="today-pick-slider-item-title mb-2"><a href="' . $post_link . '">' . $cat_title . '</a></p>
-                <a href="' . $post_link . '"><img src="' . $post_thumbnail . '" /></a>
-                <p class="today-pick-slider-item-date mt-2">' . $post_date . '</p>
-                </li>
+                  <li class="today-pick-slider-item' . $active . '" data-title="' . $post_title . '">
+                  <div class="today-pick-slider-item-overlay">&nbsp;</div>
+                  <p class="today-pick-slider-item-title mb-2"><a href="' . $post_link . '">' . $cat_title . '</a></p>
+                  <a href="' . $post_link . '"><img src="' . $post_thumbnail . '" /></a>
+                  <p class="today-pick-slider-item-date mt-2">' . $post_date . '</p>
+                  </li>
                 ';
               }
               ?>

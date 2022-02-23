@@ -216,7 +216,6 @@ if (class_exists('WooCommerce')) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
 
-
 if (function_exists('acf_add_options_page')) {
 	acf_add_options_page(
 		array(
@@ -227,3 +226,19 @@ if (function_exists('acf_add_options_page')) {
 		)
 	);
 }
+
+
+/**
+ * Custom query var for search
+ */
+
+function add_query_vars_filter($vars)
+{
+	// add custom query vars that will be public
+	// https://codex.wordpress.org/WordPress_Query_Vars
+	$vars[] .= 'all';
+	$vars[] .= 'title_content';
+	$vars[] .= 'tag';
+	return $vars;
+}
+add_filter('query_vars', 'add_query_vars_filter');

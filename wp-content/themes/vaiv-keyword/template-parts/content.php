@@ -39,22 +39,30 @@ $link_share = get_permalink();
 					<div class="content-detail-authorinfo"><?php echo $author_info; ?></div>
 					<div class="content-detail-hastag">
 						<?php
-						$categories = $wpdb->get_results("
-					SELECT DISTINCT(terms.term_id) as ID, terms.name, terms.slug
-					FROM $wpdb->posts as posts
-					LEFT JOIN $wpdb->term_relationships as relationships ON posts.ID = relationships.object_ID
-					LEFT JOIN $wpdb->term_taxonomy as tax ON relationships.term_taxonomy_id = tax.term_taxonomy_id
-					LEFT JOIN $wpdb->terms as terms ON tax.term_id = terms.term_id
-					WHERE 1=1 AND (
-							posts.post_status = 'publish' AND
-							posts.post_author = " . $author->ID . " AND
-							tax.taxonomy = 'category' )
-					ORDER BY terms.name ASC
-					");
+						// 	$categories = $wpdb->get_results("
+						// SELECT DISTINCT(terms.term_id) as ID, terms.name, terms.slug
+						// FROM $wpdb->posts as posts
+						// LEFT JOIN $wpdb->term_relationships as relationships ON posts.ID = relationships.object_ID
+						// LEFT JOIN $wpdb->term_taxonomy as tax ON relationships.term_taxonomy_id = tax.term_taxonomy_id
+						// LEFT JOIN $wpdb->terms as terms ON tax.term_id = terms.term_id
+						// WHERE 1=1 AND (
+						// 		posts.post_status = 'publish' AND
+						// 		posts.post_author = " . $author->ID . " AND
+						// 		tax.taxonomy = 'category' )
+						// ORDER BY terms.name ASC
+						// ");
 
-						foreach ($categories as $category) {
-							echo '<span class="content-detail-tag"># ' . $category->name . '</span>';
+
+						$tags = get_the_tags(get_the_ID());
+						$tags_html = '';
+						
+						foreach ($tags as $tag_index => $tag) {
+							echo '<span class="content-detail-tag"># ' . $tag->name . '</span>';
 						}
+
+						// foreach ($categories as $category) {
+						// 	echo '<span class="content-detail-tag"># ' . $category->name . '</span>';
+						// }
 						?>
 					</div>
 
