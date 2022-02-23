@@ -18,11 +18,11 @@
 			<div class="col-md-9 order-2 order-md-1">
 				<div class="d-block d-md-flex">
 					<div class="footer-logo">
-						<a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo get_template_directory_uri() . '/assets/images/logo-vaiv.png'; ?>" alt="logo" /></a>
+						<a href="http://vaiv.kr/"><img src="<?php echo get_template_directory_uri() . '/assets/images/logo-vaiv.png'; ?>" alt="logo" /></a>
 					</div>
 					<p class="site-info">
-						(주)바이브컴퍼니ㅣ대표자: 이재용ㅣ사업자등록번호 : <a href="tel:120-86-08334">120-86-08334</a><br>
-						생활변화관측소 서비스 문의 <a href="mailto:7outof1000@vaiv.kr">7outof1000@vaiv.kr</a>ㅣCopyrightⓒVAIV Company inc. All Rights Reserved.
+						(주)바이브컴퍼니ㅣ대표자: 이재용ㅣ<br class="d-md-none"/>사업자등록번호 : <a href="tel:120-86-08334">120-86-08334</a><br />
+						생활변화관측소 서비스 문의 <a href="mailto:7outof1000@vaiv.kr">7outof1000@vaiv.kr</a>ㅣ<br class="d-md-none"/>CopyrightⓒVAIV Company inc. All Rights Reserved.
 					</p>
 				</div>
 			</div>
@@ -42,12 +42,9 @@
 						<div class="family-sites text-center text-md-end">
 							<select class="familysite_option" title="패밀리사이트 바로가기" onchange="if(this.value) window.open(this.value);">
 								<option value="" selected="">패밀리사이트</option>
+								<option value="http://vaiv.kr/">바이브컴퍼니</option>
 								<option value="https://some.co.kr/">Sometrend</option>
-								<option value="http://new-biz.some.co.kr/">Sometrend Biz</option>
-								<option value="https://money.some.co.kr/">Somemoney</option>
-								<option value="https://reviewplus.co.kr/">Review+ Beauty</option>
-								<option value="http://www.smartcityinstitute.kr/">스마트시티 연구소</option>
-								<option value="http://www.7outof1000.com/">생활변화관측소</option>
+								<option value="https://biz.some.co.kr/login/">Sometrend Biz</option>
 							</select>
 						</div>
 					</div>

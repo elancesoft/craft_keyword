@@ -28,46 +28,61 @@
 
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
+	<a id="top_button"><span>TOP</span></a>
 	<div id="page" class="site">
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'vaiv-keyword'); ?></a>
 
 		<div id="overlay">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<div class="search-form-wrap"><?php get_search_form(); ?></div>
-						<div class="search-suggestion-wrap">
-							<h3>지금 뜨는 콘텐츠</h3>
-							<div class="search-suggestion-list owl-carousel owl-theme">
-								<a href="https://some.craft.support/brand-1/">
-								<div class="search-suggestion-list-item">
-									<div class="search-suggestion-list-thumb"><img src="https://some.craft.support/wp-content/uploads/2022/01/trend-3.png" /></div>
-									<div class="row">
-										<div class="col-md-6"><div class="search-suggestion-list-title">브랜드 랭킹</div></div>
-										<div class="col-md-6"><div class="search-suggestion-list-date">2022년 10월 1주</div></div>
-									</div>
-								</div>
-								</a>
+			<div class="overlay-sub">
+				<div class="container px-custom">
+					<div class="row">
+						<div class="col">
+							<div class="search-form-wrap"><?php get_search_form(); ?></div>
+							<div class="search-suggestion-wrap">
+								<h3>지금 뜨는 콘텐츠</h3>
+								<div class="search-suggestion-list owl-carousel owl-theme">
+									<a href="https://some.craft.support/brand-1/">
+										<div class="search-suggestion-list-item">
+											<div class="search-suggestion-list-thumb"><img src="https://some.craft.support/wp-content/uploads/2022/01/trend-3.png" /></div>
+											<div class="row g-0">
+												<div class="col-md-6">
+													<div class="search-suggestion-list-title">브랜드 랭킹</div>
+												</div>
+												<div class="col-md-6">
+													<div class="search-suggestion-list-date text-md-end">2022년 10월 1주</div>
+												</div>
+											</div>
+										</div>
+									</a>
 
-								<a href="https://some.craft.support/content-week-item-test/">
-								<div class="search-suggestion-list-item">
-									<div class="search-suggestion-list-thumb"><img src="https://some.craft.support/wp-content/uploads/2022/01/trend-2.png" /></div>
-									<div class="row">
-										<div class="col-md-6"><div class="search-suggestion-list-title">주간관측소</div></div>
-										<div class="col-md-6"><div class="search-suggestion-list-date">2022년 10월 1주</div></div>
-									</div>
-								</div>
-								</a>
+									<a href="https://some.craft.support/content-week-item-test/">
+										<div class="search-suggestion-list-item">
+											<div class="search-suggestion-list-thumb"><img src="https://some.craft.support/wp-content/uploads/2022/01/trend-2.png" /></div>
+											<div class="row g-0">
+												<div class="col-md-6">
+													<div class="search-suggestion-list-title">주간관측소</div>
+												</div>
+												<div class="col-md-6">
+													<div class="search-suggestion-list-date text-md-end">2022년 10월 1주</div>
+												</div>
+											</div>
+										</div>
+									</a>
 
-								<a href="https://some.craft.support/content-month-item-test/">
-								<div class="search-suggestion-list-item">
-									<div class="search-suggestion-list-thumb"><img src="https://some.craft.support/wp-content/uploads/2022/01/post-1.png" /></div>
-									<div class="row">
-										<div class="col-md-6"><div class="search-suggestion-list-title">월간관측소</div></div>
-										<div class="col-md-6"><div class="search-suggestion-list-date">2022년 10월 1주</div></div>
-									</div>
+									<a href="https://some.craft.support/content-month-item-test/">
+										<div class="search-suggestion-list-item">
+											<div class="search-suggestion-list-thumb"><img src="https://some.craft.support/wp-content/uploads/2022/01/post-1.png" /></div>
+											<div class="row g-0">
+												<div class="col-md-6">
+													<div class="search-suggestion-list-title">월간관측소</div>
+												</div>
+												<div class="col-md-6">
+													<div class="search-suggestion-list-date text-md-end">2022년 10월 1주</div>
+												</div>
+											</div>
+										</div>
+									</a>
 								</div>
-								</a>
 							</div>
 						</div>
 					</div>
@@ -80,20 +95,15 @@
 		<header id="masthead" class="site-header">
 			<div class="container-header">
 				<div class="row">
-					<div class="col-12 d-none d-md-block">
-						<div class="logo-vaiv-header text-end">
-							<a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo get_template_directory_uri() . '/assets/images/logo-vaiv-black.png'; ?>" alt="logo" /></a>
-						</div>
-					</div>
-					<div class="col-6 col-md-2 order-md-2 order-2">
+					<div class="col-6 col-md-2">
 						<div class="logo-wrap">
 							<div class="site-branding text-center text-md-start">
 								<?php the_custom_logo(); ?>
 							</div>
 						</div>
 					</div>
-					<div class="col-3 col-md-7 order-md-2 order-3">
-						<div class="menu-search-wrap">
+					<div class="col-6 col-md-10 order-md-2 order-3">
+						<div class="menu-search-wrap d-flex">
 							<div class="menu-wrap flex-grow-1">
 								<nav id="site-navigation" class="main-navigation">
 									<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="bi-list"></i></button>
@@ -107,16 +117,13 @@
 									?>
 								</nav><!-- #site-navigation -->
 							</div>
-							<div class="search-wrap d-block d-sm-none">
+							<div class="search-wrap">
 								<button class="search-icon">&nbsp;</button>
 								<button class="search-icon-close d-none">&nbsp;</button>
 							</div>
 						</div>
 					</div>
-					<div class="col-3 col-md-3 order-md-3 order-1">
-						<div class="logo-vaiv-header d-block-inline d-md-none">
-							<a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo get_template_directory_uri() . '/assets/images/logo-vaiv-black.png'; ?>" alt="logo" /></a>
-						</div>
+					<div class="col-3 col-md-3 order-md-3 order-1 1231232321 d-none">
 						<div class="search-wrap d-none d-md-block">
 							<button class="search-icon">&nbsp;</button>
 							<button class="search-icon-close d-none">&nbsp;</button>

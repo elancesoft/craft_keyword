@@ -98,10 +98,10 @@ $link_share = get_permalink();
 
 			<div class="entry-content-viewcount-share">
 				<div class="row">
-					<div class="col-6">
-						<span class="brandranking-detail-viewcount"><i class="bi-eye"></i> <?php echo pvc_get_post_views($post_id); ?></span>
+					<div class="col-4 col-md-6 align-self-center">
+						<span class="content-viewcount"><?php echo pvc_get_post_views($post_id); ?></span>
 					</div>
-					<div class="col-6 text-end">
+					<div class="col-8 col-md-6 text-end">
 						<div class="content-share-wrap">
 							<div class="toast-message">URL 링크가 복사되었습니다.</div>
 							<ul class="content-share">
@@ -143,13 +143,6 @@ $link_share = get_permalink();
 							}
 							?>
 						</div>
-
-						<div class="entry-meta">
-							<?php
-							vaiv_keyword_posted_on();
-							vaiv_keyword_posted_by();
-							?>
-						</div><!-- .entry-meta -->
 					</div>
 					<div class="tab-pane fade" id="comment-form" role="tabpanel" aria-labelledby="comment-form-tab">
 						<?php

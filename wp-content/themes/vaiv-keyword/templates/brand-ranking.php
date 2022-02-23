@@ -11,7 +11,7 @@ get_header();
 $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : null;
 ?>
 <main id="primary" class="site-main">
-  <div class="container">
+  <div class="container px-custom">
     <div class="brandrakinglist-description">
       <div class="row">
         <div class="col-md-6 order-2 order-md-1" data-aos="fade-up">
@@ -49,7 +49,7 @@ $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : null;
         ?>
       </div>
 
-      <div class="brandranking-top10-list">
+      <div class="brandranking-top10-list" id="content">
         <div class="row g-custom-x">
           <?php
           $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -82,9 +82,10 @@ $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : null;
                   <div class="brandranking-top10-item-hastag page-<?php echo $paged; ?>">
                     <?php
                     $tags = get_the_tags(get_the_ID());
-                    foreach ($tags as $tag) {
+                    foreach ($tags as $tag_index => $tag) {
                       //echo '<a href="' . get_tag_link($tag->term_id) . '"><span># ' . $tag->name . '</span></a>';
                       echo '<span># ' . $tag->name . '</span>';
+                      if ($tag_index == 2) break; // just get MAX 3 tags
                     }
                     ?>
                   </div>
@@ -103,27 +104,33 @@ $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : null;
           ?>
         </div>
 
+        <?php
+        $max_page = $query->max_num_pages;
+        if ($max_page > 1) :
+        ?>
+
         <div class="row">
           <div class="col-12">
             <div class="pagination-wrap brandrakinglist-pagination">
               <?php
-              $max_page = $query->max_num_pages;
               $big = 999999999; // need an unlikely integer
-  
-              if ($paged == 1) echo '<a class="prev page-numbers isDisabled"><i class="bi-chevron-left"></i></a>';
+
+              if ($paged == 1 && $max_page != 1) echo '<a class="prev page-numbers isDisabled"><i class="bi-chevron-left"></i></a>';
+
               echo paginate_links(array(
-                'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+                'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big) . '#content')),
                 'format' => '?paged=%#%',
                 'current' => max(1, get_query_var('paged')),
                 'total' => $query->max_num_pages,
                 'prev_text'          => __('<i class="bi-chevron-left"></i>'),
                 'next_text'          => __('<i class="bi-chevron-right"></i>'),
               ));
-              if ($paged == $max_page) echo '<a class="next page-numbers isDisabled"><i class="bi-chevron-right"></i></a>';
+              if ($paged == $max_page  && $max_page != 1) echo '<a class="next page-numbers isDisabled"><i class="bi-chevron-right"></i></a>';
               ?>
             </div>
           </div>
         </div>
+        <?php endif; ?>
 
       </div>
     </div>

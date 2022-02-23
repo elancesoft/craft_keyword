@@ -28,22 +28,24 @@ $monthly_view_more_url = $monthly_setting['monthly_view_more_url'];
 ?>
 
 <main id="primary" class="site-main">
-  <div class="container">
+  <div class="container px-custom">
     <div class="hot-brand">
       <?php
       $hot_brand_args = [
         'category_name' => 'brand-ranking',
-        'posts_per_page' => 3,
+        'posts_per_page' => 1,
         'orderby'        => array(
           'ID' => 'DESC'
         )
       ];
       $hot_brand_post = get_posts($hot_brand_args);
+      $hot_brand_post_link = "";
       ?>
       <div class="row">
         <div class="col-md-4 order-2 order-md-1 text-center text-md-start">
           <?php
           foreach ($hot_brand_post as $index => $post) :
+            $hot_brand_post_link = get_permalink();
             echo '
               <div data-aos="fade-up">
                 <h4 class="hot-brand-date fade show">' . get_the_date("Y년 m월 d주") . '</h4>';
@@ -54,13 +56,12 @@ $monthly_view_more_url = $monthly_setting['monthly_view_more_url'];
 
             echo '
               <div class="hot-brand-detail" data-aos="fade-up" id="hot-brand-top1">
-                <div><span class="hot-brand-detail-item-order">Top ' . ($index + 1) . '</span><span class="hot-brand-detail-item-title"><a href="' . get_permalink() . '">' . $post->post_title . '</a></span></div>
+                <div><span class="hot-brand-detail-item-order">Top ' . ($index + 1) . '</span><span class="hot-brand-detail-item-title"><a href="' . $hot_brand_post_link . '">' . $post->post_title . '</a></span></div>
                 <div class="hot-brand-detail-text">
-                  <a href="' . get_permalink() . '">' . $post->post_content . '</a>
+                  <a href="' . $hot_brand_post_link . '">' . $post->post_content . '</a>
                 </div>
               </div>
               ';
-            if ($index == 0) break;
           endforeach;
           ?>
         </div>
@@ -69,7 +70,7 @@ $monthly_view_more_url = $monthly_setting['monthly_view_more_url'];
           <div class="hot-brand-right text-end" data-aos="fade-up">
             <?php
             if (sizeof($hot_brand_image) > 0) :
-              echo '<img src="' . $hot_brand_image['url'] . '" />';
+              echo '<a href="' . $hot_brand_post_link . '"><img src="' . $hot_brand_image['url'] . '" /></a>';
             endif;
             ?>
           </div>
@@ -259,9 +260,13 @@ $monthly_view_more_url = $monthly_setting['monthly_view_more_url'];
           <div class="row">
             <?php
             if ($monthly_query->have_posts()) :
+              $monthly_query_post_link = '';
+
               while ($monthly_query->have_posts()) :
                 $monthly_query->the_post();
                 $text_except = get_the_excerpt();
+
+                $monthly_query_post_link = get_permalink();
 
                 // Get Author
                 $post_author_id = (int) $wpdb->get_var($wpdb->prepare("SELECT post_author FROM {$wpdb->posts} WHERE ID = %d ", get_the_ID()));
@@ -274,14 +279,14 @@ $monthly_view_more_url = $monthly_setting['monthly_view_more_url'];
 
                 echo '
               <div class="col-md-4" data-aos="fade-right">
-                <div class="monthly-insight-content-thumb"<a href="' . get_permalink() . '"><img src="' . $post_thumbnail . '" class="img-fluid" alt="' . get_the_title() . '" /></a></div>
+                <div class="monthly-insight-content-thumb"><a href="' . $monthly_query_post_link . '"><img src="' . $post_thumbnail . '" class="img-fluid" alt="' . get_the_title() . '" /></a></div>
               </div>
 
               <div class="col-md-4 offset-md-2" data-aos="fade-left">
                 <p class="monthly-insight-content-date">' . get_the_date('Y년 m월') . ' 호</p>
-                <h3 class="monthly-insight-content-title"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>
+                <h3 class="monthly-insight-content-title"><a href="' . $monthly_query_post_link . '">' . get_the_title() . '</a></h3>
                 <p class="monthly-insight-content-writer">' . $writer . '</p>
-                <div class="monthly-insight-content-desc"><a href="' . get_permalink() . '">' . $text_except . '</a></div>
+                <div class="monthly-insight-content-desc"><a href="' . $monthly_query_post_link . '">' . $text_except . '</a></div>
               </div>
               ';
               endwhile;

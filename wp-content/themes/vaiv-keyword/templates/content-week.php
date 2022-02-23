@@ -8,7 +8,7 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
-  <div class="container">
+  <div class="container px-custom">
     <div class="content-list-wrap">
       <div class="row">
         <div class="col-md-6 order-2 order-md-1" data-aos="fade-up">
@@ -27,7 +27,7 @@ get_header();
         </div>
       </div>
 
-      <div class="content-item-wrap">
+      <div class="content-item-wrap" id="content">
         <div class="row g-custom-x">
           <?php
           // Build meta query
@@ -64,7 +64,7 @@ get_header();
                   <div class="d-flex">
                     <div class="content-item-date">
                       <?php echo get_the_date('Y년 m월 d주'); ?>
-                      <?php if (($index == 1) && ($paged == 1)) { ?><span class="ms-4 badge bg-primary">New</span><?php } ?>
+                      <?php if (($index == 1) && ($paged == 1)) { ?><span class="ms-2 badge bg-primary">New</span><?php } ?>
                     </div>
                   </div>
                   <h3 class="content-item-title">
@@ -96,7 +96,7 @@ get_header();
             if ($paged == 1) echo '<a class="prev page-numbers isDisabled"><i class="bi-chevron-left"></i></a>';
 
             echo paginate_links(array(
-              'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+              'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big) . '#content')),
               'format' => '?paged=%#%',
               'current' => max(1, get_query_var('paged')),
               'total' => $max_page,

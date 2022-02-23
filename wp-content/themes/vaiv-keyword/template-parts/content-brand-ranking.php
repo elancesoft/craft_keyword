@@ -26,7 +26,7 @@ $brandranking_options = get_field('brand_ranking_options', 'options');
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="container">
+	<div class="container px-custom">
 		<div class="brandranking-detail">
 			<div class="row">
 				<div class="col-md-4 order-2 order-md-1 text-center text-md-start">
@@ -55,8 +55,9 @@ $brandranking_options = get_field('brand_ranking_options', 'options');
 
 						if (sizeof($tag_rest) > 0) :
 							echo '<div class="brandranking-detail-hastag-top345">';
-							foreach ($tag_rest as $item) :
+							foreach ($tag_rest as $index => $item) :
 								echo '<span># ' . $item->name . '</span>';
+								if ($index == 2) break; // just get MAX 3 items
 							endforeach;
 							echo '</div>';
 						endif;
@@ -147,7 +148,7 @@ $brandranking_options = get_field('brand_ranking_options', 'options');
 									</div>
 									<div class="brandranking-detail-top3-slider-item-keyword">' . $keyword . '</div>
 									<div class="brandranking-detail-top3-slider-item-social">
-										<i class="' . $hotsns . '"></i> <span class="main-color-blue">' . $score . '</span>
+										<i class="hotsns-' . $hotsns . '"></i> <span class="main-color-blue">' . $score . '</span>
 									</div>
 								</div>';
 							endif;
@@ -167,7 +168,7 @@ $brandranking_options = get_field('brand_ranking_options', 'options');
 									</div>
 									<div class="brandranking-detail-top3-slider-item-keyword">' . $keyword . '</div>
 									<div class="brandranking-detail-top3-slider-item-social">
-										<i class="' . $hotsns . '"></i> <span class="main-color-blue">' . $score . '</span>
+										<i class="hotsns-' . $hotsns . '"></i> <span class="main-color-blue">' . $score . '</span>
 									</div>
 								</div>';
 							endif;
@@ -187,7 +188,7 @@ $brandranking_options = get_field('brand_ranking_options', 'options');
 									</div>
 									<div class="brandranking-detail-top3-slider-item-keyword">' . $keyword . '</div>
 									<div class="brandranking-detail-top3-slider-item-social">
-										<i class="' . $hotsns . '"></i> <span class="main-color-blue">' . $score . '</span>
+										<i class="hotsns-' . $hotsns . '"></i> <span class="main-color-blue">' . $score . '</span>
 									</div>
 								</div>';
 							endif;
@@ -210,7 +211,7 @@ $brandranking_options = get_field('brand_ranking_options', 'options');
 									</div>
 									<div class="brandranking-detail-top3-slider-mobile-item-keyword">' . $keyword . '</div>
 									<div class="brandranking-detail-top3-slider-mobile-tem-social">
-										<i class="' . $hotsns . '"></i> <span class="main-color-blue">' . $score . '</span>
+										<i class="hotsns-' . $hotsns . '"></i> <span class="main-color-blue">' . $score . '</span>
 									</div>
 								</div>';
 							endforeach;
@@ -238,7 +239,6 @@ $brandranking_options = get_field('brand_ranking_options', 'options');
 						<div class="viewcount-share-section">
 							<div class="toast-message">URL 링크가 복사되었습니다.</div>
 							<span class="brandranking-detail-viewcount"><?php echo pvc_get_post_views($post_id); ?></span>
-							<div class="d-none d-md-inline-flex">
 								<div class="btn-group dropup">
 									<button type="button" class="brandranking-detail-share" data-bs-toggle="dropdown">&nbsp;</button>
 									<ul class="dropdown-menu content-share-dropdown" data-aos="fade-up" data-aos-anchor-placement="center-center">
@@ -249,8 +249,6 @@ $brandranking_options = get_field('brand_ranking_options', 'options');
 										<li><a class="content-share-item share-by-copy" data-link="<?php echo $link_share; ?>"><i class="vaiv-link"></i></a></li>
 									</ul>
 								</div>
-							</div>
-							<div class="d-inline-flex d-md-none"><a class="content-share-item share-by-copy mobile-version" data-link="<?php echo $link_share; ?>"><i class="vaiv-link"></i></a></div>
 						</div>
 					</div>
 				</div>
@@ -286,10 +284,10 @@ $brandranking_options = get_field('brand_ranking_options', 'options');
 										<i class="bi-question"></i>
 									</button>
 								</th>
-								<th class="align-middle">
+								<th class="align-middle text-tooltip-question-score">
 									SCORE
 									<br>
-									<button type="button" class="btn btn-tooltip-question" data-bs-toggle="tooltip" data-bs-placement="bottom" title="최근 8일 간의 언급량과 직전 8일 대비 언급량 변동성을 합산한 점수">
+									<button type="button" class="btn btn-tooltip-question btn-tooltip-question-score" data-bs-toggle="tooltip" data-bs-placement="bottom" title="최근 8일 간의 언급량과 직전 8일 대비 언급량 변동성을 합산한 점수">
 										<i class="bi-question"></i>
 									</button>
 								</th>
@@ -311,7 +309,7 @@ $brandranking_options = get_field('brand_ranking_options', 'options');
 										<?php echo $post->post_title; ?>
 									</td>
 									<td class="text-center align-middle table-brandranking-detail-keyword"><?php echo $keyword; ?></td>
-									<td class="text-center align-middle table-brandranking-detail-hotsns"><i class="<?php echo $hotsns; ?>"></i></td>
+									<td class="text-center align-middle table-brandranking-detail-hotsns"><i class="hotsns-<?php echo $hotsns; ?>"></i></td>
 									<td class="main-color-blue text-center align-middle table-brandranking-detail-score"><?php echo $score; ?></td>
 									<td class="text-center align-middle table-brandranking-detail-arrow">
 										<button class="table-brandranking-detail-collapse" data-trindex="<?php echo $index; ?>"><i class="arrow-direction bi-chevron-down"></i></button>

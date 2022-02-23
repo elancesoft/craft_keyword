@@ -1,24 +1,43 @@
 <form id="searchform" method="get" action="<?php echo esc_url(home_url('/')); ?>">
   <div class="search-textbox-wrap d-flex">
-    <div class="align-self-center">
-      <button type="submit" class="btn-search"><i class="bi-search"></i></button>
+    <div class="d-flex align-self-center">
+      <button type="submit" class="btn-search-form">&nbsp;</button>
     </div>
     <div class="flex-grow-1 align-self-center">
       <input type="text" class="search-field" name="s" placeholder="최신 트렌드를 찾아보세요" value="<?php echo get_search_query(); ?>">
     </div>
     <div class="align-self-center">
-      <select name="search-type" class="search-type">
+      <select name="search_type" class="search-type">
         <option value="1">전체</option>
         <option value="2">제목 + 내용</option>
         <option value="3">해시태그</option>
       </select>
+      <!-- <select name="search_type_tmp" class="search-type-tmp">
+        <option id="search_type_tmp_option"></option>
+      </select> -->
     </div>
   </div>
 
-  <div class="hastags-suggestion">
-    <label>추천 검색어</label>
-    <a href="<?php echo esc_url(home_url('?s=트렌드')); ?>">트렌드</a>
-    <a href="<?php echo esc_url(home_url('?s=MZ세대')); ?>">MZ세대</a>
-    <a href="<?php echo esc_url(home_url('?s=인사이트')); ?>">인사이트</a>
-  </div>
+  <?php
+  // Get recommended keywords from config
+  $search_options = get_field('search', 'options');
+  $recommended_keywords = $search_options['recommend_keywords'];
+
+  if (sizeof($recommended_keywords) > 0) {
+
+    $html_recommended_keywords = '';
+    foreach($recommended_keywords as $item) {
+      $link = esc_url(home_url('?s=' . $item['recommend_keyword_text']));
+      $html_recommended_keywords .= '<a href="' . $link . '">' . $item['recommend_keyword_text'] . '</a>';
+    }
+    
+    echo '
+    <div class="hastags-suggestion">
+      <label>추천 검색어</label>
+      ' . $html_recommended_keywords . '
+    </div>';
+  }
+  ?>
+
+  
 </form>

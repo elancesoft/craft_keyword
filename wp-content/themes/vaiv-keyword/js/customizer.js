@@ -1,11 +1,46 @@
 jQuery(document).ready(function ($) {
+
+	/* AOS
+	------------------------------------------------------------------------------------------- */
 	AOS.init({
 		duration: 600, // values from 0 to 3000, with step 50ms
 	});
 
+	/* TOP Button
+	------------------------------------------------------------------------------------------- */
+	var top_btn = $('#top_button');
 
-	// Collapse on brand ranking detail page
-	$('.table-brandranking-detail-collapse').on('click', function() {
+	var lastScrollTop = 0;
+	$(window).scroll(function (event) {
+		var st = $(this).scrollTop();
+		if (st > lastScrollTop) {
+			// Scroll Down
+			top_btn.removeClass('show');
+		} else if (st == lastScrollTop) {
+			//do nothing 
+			//In IE this is an important condition because there seems to be some instances where the last scrollTop is equal to the new one
+		} else {
+			// Scroll Up
+			if ($(window).scrollTop() > 300) {
+				top_btn.addClass('show');
+			} else {
+				top_btn.removeClass('show');
+			}
+		}
+		lastScrollTop = st;
+	});
+
+	// Click To Top Button
+	top_btn.on('click', function (e) {
+		e.preventDefault();
+		//$('html, body').animate({ scrollTop: 0 }, '800');
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	});
+
+
+	/* Collapse on brand ranking detail page
+	------------------------------------------------------------------------------------------- */
+	$('.table-brandranking-detail-collapse').on('click', function () {
 		var tr_index = $(this).data('trindex');
 
 		$('.tr-brandranking-detail-item-details').removeClass('active');
@@ -22,10 +57,12 @@ jQuery(document).ready(function ($) {
 		}
 	});
 
-	// Show tooltip
+	/* Show tooltip
+	------------------------------------------------------------------------------------------- */
 	$('[data-bs-toggle="tooltip"]').tooltip({ html: true });
 
-	// Home page: Trend List
+	/* Home page: Trend List
+	------------------------------------------------------------------------------------------- */
 	$(".trend-list-owl.owl-carousel").owlCarousel({
 		loop: false,
 		nav: false,
@@ -53,7 +90,8 @@ jQuery(document).ready(function ($) {
 		}
 	});
 
-	// Search suggestion list
+	/* Search suggestion list
+	------------------------------------------------------------------------------------------- */
 	$(".search-suggestion-list.owl-carousel").owlCarousel({
 		loop: false,
 		nav: false,
@@ -81,7 +119,8 @@ jQuery(document).ready(function ($) {
 		}
 	});
 
-	// Brand Ranking Detail Top 3
+	/* Brand Ranking Detail Top 3
+	------------------------------------------------------------------------------------ */
 	$(".brandranking-detail-top3-slider-mobile.owl-carousel").owlCarousel({
 		loop: false,
 		nav: false,
@@ -111,15 +150,24 @@ jQuery(document).ready(function ($) {
 	});
 
 
-	// TODAY PICK ACTION
+	/* TODAY PICK ACTION
+	------------------------------------------------------------------------------------ */
 	$('#today-pick-previous, #today-pick-previous-desktop').on('click', function () {
 		var $list = $('.today-pick-slider-list'),
 			$items = $list.children(),
 			$lastItem = $items.last();
 
 		// Set active item
-		$items.removeClass('active');
-		$items.eq(0).before($lastItem).addClass('active');
+		$items.removeClass('active').animate({
+		}, 5000, function () {
+			// Animation complete.
+			///Set your class in here....
+		});
+		$items.eq(0).before($lastItem).addClass('active').animate({
+		}, 5000, function () {
+			// Animation complete.
+			///Set your class in here....
+		});
 
 		// Get the Post Title of active item
 		var post_title = $('.today-pick-slider-item.active').data('title');
@@ -146,7 +194,8 @@ jQuery(document).ready(function ($) {
 	});
 
 
-	// SEARCH
+	/* SEARCH
+	-------------------------------------------------------------------------------------------------- */
 	$('.search-icon-close').on('click', function () {
 		$("#overlay").fadeOut(300);
 		$(this).addClass('d-none');
@@ -171,4 +220,35 @@ jQuery(document).ready(function ($) {
 			$(".toast-message").delay(1000).fadeOut("slow");
 		});
 	});
+
+	// Click outside and close the search popup
+	$('#overlay').on('click', function () {
+		$("#overlay").fadeOut(300);
+		$('.search-icon-close').addClass('d-none');
+		$('.search-icon').removeClass('d-none');
+	});
+
+
+	$("#overlay .overlay-sub").click(function (event) {
+		// console.log('clicked inside');
+		event.stopPropagation();
+	});
+
+
+	/* Select box in search form
+	-------------------------------------------------------------------------------------------------- */
+	// $('#overlay').find('.search-type').change(function(){
+	//   $('#overlay').find("#search_type_tmp_option").html($('#overlay').find('.search-type option:selected').text()); 
+	//   $(this).width($(".search-type-tmp").width());  
+	// });
+
+	// $('#search_form_container').find('.search-type').change(function(){
+	//   $('#search_form_container').find("#search_type_tmp_option").html($('#search_form_container').find('.search-type option:selected').text()); 
+	//   $(this).width($('#search_form_container').find(".search-type-tmp").width());  
+	// });
+
+	//$('html,body').animate({ scrollTop: $("#content_item_wrap").offset().top }, 'slow');
+
+
+
 });
