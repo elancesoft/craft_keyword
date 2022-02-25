@@ -72,8 +72,8 @@ require_once(ABSPATH . 'conn_external_db.php');
               <div class="col-md-4">
                 <div class="brandranking-top10-item aos-init aos-animate" data-aos="fade-up">
                   <a href="<?php echo get_permalink(); ?>">
-                    <h3 class="brandranking-top10-item-month"><?php echo get_the_date('m'); ?></h3>
-                    <p class="brandranking-top10-item-week"><?php echo get_the_date('Y년 m월 d주'); ?></p>
+                    <h3 class="brandranking-top10-item-month"><?php echo get_the_date('n'); ?></h3>
+                    <p class="brandranking-top10-item-week"><?php echo get_the_date('Y년 n월 j주'); ?></p>
                     <div class="d-flex brandranking-top10-item-period">
                       <div class="brandranking-top10-item-period-text">10.25 - 10.31</div>
                       <?php if (($index == 1) && ($paged == 1)) { ?><div><span class="badge bg-primary">New</span></div><?php } ?>
@@ -118,7 +118,7 @@ require_once(ABSPATH . 'conn_external_db.php');
               if ($paged == 1 && $max_page != 1) echo '<a class="prev page-numbers isDisabled"><i class="bi-chevron-left"></i></a>';
 
               echo paginate_links(array(
-                'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big) . '#content')),
+                'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
                 'format' => '?paged=%#%',
                 'current' => max(1, get_query_var('paged')),
                 'total' => $query->max_num_pages,

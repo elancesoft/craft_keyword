@@ -15,19 +15,25 @@ $link_share = get_permalink();
 	<div class="content-detail-wrap">
 		<header class="entry-header">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-lg-6 order-2 order-lg-1">
 					<?php
 					$category = get_the_category(get_the_ID());
-					$category_name = $category[0]->name;
+					$category_slug = $category[0]->slug;
+
 					$page_name = '주간 관측소'; // Default Content Week
-					if (strpos($category_name, "Month")) $page_name = '월간 관측소';
+					$the_date = get_the_date('Y년 n월 j주');
+
+					if (strpos($category_slug, "month")) {
+						$page_name = '월간 관측소';
+						$the_date = get_the_date('Y년 n월 호');
+					}
 					?>
-					<div class="content-detail-date"> <?php echo $page_name, ' ',  get_the_date('Y년 m월 d주'); ?></div>
+					<div class="content-detail-date mt-24 mt-lg-0 text-15 text-md-27"> <?php echo $page_name, ' ',  $the_date; ?></div>
 					<?php
 					if (is_singular()) :
-						the_title('<h1 class="content-detail-title">', '</h1>');
+						the_title('<h1 class="content-detail-title text-22 text-md-43">', '</h1>');
 					else :
-						the_title('<h2 class="content-detail-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
+						the_title('<h2 class="content-detail-title text-22 text-md-43"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
 					endif;
 
 					// Get author: name and email
@@ -36,7 +42,10 @@ $link_share = get_permalink();
 
 					$author_info = $author->display_name . ' | ' . $author->user_email;
 					?>
-					<div class="content-detail-authorinfo"><?php echo $author_info; ?></div>
+					<div class="content-detail-authorinfo text-12 text-md-19"><?php echo $author_info; ?></div>
+
+					<?php $tags = get_the_tags(get_the_ID()); ?>
+					<?php if (is_array($tags) & sizeof($tags) > 0) : ?>
 					<div class="content-detail-hastag">
 						<?php
 						// 	$categories = $wpdb->get_results("
@@ -51,10 +60,7 @@ $link_share = get_permalink();
 						// 		tax.taxonomy = 'category' )
 						// ORDER BY terms.name ASC
 						// ");
-
-
-						$tags = get_the_tags(get_the_ID());
-						$tags_html = '';
+						
 						
 						foreach ($tags as $tag_index => $tag) {
 							echo '<span class="content-detail-tag"># ' . $tag->name . '</span>';
@@ -65,16 +71,17 @@ $link_share = get_permalink();
 						// }
 						?>
 					</div>
+					<?php endif; ?>
 
-					<div class="content-detail-copyright">
+					<div class="content-detail-copyright text-12 text-md-19">
 						<?php
 						$copy_right = get_field('copy_right', get_the_ID());
 						echo $copy_right;
 						?>
 					</div>
 				</div>
-				<div class="col-md-6">
-					<?php vaiv_keyword_post_thumbnail(); ?>
+				<div class="col-lg-6 order-1 order-lg-2">
+					<div class="px-60 px-md-0"><?php vaiv_keyword_post_thumbnail(); ?></div>
 				</div>
 			</div>
 		</header><!-- .entry-header -->
@@ -106,10 +113,10 @@ $link_share = get_permalink();
 
 			<div class="entry-content-viewcount-share">
 				<div class="row">
-					<div class="col-4 col-md-6 align-self-center">
+					<div class="col-3 col-md-3 align-self-center">
 						<span class="content-viewcount"><?php echo pvc_get_post_views($post_id); ?></span>
 					</div>
-					<div class="col-8 col-md-6 text-end">
+					<div class="col-9 col-md-9 text-end">
 						<div class="content-share-wrap">
 							<div class="toast-message">URL 링크가 복사되었습니다.</div>
 							<ul class="content-share">
@@ -143,11 +150,15 @@ $link_share = get_permalink();
 							?>
 						</div>
 
-						<div class="author-category mt-4">
+						<div class="author-category">
 							<?php
-							foreach ($categories as $category) {
-								$category_link = get_category_link($category->ID);
-								echo '<a href="' . $category_link . '" class="entry-content-author-category"># ' . $category->name . '</a>';
+							// foreach ($categories as $category) {
+							// 	$category_link = get_category_link($category->ID);
+							// 	echo '<a href="' . $category_link . '" class="entry-content-author-category"># ' . $category->name . '</a>';
+							// }
+
+							foreach ($tags as $tag_index => $tag) {
+								echo '<span># ' . $tag->name . '</span>';
 							}
 							?>
 						</div>

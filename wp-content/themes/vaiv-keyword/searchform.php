@@ -12,9 +12,6 @@
         <option value="2">제목 + 내용</option>
         <option value="3">해시태그</option>
       </select>
-      <!-- <select name="search_type_tmp" class="search-type-tmp">
-        <option id="search_type_tmp_option"></option>
-      </select> -->
     </div>
   </div>
 

@@ -14,7 +14,7 @@ get_header();
     max-width: 100%;
     position: absolute;
     bottom: 0;
-    opacity: 0.5;
+    opacity: 0.2;
   }
 
   @media (max-width: 767.98px) {
@@ -363,7 +363,7 @@ get_header();
 
         $table_attribute = '';
         if (have_rows('atributes')) :
-          $table_attribute = '<div class="table-responsive mt-4">';
+          $table_attribute = '<div class="table-responsive mt-4 text-23">';
           $table_attribute .= '<table class="table table-borderless">';
           while (have_rows('atributes')) : the_row();
             $attribute_title = get_sub_field('attribute_title');

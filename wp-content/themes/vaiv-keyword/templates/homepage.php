@@ -33,47 +33,47 @@ require_once(ABSPATH . 'conn_external_db.php');
 
 <main id="primary" class="site-main">
   <div class="container px-custom">
-    <div class="hot-brand d-none">
+    <div class="hot-brand">
       <?php
       // Get hot brand data
       $hot_brand_date = elancesoft_get_brand_date($conn);
       $hot_brand_name = elancesoft_get_hot_brand_name($conn);
       $hot_brand_desc = elancesoft_get_hot_brand_description($conn);
 
-      $hot_brand_args = [
-        'category_name' => 'brand-ranking',
-        'posts_per_page' => 1,
-        'orderby'        => array(
-          'ID' => 'DESC'
-        )
-      ];
-      $hot_brand_post = get_posts($hot_brand_args);
       $hot_brand_post_link = "";
       ?>
       <div class="row">
-        <div class="col-md-4 order-2 order-md-1 text-center text-md-start">
+        <div class="col-lg-4 order-2 order-lg-1 text-center text-lg-start">
+          <div data-aos="fade-up">
+            <h4 class="hot-brand-date mt-60 mt-lg-0 mb-0 fade show"><?php echo $hot_brand_date; ?></h4>
+            <h3 class="widget-title hot-brand-title"><?php echo $hot_brand_name; ?></h3>
+          </div>
+          <div class="hot-brand-detail" data-aos="fade-up" id="hot-brand-top1">
+            <div><span class="hot-brand-detail-item-order">TOP 1 </span><span class="hot-brand-detail-item-title"><?php echo $hot_brand_name; ?></span></div>
+            <div class="hot-brand-detail-text"><?php echo $hot_brand_desc; ?></div>
+          </div>
           <?php
-          foreach ($hot_brand_post as $index => $post) :
-            $hot_brand_post_link = get_permalink();
-            echo '
-              <div data-aos="fade-up">
-                <h4 class="hot-brand-date fade show">' . $hot_brand_date . '</h4>
-                <h3 class="widget-title hot-brand-title">' . $hot_brand_name . '</h3>
-              </div>';
+          // foreach ($hot_brand_post as $index => $post) :
+          //   $hot_brand_post_link = get_permalink();
+          //   echo '
+          //     <div data-aos="fade-up">
+          //       <h4 class="hot-brand-date mt-60 mt-lg-0 mb-0 fade show">' . $hot_brand_date . '</h4>
+          //       <h3 class="widget-title hot-brand-title">' . $hot_brand_name . '</h3>
+          //     </div>';
 
-            echo '
-              <div class="hot-brand-detail" data-aos="fade-up" id="hot-brand-top1">
-                <div><span class="hot-brand-detail-item-order">Top ' . ($index + 1) . '</span><span class="hot-brand-detail-item-title"><a href="' . $hot_brand_post_link . '">' . $post->post_title . '</a></span></div>
-                <div class="hot-brand-detail-text">
-                  <a href="' . $hot_brand_post_link . '">' . $post->post_content . '</a>
-                </div>
-              </div>
-              ';
-          endforeach;
+          //   echo '
+          //     <div class="hot-brand-detail" data-aos="fade-up" id="hot-brand-top1">
+          //       <div><span class="hot-brand-detail-item-order">TOP ' . ($index + 1) . '</span><span class="hot-brand-detail-item-title"><a href="' . $hot_brand_post_link . '">' . $post->post_title . '</a></span></div>
+          //       <div class="hot-brand-detail-text">
+          //         <a href="' . $hot_brand_post_link . '">' . $post->post_content . '</a>
+          //       </div>
+          //     </div>
+          //     ';
+          // endforeach;
           ?>
         </div>
 
-        <div class="col-md-7 offset-md-1 order-1 order-md-2">
+        <div class="col-lg-7 offset-lg-1 order-1 order-lg-2">
           <div class="hot-brand-right text-end" data-aos="fade-up">
             <?php
             if (sizeof($hot_brand_image) > 0) :
@@ -157,21 +157,13 @@ require_once(ABSPATH . 'conn_external_db.php');
                 $active = ($index == 0) ? ' active' : '';
 
                 $post_title = $today_pick_post->post_title;
-                // $post_title = '누림의 대중화 ' . ($index + 1);
-
                 $cat_title = get_the_category($today_pick_post->ID)[0]->name;
 
                 $post_link = get_permalink($today_pick_post->ID);
-                $post_date = get_the_date("Y년 m월 d주", $today_pick_post->ID);
-                //$post_thumbnail = get_the_post_thumbnail_url($today_pick_post->ID, 'full');
+                $post_date = get_the_date("Y년 n월 j주", $today_pick_post->ID);
+                // $post_thumbnail = get_the_post_thumbnail_url($today_pick_post->ID, 'full');
 
-                if ($index == 0) {
-                  $post_thumbnail = 'http://some.craft.support/wp-content/uploads/2022/02/today-pick-1.png';
-                } else if ($index == 1) {
-                  $post_thumbnail = 'http://some.craft.support/wp-content/uploads/2022/02/today-pick-3.png';
-                } else {
-                  $post_thumbnail = 'http://some.craft.support/wp-content/uploads/2022/02/today-pick-3.png';
-                }
+                $post_thumbnail = get_field('image_for_main', $today_pick_post->ID);
 
                 echo '
                   <li class="today-pick-slider-item' . $active . '" data-title="' . $post_title . '">
@@ -211,7 +203,7 @@ require_once(ABSPATH . 'conn_external_db.php');
         'category_name' => 'content-week',
         'posts_per_page' => 3,
         'orderby'        => array(
-          'ID' => 'DESC'
+          'date' => 'DESC'
         )
       );
       $trend_query = new WP_Query($trend_args);
@@ -223,12 +215,14 @@ require_once(ABSPATH . 'conn_external_db.php');
             $trend_query->the_post();
             $text_except = get_the_excerpt();
 
+            $post_thumbnail = get_field('image_for_list', get_the_ID());
+
             echo '
-              <div class="trend-list-owl-item">
-                <a href="' . get_permalink() . '"><img src="' . get_the_post_thumbnail_url(get_the_ID(), 'full') . '" class="img-fluid" alt="' . get_the_title() . '" /></a>
+              <div class="trend-list-owl-item 111">
+                <a href="' . get_permalink() . '"><img src="' . $post_thumbnail . '" class="img-fluid" alt="' . get_the_title() . '" /></a>
                 <div class="trend-list-owl-item-body">
                   <h5 class="trend-list-owl-item-title"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h5>
-                  <p class="trend-list-owl-item-date">' . get_the_date("Y년 m월 d주") . '</p>
+                  <p class="trend-list-owl-item-date">' . get_the_date("Y년 n월 j주") . '</p>
                   <div class="trend-list-owl-item-content"><a href="' . get_permalink() . '">' . $text_except . '</a></div>
                 </div>
               </div>
@@ -285,11 +279,12 @@ require_once(ABSPATH . 'conn_external_db.php');
                 // Get Author
                 $post_author_id = (int) $wpdb->get_var($wpdb->prepare("SELECT post_author FROM {$wpdb->posts} WHERE ID = %d ", get_the_ID()));
                 $author =  new WP_User($post_author_id);
-                //$writer = $author->display_name;
-                $writer = '박현영 소장';
+                $writer = $author->display_name;
+                // $writer = '박현영 소장';
 
-                //$post_thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
-                $post_thumbnail = 'http://some.craft.support/wp-content/uploads/2022/01/content-month-image.png';
+                // $post_thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                //$post_thumbnail = 'http://some.craft.support/wp-content/uploads/2022/01/content-month-image.png';
+                $post_thumbnail = get_field('image_for_list', get_the_ID());
 
                 echo '
               <div class="col-md-4" data-aos="fade-right">
@@ -297,7 +292,7 @@ require_once(ABSPATH . 'conn_external_db.php');
               </div>
 
               <div class="col-md-4 offset-md-2" data-aos="fade-left">
-                <p class="monthly-insight-content-date">' . get_the_date('Y년 m월') . ' 호</p>
+                <p class="monthly-insight-content-date">' . get_the_date('Y년 n월') . ' 호</p>
                 <h3 class="monthly-insight-content-title"><a href="' . $monthly_query_post_link . '">' . get_the_title() . '</a></h3>
                 <p class="monthly-insight-content-writer">' . $writer . '</p>
                 <div class="monthly-insight-content-desc"><a href="' . $monthly_query_post_link . '">' . $text_except . '</a></div>

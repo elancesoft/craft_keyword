@@ -45,11 +45,11 @@
 										<div class="search-suggestion-list-item">
 											<div class="search-suggestion-list-thumb"><img src="https://some.craft.support/wp-content/uploads/2022/01/trend-3.png" /></div>
 											<div class="row g-0">
-												<div class="col-md-6">
+												<div class="col-lg-6">
 													<div class="search-suggestion-list-title">브랜드 랭킹</div>
 												</div>
-												<div class="col-md-6">
-													<div class="search-suggestion-list-date text-md-end">2022년 10월 1주</div>
+												<div class="col-lg-6">
+													<div class="search-suggestion-list-date text-lg-end">2022년 10월 1주</div>
 												</div>
 											</div>
 										</div>
@@ -59,11 +59,11 @@
 										<div class="search-suggestion-list-item">
 											<div class="search-suggestion-list-thumb"><img src="https://some.craft.support/wp-content/uploads/2022/01/trend-2.png" /></div>
 											<div class="row g-0">
-												<div class="col-md-6">
+												<div class="col-lg-6">
 													<div class="search-suggestion-list-title">주간관측소</div>
 												</div>
-												<div class="col-md-6">
-													<div class="search-suggestion-list-date text-md-end">2022년 10월 1주</div>
+												<div class="col-lg-6">
+													<div class="search-suggestion-list-date text-lg-end">2022년 10월 1주</div>
 												</div>
 											</div>
 										</div>
@@ -73,11 +73,11 @@
 										<div class="search-suggestion-list-item">
 											<div class="search-suggestion-list-thumb"><img src="https://some.craft.support/wp-content/uploads/2022/01/post-1.png" /></div>
 											<div class="row g-0">
-												<div class="col-md-6">
+												<div class="col-lg-6">
 													<div class="search-suggestion-list-title">월간관측소</div>
 												</div>
-												<div class="col-md-6">
-													<div class="search-suggestion-list-date text-md-end">2022년 10월 1주</div>
+												<div class="col-lg-6">
+													<div class="search-suggestion-list-date text-lg-end">2022년 10월 1주</div>
 												</div>
 											</div>
 										</div>
@@ -97,7 +97,7 @@
 				<div class="row">
 					<div class="col-6 col-md-2">
 						<div class="logo-wrap">
-							<div class="site-branding text-center text-md-start">
+							<div class="site-branding text-center text-md-end">
 								<?php the_custom_logo(); ?>
 							</div>
 						</div>
@@ -123,7 +123,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-3 col-md-3 order-md-3 order-1 1231232321 d-none">
+					<div class="col-3 col-md-3 order-md-3 order-1 d-none">
 						<div class="search-wrap d-none d-md-block">
 							<button class="search-icon">&nbsp;</button>
 							<button class="search-icon-close d-none">&nbsp;</button>

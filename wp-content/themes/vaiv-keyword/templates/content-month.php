@@ -11,21 +11,23 @@ get_header();
   <div class="container px-custom">
     <div class="content-list-wrap">
       <div class="row">
-        <div class="col-md-6 order-2 order-md-1" data-aos="fade-up">
-          <?php
-          while (have_posts()) :
-            the_post();
-            the_title('<h1 class="entry-title mb-5">', '</h1>');
-            the_content();
-          endwhile; // End of the loop.
-          ?>
+        <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-up">
+          <div class="content-list-inner">
+            <?php
+            while (have_posts()) :
+              the_post();
+              the_title('<h1 class="entry-title content-title">', '</h1>');
+              the_content();
+            endwhile; // End of the loop.
+            ?>
+          </div>
         </div>
-        <div class="col-md-6 order-1 order-md-2" data-aos="fade-right">
+        <div class="col-lg-6 order-1 order-lg-2 mb-50 mb-lg-0" data-aos="fade-right">
           <?php vaiv_keyword_post_thumbnail(); ?>
         </div>
       </div>
 
-      <div class="content-item-wrap" id="content">
+      <div class="content-item-wrap" id="content_month">
         <div class="row g-custom-medium-x">
           <?php
           // Build meta query
@@ -36,7 +38,7 @@ get_header();
             'paged' => $paged,
             'meta_query' => $meta_query_array,
             'orderby'        => array(
-              'ID' => 'DESC'
+              'date' => 'DESC'
             )
           );
           $query = new WP_Query($args);
@@ -45,22 +47,23 @@ get_header();
             $index = 1;
             while ($query->have_posts()) {
               $query->the_post();
-              $featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+              // $featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+              $featured_img_url = get_field('image_for_list', get_the_ID());
 
-              $the_title = get_the_title();
+              $the_title = wp_strip_all_tags(get_the_title());
 
               if (mb_strlen($the_title) > 22) {
                 $the_title = mb_substr($the_title, 0, 22) . '...';
               }
           ?>
-              <div class="col-md-3" data-aos="fade-up">
+              <div class="col-md-6 col-lg-3" data-aos="fade-up">
                 <div class="content-item">
                   <div class="content-item-thumbnail">
-                    <a href="<?php echo get_permalink(); ?>"><img src="<?php echo $featured_img_url; ?>" class="img-fluid" alt="<?php echo get_the_title(); ?>" /></a>
+                    <a href="<?php echo get_permalink(); ?>"><img src="<?php echo $featured_img_url; ?>" class="img-fluid" alt="<?php echo wp_strip_all_tags(get_the_title()); ?>" /></a>
                   </div>
                   <div class="d-flex">
                     <div class="content-item-date">
-                      <?php echo get_the_date('Y년 m월 d주'); ?>
+                      <?php echo get_the_date('Y년 n월 j주'); ?>
                       <?php if (($index == 1) && ($paged == 1)) { ?><span class="ms-2 badge bg-primary">New</span><?php } ?>
                     </div>
                   </div>
@@ -93,7 +96,7 @@ get_header();
             if (($paged == 1) && ($max_page > 1)) echo '<a class="prev page-numbers isDisabled"><i class="bi-chevron-left"></i></a>';
 
             echo paginate_links(array(
-              'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big) . '#content')),
+              'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
               'format' => '?paged=%#%',
               'current' => max(1, get_query_var('paged')),
               'total' => $query->max_num_pages,

@@ -83,7 +83,7 @@ jQuery(document).ready(function ($) {
 				stagePadding: 50,
 			},
 			1024: {
-				margin: 20,
+				margin: 60,
 				items: 3,
 				stagePadding: 0,
 			},
