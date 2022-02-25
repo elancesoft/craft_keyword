@@ -58,7 +58,7 @@ get_header();
               }
 
           ?>
-              <div class="col-md-6 col-lg-4" data-aos="fade-up">
+              <div class="col-lg-6 col-xl-4" data-aos="fade-up">
                 <div class="content-item">
                   <div class="content-item-thumbnail">
                     <a href="<?php echo get_permalink(); ?>"><img src="<?php echo $featured_img_url; ?>" class="img-fluid" alt="<?php  echo wp_strip_all_tags(get_the_title()); ?>" /></a>

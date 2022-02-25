@@ -331,7 +331,7 @@ get_header();
         $the_desc = get_sub_field('about_description');
 
         echo '
-          <div class="col-md-4">
+          <div class="col-xl-4">
             <div class="aboutus-activity-item aos-init aos-animate" data-aos="fade-right">
               <div class="aboutus-activity-image"><img src="' . $the_icon['url'] . '" /></div>
               <h3 class="aboutus-activity-title">' . $the_title . '</h3>

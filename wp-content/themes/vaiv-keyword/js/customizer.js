@@ -97,13 +97,13 @@ jQuery(document).ready(function ($) {
 		nav: false,
 		autoplay: false,
 		dots: false,
-		margin: 20,
+		autoWidth: true,
 		responsive: {
 			0: {
 				loop: true,
 				items: 2,
+				margin: 30,
 				stagePadding: 50,
-				margin: 20,
 			},
 			568: {
 				loop: true,
@@ -112,7 +112,7 @@ jQuery(document).ready(function ($) {
 				stagePadding: 50,
 			},
 			1024: {
-				margin: 20,
+				margin: 30,
 				items: 3,
 				stagePadding: 0,
 			},
@@ -142,6 +142,12 @@ jQuery(document).ready(function ($) {
 				stagePadding: 50,
 			},
 			1024: {
+				loop: true,
+				items: 2,
+				margin: 30,
+				stagePadding: 50,
+			},
+			1200: {
 				margin: 20,
 				items: 3,
 				stagePadding: 0,

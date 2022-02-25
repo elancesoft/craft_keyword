@@ -73,7 +73,7 @@ $link_share = get_permalink();
 					</div>
 					<?php endif; ?>
 
-					<div class="content-detail-copyright text-12 text-md-19">
+					<div class="content-detail-copyright mt-45 mt-xl-100 text-12 text-md-19">
 						<?php
 						$copy_right = get_field('copy_right', get_the_ID());
 						echo $copy_right;

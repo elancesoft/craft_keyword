@@ -1,36 +1,42 @@
 <?php
-// $con = mysqli_connect("localhost","my_user","my_password","my_db");
-//$con = mysqli_connect("10.1.41.49","brin_user01","vaivuser01","brin_data");
-//$con = mysqli_connect("112.175.32.149:3389","user220216","user220216!","brin_data");
+$conn = mysqli_connect("112.175.32.149", "brin_data", "daumsoft0531!", "brin_data");
 
-$con = mysqli_connect("112.175.32.149", "brin_data", "daumsoft0531!", "brin_data");
-
-// Check connection
+// check connection
 if (mysqli_connect_errno()) {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   exit();
 }
 
+/**
+ * Get Brand Ranking Detail Rank No 1 NAME
+ * Using Page(s): Brand Ranking Detail
+ */
+function get_brandrankingdetail_rank_no1_name($conn)
+{
+  $query = "
+  SELECT BRIN_SCORE_TB.BRND_NM
+  FROM (
+    SELECT DATE, CATE_NM, BRND_NM, CHNL_NM, MAX(SCORE) as max_score
+    FROM BRIN_SCORE_TB
+    WHERE DATE = '20220207'
+    GROUP BY CATE_NM, BRND_NM
+    ORDER BY max_score DESC limit 10
+  ) t1 INNER JOIN BRIN_SCORE_TB ON t1.DATE = BRIN_SCORE_TB.DATE AND t1.CATE_NM = BRIN_SCORE_TB.CATE_NM AND t1.BRND_NM = BRIN_SCORE_TB.BRND_NM AND t1.max_score = BRIN_SCORE_TB.SCORE
+  LIMIT 1 OFFSET 0;";
 
-// Perform query
-$query = "
-select concat(
-  YEAR(t1.DATE), '년 ',
-  MONTH(t1.DATE), '월 ',
-  week(t1.DATE,5) - week(DATE_SUB(t1.DATE, INTERVAL DAYOFMONTH(t1.DATE)-1 DAY),5), '주차'
-) as WEEK_NM
-FROM (
-  select DATE_SUB('20220207', INTERVAL 7 DAY) as DATE
-) t1
-";
-if ($result = $con->query($query)) {
-
-  while ($row = $result->fetch_assoc()) {
-    print_r($row);
+  $data = null;
+  if ($result = $conn->query($query)) {
+    while ($row = $result->fetch_assoc()) {
+      $data[] = $row;
+      // $data = $row['BRND_NM'];
+    }
+    // Free result set
+    $result->free_result();
   }
 
-  // Free result set
-  $result->free_result();
+  return $data;
 }
 
-$mysqli->close();
+// Call function
+$result = get_brandrankingdetail_rank_no1_name($conn);
+print_r($result);

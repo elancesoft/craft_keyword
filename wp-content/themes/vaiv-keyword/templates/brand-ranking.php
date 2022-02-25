@@ -14,7 +14,7 @@ require_once(ABSPATH . 'conn_external_db.php');
   <div class="container px-custom">
     <div class="brandrakinglist-description">
       <div class="row">
-        <div class="col-md-6 order-2 order-md-1" data-aos="fade-up">
+        <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-up">
           <?php
           while (have_posts()) :
             the_post();
@@ -26,8 +26,8 @@ require_once(ABSPATH . 'conn_external_db.php');
           ?>
         </div>
 
-        <div class="col-md-6 order-1 order-md-2 text-center text-md-end" data-aos="fade-right">
-          <div class="brandrankinglist-thumbnail"><?php vaiv_keyword_post_thumbnail(); ?></div>
+        <div class="col-lg-6 order-1 order-lg-2 text-center text-lg-end" data-aos="fade-right">
+          <div class="brandrankinglist-thumbnail mb-md-50 mb-lg-0"><?php vaiv_keyword_post_thumbnail(); ?></div>
         </div>
       </div>
     </div>
@@ -64,28 +64,34 @@ require_once(ABSPATH . 'conn_external_db.php');
           );
           $query = new WP_Query($args);
 
+
+
+          $upload_date = elancesoft_get_brandranking_upload_month($conn);
+          $the_date = elancesoft_get_brandranking_date($conn);
+          $the_analysis_period = elancesoft_get_brandranking_analysis_period($conn);
+          $top3_tags = elancesoft_get_brandranking_top3_tags($conn);
+
+          // print_r($top3_tags);
+
           if ($query->have_posts()) {
             $index = 1;
             while ($query->have_posts()) {
               $query->the_post();
           ?>
-              <div class="col-md-4">
+              <div class="col-md-6 col-lg-4">
                 <div class="brandranking-top10-item aos-init aos-animate" data-aos="fade-up">
                   <a href="<?php echo get_permalink(); ?>">
-                    <h3 class="brandranking-top10-item-month"><?php echo get_the_date('n'); ?></h3>
-                    <p class="brandranking-top10-item-week"><?php echo get_the_date('Y년 n월 j주'); ?></p>
+                    <h3 class="brandranking-top10-item-month"><?php echo $upload_date; ?></h3>
+                    <p class="brandranking-top10-item-week"><?php echo $the_date; ?></p>
                     <div class="d-flex brandranking-top10-item-period">
-                      <div class="brandranking-top10-item-period-text">10.25 - 10.31</div>
+                      <div class="brandranking-top10-item-period-text"><?php echo $the_analysis_period; ?></div>
                       <?php if (($index == 1) && ($paged == 1)) { ?><div><span class="badge bg-primary">New</span></div><?php } ?>
                     </div>
                   </a>
                   <div class="brandranking-top10-item-hastag page-<?php echo $paged; ?>">
                     <?php
-                    $tags = get_the_tags(get_the_ID());
-                    foreach ($tags as $tag_index => $tag) {
-                      //echo '<a href="' . get_tag_link($tag->term_id) . '"><span># ' . $tag->name . '</span></a>';
-                      echo '<span># ' . $tag->name . '</span>';
-                      if ($tag_index == 2) break; // just get MAX 3 tags
+                    foreach ($top3_tags as $tag_index => $tag) {
+                      echo '<span># ' . $tag . '</span>';
                     }
                     ?>
                   </div>

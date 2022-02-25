@@ -15,21 +15,21 @@
 <footer id="colophon" class="site-footer">
 	<div class="container-footer">
 		<div class="row g-0">
-			<div class="col-lg-9 order-2 order-lg-1">
-				<div class="d-block d-lg-flex">
+			<div class="col-xl-9 order-2 order-xl-1">
+				<div class="d-block d-xl-flex">
 					<div class="footer-logo">
 						<a href="http://vaiv.kr/"><img src="<?php echo get_template_directory_uri() . '/assets/images/logo-vaiv.png'; ?>" alt="logo" /></a>
 					</div>
 					<p class="site-info">
-						(주)바이브컴퍼니ㅣ대표자: 이재용ㅣ<br class="d-lg-none"/>사업자등록번호 : <a href="tel:120-86-08334">120-86-08334</a><br />
+						(주)바이브컴퍼니ㅣ대표자: 이재용ㅣ<br class="d-xl-none"/>사업자등록번호 : <a href="tel:120-86-08334">120-86-08334</a><br />
 						생활변화관측소 서비스 문의 <a href="mailto:7outof1000@vaiv.kr">7outof1000@vaiv.kr</a>ㅣ<br class="d-md-none"/>CopyrightⓒVAIV Company inc. All Rights Reserved.
 					</p>
 				</div>
 			</div>
-			<div class="col-lg-3 order-1 order-lg-2">
+			<div class="col-xl-3 order-1 order-xl-2">
 				<div class="row g-0">
-					<div class="col-lg-6">
-						<div class="footer-social-wrap text-center text-lg-end">
+					<div class="col-xl-6">
+						<div class="footer-social-wrap text-center text-xl-end">
 							<ul class="social-list">
 								<li class="social-item social-list__blog"><a href="https://blog.naver.com/PostList.nhn?blogId=daumsoft_korea" target="_blank"><img src="<?php echo get_template_directory_uri() . '/assets/images/social-b-icon.png'; ?>" /></a></li>
 								<li class="social-item social-list__facebook"><a href="https://www.facebook.com/VAIVcompany" target="_blank"><img src="<?php echo get_template_directory_uri() . '/assets/images/social-f-icon.png'; ?>" /></a></li>
@@ -38,8 +38,8 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col-lg-6">
-						<div class="family-sites text-center text-lg-end">
+					<div class="col-xl-6">
+						<div class="family-sites text-center text-xl-end">
 							<select class="familysite_option" title="패밀리사이트 바로가기" onchange="if(this.value) window.open(this.value);">
 								<option value="" selected="">패밀리사이트</option>
 								<option value="http://vaiv.kr/">바이브컴퍼니</option>
