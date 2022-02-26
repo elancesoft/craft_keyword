@@ -46,31 +46,31 @@ $link_share = get_permalink();
 
 					<?php $tags = get_the_tags(get_the_ID()); ?>
 					<?php if (is_array($tags) & sizeof($tags) > 0) : ?>
-					<div class="content-detail-hastag">
-						<?php
-						// 	$categories = $wpdb->get_results("
-						// SELECT DISTINCT(terms.term_id) as ID, terms.name, terms.slug
-						// FROM $wpdb->posts as posts
-						// LEFT JOIN $wpdb->term_relationships as relationships ON posts.ID = relationships.object_ID
-						// LEFT JOIN $wpdb->term_taxonomy as tax ON relationships.term_taxonomy_id = tax.term_taxonomy_id
-						// LEFT JOIN $wpdb->terms as terms ON tax.term_id = terms.term_id
-						// WHERE 1=1 AND (
-						// 		posts.post_status = 'publish' AND
-						// 		posts.post_author = " . $author->ID . " AND
-						// 		tax.taxonomy = 'category' )
-						// ORDER BY terms.name ASC
-						// ");
-						
-						
-						foreach ($tags as $tag_index => $tag) {
-							echo '<span class="content-detail-tag"># ' . $tag->name . '</span>';
-						}
+						<div class="content-detail-hastag">
+							<?php
+							// 	$categories = $wpdb->get_results("
+							// SELECT DISTINCT(terms.term_id) as ID, terms.name, terms.slug
+							// FROM $wpdb->posts as posts
+							// LEFT JOIN $wpdb->term_relationships as relationships ON posts.ID = relationships.object_ID
+							// LEFT JOIN $wpdb->term_taxonomy as tax ON relationships.term_taxonomy_id = tax.term_taxonomy_id
+							// LEFT JOIN $wpdb->terms as terms ON tax.term_id = terms.term_id
+							// WHERE 1=1 AND (
+							// 		posts.post_status = 'publish' AND
+							// 		posts.post_author = " . $author->ID . " AND
+							// 		tax.taxonomy = 'category' )
+							// ORDER BY terms.name ASC
+							// ");
 
-						// foreach ($categories as $category) {
-						// 	echo '<span class="content-detail-tag"># ' . $category->name . '</span>';
-						// }
-						?>
-					</div>
+
+							foreach ($tags as $tag_index => $tag) {
+								echo '<span class="content-detail-tag"># ' . $tag->name . '</span>';
+							}
+
+							// foreach ($categories as $category) {
+							// 	echo '<span class="content-detail-tag"># ' . $category->name . '</span>';
+							// }
+							?>
+						</div>
 					<?php endif; ?>
 
 					<div class="content-detail-copyright mt-45 mt-xl-100 text-12 text-md-19">
@@ -152,13 +152,12 @@ $link_share = get_permalink();
 
 						<div class="author-category">
 							<?php
-							// foreach ($categories as $category) {
-							// 	$category_link = get_category_link($category->ID);
-							// 	echo '<a href="' . $category_link . '" class="entry-content-author-category"># ' . $category->name . '</a>';
-							// }
+							$tags = get_field('user_tags', 'user_' . $post_author_id);
 
-							foreach ($tags as $tag_index => $tag) {
-								echo '<span># ' . $tag->name . '</span>';
+							if (sizeof($tags) > 0) {
+								foreach ($tags as $tag) {
+									echo '<span># ' . $tag['user_tag'] . '</span>';
+								}
 							}
 							?>
 						</div>

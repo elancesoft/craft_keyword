@@ -93,8 +93,10 @@ require_once(ABSPATH . 'conn_external_db.php');
         $latest_post_from_each_category = array_merge($latest_post_from_each_category, $the_post);
       };
       ?>
+      
       <button id="today-pick-previous-desktop" class="d-none d-xl-inline-block"><i class="bi-chevron-left"></i></button>
       <button id="today-pick-next-desktop" class="d-none d-xl-inline-block"><i class="bi-chevron-right"></i></button>
+
       <div class="row">
         <div class="col-xl-4">
           <div class="today-pick-left" data-aos="fade-up">

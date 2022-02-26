@@ -83,9 +83,11 @@ require_once(ABSPATH . 'conn_external_db.php');
                   <a href="<?php echo get_permalink(); ?>">
                     <h3 class="brandranking-top10-item-month"><?php echo $upload_date; ?></h3>
                     <p class="brandranking-top10-item-week"><?php echo $the_date; ?></p>
-                    <div class="d-flex brandranking-top10-item-period">
+                    <div class="d-flex brandranking-top10-item-period align-items-center">
                       <div class="brandranking-top10-item-period-text"><?php echo $the_analysis_period; ?></div>
-                      <?php if (($index == 1) && ($paged == 1)) { ?><div><span class="badge bg-primary">New</span></div><?php } ?>
+                      <?php if (($index == 1) && ($paged == 1)) { ?>
+                        <span class="brandranking-badge">NEW</span>
+                      <?php } ?>
                     </div>
                   </a>
                   <div class="brandranking-top10-item-hastag page-<?php echo $paged; ?>">
@@ -115,27 +117,27 @@ require_once(ABSPATH . 'conn_external_db.php');
         if ($max_page > 1) :
         ?>
 
-        <div class="row">
-          <div class="col-12">
-            <div class="pagination-wrap brandrakinglist-pagination">
-              <?php
-              $big = 999999999; // need an unlikely integer
+          <div class="row">
+            <div class="col-12">
+              <div class="pagination-wrap brandrakinglist-pagination">
+                <?php
+                $big = 999999999; // need an unlikely integer
 
-              if ($paged == 1 && $max_page != 1) echo '<a class="prev page-numbers isDisabled"><i class="bi-chevron-left"></i></a>';
+                if ($paged == 1 && $max_page != 1) echo '<a class="prev page-numbers isDisabled"><i class="bi-chevron-left"></i></a>';
 
-              echo paginate_links(array(
-                'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
-                'format' => '?paged=%#%',
-                'current' => max(1, get_query_var('paged')),
-                'total' => $query->max_num_pages,
-                'prev_text'          => __('<i class="bi-chevron-left"></i>'),
-                'next_text'          => __('<i class="bi-chevron-right"></i>'),
-              ));
-              if ($paged == $max_page  && $max_page != 1) echo '<a class="next page-numbers isDisabled"><i class="bi-chevron-right"></i></a>';
-              ?>
+                echo paginate_links(array(
+                  'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+                  'format' => '?paged=%#%',
+                  'current' => max(1, get_query_var('paged')),
+                  'total' => $query->max_num_pages,
+                  'prev_text'          => __('<i class="bi-chevron-left"></i>'),
+                  'next_text'          => __('<i class="bi-chevron-right"></i>'),
+                ));
+                if ($paged == $max_page  && $max_page != 1) echo '<a class="next page-numbers isDisabled"><i class="bi-chevron-right"></i></a>';
+                ?>
+              </div>
             </div>
           </div>
-        </div>
         <?php endif; ?>
 
       </div>

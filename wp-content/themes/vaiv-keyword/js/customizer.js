@@ -202,6 +202,35 @@ jQuery(document).ready(function ($) {
 
 	/* SEARCH
 	-------------------------------------------------------------------------------------------------- */
+
+	$(".dropdown-wrap").on("click", function(e) {
+		$(this).toggleClass("show");
+
+		var dropdownItem = e.target;
+
+		console.log(dropdownItem);
+
+		var container = $(this).find(".dropdown-select-value");
+
+		console.log(dropdownItem.nodeValue);
+
+		// container.text(dropdownItem.text);
+
+		// $(dropdownItem)
+		// 	.addClass("active")
+		// 	.siblings()
+		// 	.removeClass("active");
+	});
+
+	$(".dropdown-item-option").on("click", function(e) {
+
+		var selected_value = $(this).html();
+
+		$('.dropdown-wrap').find(".dropdown-select-value").text(selected_value);
+	});
+
+	
+
 	$('.search-icon-close').on('click', function () {
 		$("#overlay").fadeOut(300);
 		$(this).addClass('d-none');
