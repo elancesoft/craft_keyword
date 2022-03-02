@@ -363,8 +363,8 @@ get_header();
 
         $table_attribute = '';
         if (have_rows('atributes')) :
-          $table_attribute = '<div class="table-responsive mt-4 text-23">';
-          $table_attribute .= '<table class="table table-borderless">';
+          $table_attribute = '<div class="table-responsive mt-4 text-11 text-md-23">';
+          $table_attribute .= '<table class="table table-borderless align-middle">';
           while (have_rows('atributes')) : the_row();
             $attribute_title = get_sub_field('attribute_title');
             $attribute_description = get_sub_field('attribute_description');
@@ -373,8 +373,8 @@ get_header();
             $table_attribute .= '
             <tr>
               <td><a href="' . $attribute_link . '"><span class="main-color-blue">' . $attribute_title . '</span></a></td>
-              <td><a href="' . $attribute_link . '">' . $attribute_description . '</a></td>
-              <td><a href="' . $attribute_link . '"><i class="bi-chevron-right"></i></a></td>
+              <td class="text-start"><a href="' . $attribute_link . '">' . $attribute_description . '</a></td>
+              <td class><a href="' . $attribute_link . '"><i class="bi-chevron-right"></i></a></td>
             </tr>';
           endwhile;
           $table_attribute .= '</table>';

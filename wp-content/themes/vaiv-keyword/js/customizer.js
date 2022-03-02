@@ -180,6 +180,7 @@ jQuery(document).ready(function ($) {
 
 		// Change Post Title
 		$('#today-pick-post-title').html(post_title);
+		$('#today-pick-post-title-mobile').html(post_title);
 
 	});
 
@@ -197,6 +198,7 @@ jQuery(document).ready(function ($) {
 
 		// Change Post Title
 		$('#today-pick-post-title').html(post_title);
+		$('#today-pick-post-title-mobile').html(post_title);
 	});
 
 
@@ -242,7 +244,7 @@ jQuery(document).ready(function ($) {
 		var masthead_height = $('#masthead').outerHeight();
 
 		$("#overlay").fadeIn(300);
-		$("#overlay").css('top', masthead_height + 'px');
+		$("#overlay").css('top', masthead_height + 60 + 'px'); // Note 60 is the margin bottom of the .site-header
 		$(this).addClass('d-none');
 		$('.search-icon-close').removeClass('d-none');
 	});
@@ -284,6 +286,11 @@ jQuery(document).ready(function ($) {
 
 	//$('html,body').animate({ scrollTop: $("#content_item_wrap").offset().top }, 'slow');
 
-
+	
+	$("#view-more-content").click(function (event) {
+		$('.content-item-wrap').find('.content-item ').removeClass('visually-hidden-mobile');
+		$(this).addClass('visually-hidden-mobile');
+	});
+	
 
 });

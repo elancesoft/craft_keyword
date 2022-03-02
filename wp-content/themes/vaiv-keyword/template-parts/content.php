@@ -15,7 +15,7 @@ $link_share = get_permalink();
 	<div class="content-detail-wrap">
 		<header class="entry-header">
 			<div class="row">
-				<div class="col-lg-6 order-2 order-lg-1">
+				<div class="col-xl-6 order-2 order-xl-1">
 					<?php
 					$category = get_the_category(get_the_ID());
 					$category_slug = $category[0]->slug;
@@ -28,7 +28,7 @@ $link_share = get_permalink();
 						$the_date = get_the_date('Y년 n월 호');
 					}
 					?>
-					<div class="content-detail-date mt-24 mt-lg-0 text-15 text-md-27"> <?php echo $page_name, ' ',  $the_date; ?></div>
+					<div class="content-detail-date mt-24 mt-xl-0 text-15 text-md-27"> <?php echo $page_name, ' ',  $the_date; ?></div>
 					<?php
 					if (is_singular()) :
 						the_title('<h1 class="content-detail-title text-22 text-md-43">', '</h1>');
@@ -73,15 +73,15 @@ $link_share = get_permalink();
 						</div>
 					<?php endif; ?>
 
-					<div class="content-detail-copyright mt-45 mt-xl-100 text-12 text-md-19">
+					<div class="content-detail-copyright mt-45 mt-xl-65 text-12 text-md-19">
 						<?php
 						$copy_right = get_field('copy_right', get_the_ID());
 						echo $copy_right;
 						?>
 					</div>
 				</div>
-				<div class="col-lg-6 order-1 order-lg-2">
-					<div class="px-60 px-md-0"><?php vaiv_keyword_post_thumbnail(); ?></div>
+				<div class="col-xl-6 order-1 order-xl-2">
+					<div class="px-60 px-xl-0"><?php vaiv_keyword_post_thumbnail(); ?></div>
 				</div>
 			</div>
 		</header><!-- .entry-header -->

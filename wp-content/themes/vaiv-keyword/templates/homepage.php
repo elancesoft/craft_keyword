@@ -46,7 +46,7 @@ require_once(ABSPATH . 'conn_external_db.php');
         <div class="col-xl-4 order-2 order-xl-1 text-center text-xl-start">
           <div data-aos="fade-up">
             <h4 class="hot-brand-date mt-60 mt-xl-0 mb-0 fade show"><?php echo $hot_brand_date; ?></h4>
-            <h3 class="widget-title hot-brand-title"><?php echo $hot_brand_name; ?></h3>
+            <h3 class="widget-title hot-brand-title">화제의 브랜드</h3>
           </div>
           <div class="hot-brand-detail" data-aos="fade-up" id="hot-brand-top1">
             <div><span class="hot-brand-detail-item-order">TOP 1 </span><span class="hot-brand-detail-item-title"><?php echo $hot_brand_name; ?></span></div>
@@ -92,8 +92,10 @@ require_once(ABSPATH . 'conn_external_db.php');
         $the_post = PVC_GET_MOST_VIEWED_POSTS($today_pick_args);
         $latest_post_from_each_category = array_merge($latest_post_from_each_category, $the_post);
       };
+
+      $the_default_post_title_for_both_mobile_and_desktop = '';
       ?>
-      
+
       <button id="today-pick-previous-desktop" class="d-none d-xl-inline-block"><i class="bi-chevron-left"></i></button>
       <button id="today-pick-next-desktop" class="d-none d-xl-inline-block"><i class="bi-chevron-right"></i></button>
 
@@ -112,8 +114,9 @@ require_once(ABSPATH . 'conn_external_db.php');
 
               foreach ($latest_post_from_each_category as $index => $today_pick_post) :
                 if ($index == 0) {
-                  $post_title = $today_pick_post->post_title;
-                  echo '<h4 id="today-pick-post-title" class="widget-title today-pick-sub-title bg-border d-none d-xl-inline-block">' . $post_title . '</h4>';
+                  $the_default_post_title_for_both_mobile_and_desktop = $today_pick_post->post_title;
+
+                  echo '<h4 id="today-pick-post-title" class="widget-title today-pick-sub-title bg-border d-none d-xl-inline-block">' . $the_default_post_title_for_both_mobile_and_desktop . '</h4>';
                   break;
                 }
               endforeach;
@@ -121,6 +124,7 @@ require_once(ABSPATH . 'conn_external_db.php');
             </div>
           </div>
         </div>
+
         <div class="col-xl-8 text-center text-xl-end">
           <div class="today-pick-slider" data-aos="fade-up">
             <button id="today-pick-previous" class="d-xl-none"><i class="bi-chevron-left"></i></button>
@@ -131,7 +135,7 @@ require_once(ABSPATH . 'conn_external_db.php');
               echo '
                 <li class="today-pick-slider-item" data-title="' . $hot_brand_name . '">
                 <div class="today-pick-slider-item-overlay">&nbsp;</div>
-                <p class="today-pick-slider-item-title mb-2">브랜드 랭킹</p>
+                <p class="today-pick-slider-item-title mb-2 text-blue font-semibold">브랜드 랭킹</p>
                 <img src="http://some.craft.support/wp-content/uploads/2022/02/today-pick-2.png" />
                 <p class="today-pick-slider-item-date mt-2">' . $hot_brand_date . '</p>
                 </li>
@@ -142,10 +146,16 @@ require_once(ABSPATH . 'conn_external_db.php');
 
                 $post_title = $today_pick_post->post_title;
                 $cat_title = get_the_category($today_pick_post->ID)[0]->name;
+                $cat_slug = get_the_category($today_pick_post->ID)[0]->slug;
+
+                $post_date = get_the_date("Y년 n월 j주", $today_pick_post->ID);
+
+                if ($cat_slug == 'content-month') {
+                  $post_date = get_the_date("Y년 n월 호", $today_pick_post->ID);
+                }
 
                 $post_link = get_permalink($today_pick_post->ID);
-                $post_date = get_the_date("Y년 n월 j주", $today_pick_post->ID);
-                // $post_thumbnail = get_the_post_thumbnail_url($today_pick_post->ID, 'full');
+                
 
                 $post_thumbnail = get_field('image_for_main', $today_pick_post->ID);
 
@@ -163,7 +173,7 @@ require_once(ABSPATH . 'conn_external_db.php');
           </div>
         </div>
         <div class="col-12 text-center d-xl-none">
-          <h4 class="widget-title today-pick-sub-title bg-border d-inline-block">누림의 대중화</h4>
+          <h4  id="today-pick-post-title-mobile" class="widget-title today-pick-sub-title bg-border d-inline-block"><?php echo $the_default_post_title_for_both_mobile_and_desktop; ?></h4>
         </div>
       </div>
     </div>

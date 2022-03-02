@@ -19,10 +19,24 @@
         </div>
       </div>
       
+      <?php
+      $searh_type = isset($_GET['search_type']) ? $_GET['search_type'] : null; // search type: null/1 (all), 2 (title + content), 3 (tag)
+
+      $is_all = '';
+      $is_title_content = '';
+      $is_tag = '';
+      if (isset($searh_type) && ($searh_type == 1) || ($searh_type == 0)) {
+        $is_all = 'selected';
+      } else if ($searh_type == 2) {
+        $is_title_content = 'selected';
+      } else {
+        $is_tag = 'selected';
+      }
+      ?>
       <select name="search_type" class="search-type">
-        <option value="1">전체</option>
-        <option value="2">제목 + 내용</option>
-        <option value="3">해시태그</option>
+        <option value="1" <?php echo $is_all; ?>>전체</option>
+        <option value="2" <?php echo $is_title_content; ?>>제목 + 내용</option>
+        <option value="3" <?php echo $is_tag; ?>>해시태그</option>
       </select>
     </div>
   </div>

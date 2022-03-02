@@ -92,12 +92,23 @@ function elancesoft_get_hot_brand_description($conn)
  */
 function elancesoft_get_brandranking_upload_month($conn)
 {
-  $query = "SELECT MONTH(DATE_SUB('20220207', INTERVAL 7 DAY)) AS MONTH";
+  $query = "
+  select MONTH(DATE_SUB(t1.DATE, INTERVAL 7 DAY)) AS MONTH
+FROM (
+        select DATE_ADD(DATE, INTERVAL 7 DAY) as DATE
+           from (
+                   select distinct DATE
+                from BRIN_SCORE_TB
+                order by DATE desc
+                limit 10
+    ) t2
+) t1";
 
-  $data = null;
+  $data = array();
   if ($result = $conn->query($query)) {
     while ($row = $result->fetch_assoc()) {
-      $data = $row['MONTH'];
+      $data[] = $row;
+      //$data = $row['MONTH'];
     }
     // Free result set
     $result->free_result();
@@ -117,15 +128,24 @@ function elancesoft_get_brandranking_date($conn)
     YEAR(t1.DATE), '년 ',
     MONTH(t1.DATE), '월 ',
     week(t1.DATE,5) - week(DATE_SUB(t1.DATE, INTERVAL DAYOFMONTH(t1.DATE)-1 DAY),5), '주차'
-  ) as WEEK_NM
-  FROM (
-      select DATE_SUB('20220207', INTERVAL 7 DAY) as DATE
-  ) t1";
+) as WEEK_NM
+FROM (
+    select DATE_ADD(DATE, INTERVAL 7 DAY) as DATE
+       from (
+               select distinct DATE
+            from BRIN_SCORE_TB
+            order by DATE desc
+            limit 10
+) t2
+) t1";
 
-  $data = null;
+  
+
+  $data = array();
   if ($result = $conn->query($query)) {
     while ($row = $result->fetch_assoc()) {
-      $data = $row['WEEK_NM'];
+      $data[] = $row;
+      // $data = $row['WEEK_NM'];
     }
     // Free result set
     $result->free_result();
@@ -140,12 +160,23 @@ function elancesoft_get_brandranking_date($conn)
  */
 function elancesoft_get_brandranking_analysis_period($conn)
 {
-  $query = "SELECT concat(DATE_FORMAT(DATE_SUB('20220207', INTERVAL 7 DAY), '%m.%d'), '~', DATE_FORMAT(DATE_SUB('20220207', INTERVAL 1 DAY), '%m.%d')) as DATE;";
+  $query = "
+  select concat(DATE_FORMAT(DATE_SUB(t1.DATE, INTERVAL 7 DAY), '%m.%d'), '~', DATE_FORMAT(DATE_SUB(t1.DATE, INTERVAL 1 DAY), '%m.%d')) as WEEK_NM
+FROM (
+        select DATE_SUB(DATE, INTERVAL 7 DAY) as DATE
+           from (
+                   select distinct DATE
+                from BRIN_SCORE_TB
+                order by DATE desc
+                limit 10
+    ) t2
+) t1";
 
-  $data = null;
+  $data = array();
   if ($result = $conn->query($query)) {
     while ($row = $result->fetch_assoc()) {
-      $data = $row['DATE'];
+      $data[] = $row;
+      // $data = $row['DATE'];
     }
     // Free result set
     $result->free_result();

@@ -181,8 +181,6 @@ $brandranking_options = get_field('brand_ranking_options', 'options');
 							$top_no1_logo = elancesoft_get_brandrankingdetail_rank_no1_logo($conn);
 							$top_no1_keyword = elancesoft_get_brandrankingdetail_rank_no1_keyword($conn);
 
-							// print_r($top_no1_logo);
-
 							// echo $top_no1_name;
 							if (isset($top_3_brand_posts[0])) :
 								$top_1 = $top_3_brand_posts[0];
@@ -240,9 +238,18 @@ $brandranking_options = get_field('brand_ranking_options', 'options');
 								$hotsns = get_field('brand_hot_sns', $top3_post->ID);
 								$score = empty(get_field('brand_score', $top3_post->ID)) ? '-' : get_field('brand_score', $top3_post->ID);
 
+								$the_order = '';
+								if ($index + 1 == 1) {
+									$the_order = '1<span>st</span>';
+								} else if ($index + 1 == 2) {
+									$the_order = '2<span>nd</span>';
+								} else {
+									$the_order = '3<span>rd</span>';
+								}
+
 								echo '
 								<div class="brandranking-detail-top3-slider-mobile-item number-' . ($index + 1) . '">
-									<h3 class="brandranking-detail-top3-slider-mobile-item-order">' . ($index + 1) . '<span>rd</span></h3>
+									<h3 class="brandranking-detail-top3-slider-mobile-item-order">' . $the_order . '</h3>
 									<div class="brandranking-detail-top3-slider-mobile-item-title">' . $top3_post->post_title . '</div>
 									<div class="brandranking-detail-top3-slider-mobile-item-logo">
 										<img src="' . get_the_post_thumbnail_url($top3_post->ID, 'full') . '" alt="Logo" />

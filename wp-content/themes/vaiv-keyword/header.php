@@ -25,6 +25,11 @@
 
 	<?php wp_head(); ?>
 </head>
+<?php
+// Connect to external db
+// require_once(ABSPATH . 'conn_external_db.php');
+
+?>
 
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
@@ -62,8 +67,6 @@
 								];
 								$the_post = PVC_GET_MOST_VIEWED_POSTS($today_pick_args);
 								$latest_post_from_each_category = array_merge($latest_post_from_each_category, $the_post);
-
-								// print_r($latest_post_from_each_category);
 							};
 							?>
 
@@ -71,6 +74,7 @@
 							<div class="search-suggestion-wrap">
 								<h3>지금 뜨는 콘텐츠</h3>
 								<div class="search-suggestion-list owl-carousel owl-theme">
+									<!-- This is the brand ranking item -->
 									<div class="search-suggestion-list-item">
 										<div class="search-suggestion-list-thumb"><img src="http://some.craft.support/wp-content/uploads/2022/02/today-pick-2.png" /></div>
 										<div class="row g-0">
@@ -83,11 +87,20 @@
 										</div>
 									</div>
 
+									<!-- Show suggestion for content week and month -->
 									<?php
 									foreach ($latest_post_from_each_category as $post_item) :
 										$the_img_src = get_field('image_for_main', $post_item->ID);
-										$the_date = get_the_date("Y년 n월 j주", $post_item);
+										
+										$cat_slug = get_the_category($post_item->ID)[0]->slug;
 										$cat_title = get_the_category($post_item->ID)[0]->name;
+
+										$the_date = get_the_date("Y년 n월 j주", $post_item);
+										
+										if ($cat_slug == 'content-month') {
+											$the_date = get_the_date("Y년 n월 호", $post_item);
+										}
+
 										$the_link = get_permalink($post_item->ID);
 
 										echo '
@@ -119,14 +132,14 @@
 		<header id="masthead" class="site-header">
 			<div class="container-header">
 				<div class="row">
-					<div class="col-6 col-xl-2">
+					<div class="col-6 col-sm-3 col-xl-2">
 						<div class="logo-wrap">
 							<div class="site-branding text-center text-xl-end">
 								<?php the_custom_logo(); ?>
 							</div>
 						</div>
 					</div>
-					<div class="col-6 col-xl-10 order-xl-2 order-3">
+					<div class="col-6 col-sm-9 col-xl-10 order-xl-2 order-3">
 						<div class="menu-search-wrap d-flex">
 							<div class="menu-wrap flex-grow-1">
 								<nav id="site-navigation" class="main-navigation">

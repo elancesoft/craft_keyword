@@ -65,18 +65,19 @@ require_once(ABSPATH . 'conn_external_db.php');
           $query = new WP_Query($args);
 
 
-
           $upload_date = elancesoft_get_brandranking_upload_month($conn);
           $the_date = elancesoft_get_brandranking_date($conn);
           $the_analysis_period = elancesoft_get_brandranking_analysis_period($conn);
           $top3_tags = elancesoft_get_brandranking_top3_tags($conn);
 
-          // print_r($top3_tags);
+          $total_item = sizeof($upload_date);
 
           if ($query->have_posts()) {
             $index = 1;
             while ($query->have_posts()) {
               $query->the_post();
+              // $test_post = get_post();
+              // print_r($test_post);
           ?>
               <div class="col-md-6 col-lg-4">
                 <div class="brandranking-top10-item aos-init aos-animate" data-aos="fade-up">

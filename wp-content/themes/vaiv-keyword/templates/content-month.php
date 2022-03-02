@@ -11,7 +11,7 @@ get_header();
   <div class="container px-custom">
     <div class="content-list-wrap">
       <div class="row">
-        <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-up">
+        <div class="col-xl-6 order-2 order-xl-1" data-aos="fade-up">
           <div class="content-list-inner">
             <?php
             while (have_posts()) :
@@ -22,7 +22,7 @@ get_header();
             ?>
           </div>
         </div>
-        <div class="col-lg-6 order-1 order-lg-2 mb-50 mb-lg-0" data-aos="fade-right">
+        <div class="col-xl-6 order-1 order-xl-2 mb-50 mb-xl-0" data-aos="fade-right">
           <?php vaiv_keyword_post_thumbnail(); ?>
         </div>
       </div>
@@ -45,6 +45,8 @@ get_header();
 
           if ($query->have_posts()) {
             $index = 1;
+            $opacity_index = 1;
+
             while ($query->have_posts()) {
               $query->the_post();
               // $featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
@@ -55,15 +57,20 @@ get_header();
               if (mb_strlen($the_title) > 22) {
                 $the_title = mb_substr($the_title, 0, 22) . '...';
               }
+
+              if ($opacity_index == 7) {
+                $opacity_cls = "visually-hidden-mobile";
+                $opacity_index = 0;
+              }
           ?>
               <div class="col-lg-6 col-xl-3" data-aos="fade-up">
-                <div class="content-item">
+                <div class="content-item <?php echo $opacity_cls; ?>">
                   <div class="content-item-thumbnail">
                     <a href="<?php echo get_permalink(); ?>"><img src="<?php echo $featured_img_url; ?>" class="img-fluid" alt="<?php echo wp_strip_all_tags(get_the_title()); ?>" /></a>
                   </div>
                   <div class="d-flex">
                     <div class="content-item-date">
-                      <?php echo get_the_date('Y년 n월 j주'); ?>
+                      <?php echo get_the_date('Y년 n월 호'); ?>
                       <?php if (($index == 1) && ($paged == 1)) { ?><span class="ms-2 badge bg-primary">New</span><?php } ?>
                     </div>
                   </div>
@@ -73,8 +80,16 @@ get_header();
                 </div>
               </div>
             <?php
+              $opacity_index++;
               $index++;
             }
+
+            // Show view more button
+            echo '
+            <div class="d-flex d-xl-none justify-content-center mb-30">
+              <button id="view-more-content" class="border-white rounded rounded-pill bg-black-100 py-6 px-16 text-13 text-black-300">더보기 +</button>
+            </div>
+            ';
           } else {
             ?>
             <div class="col-12">
