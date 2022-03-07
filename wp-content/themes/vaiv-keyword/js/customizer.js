@@ -6,6 +6,30 @@ jQuery(document).ready(function ($) {
 		duration: 600, // values from 0 to 3000, with step 50ms
 	});
 
+	// Tab Content
+	let tabsContainer = document.querySelector("#tabs");
+	let tabTogglers = tabsContainer.querySelectorAll("#tabs a");
+
+	tabTogglers.forEach(function (toggler) {
+		toggler.addEventListener("click", function (e) {
+			e.preventDefault();
+
+			let tabName = this.getAttribute("href");
+			let tabContents = document.querySelector("#tab-contents");
+
+			for (let i = 0; i < tabContents.children.length; i++) {
+				tabTogglers[i].parentElement.classList.remove("border-t", "border-r", "border-l", "-mb-px", "bg-white"); tabContents.children[i].classList.remove("hidden");
+				if ("#" + tabContents.children[i].id === tabName) {
+					continue;
+				}
+				tabContents.children[i].classList.add("hidden");
+			}
+			e.target.parentElement.classList.add("border-t", "border-r", "border-l", "-mb-px", "bg-white");
+		});
+	});
+	// End Tab content
+
+
 	/* TOP Button
 	------------------------------------------------------------------------------------------- */
 	var top_btn = $('#top_button');
@@ -59,7 +83,7 @@ jQuery(document).ready(function ($) {
 
 	/* Show tooltip
 	------------------------------------------------------------------------------------------- */
-	$('[data-bs-toggle="tooltip"]').tooltip({ html: true });
+	// $('[data-bs-toggle="tooltip"]').tooltip({ html: true });
 
 	/* Home page: Trend List
 	------------------------------------------------------------------------------------------- */
@@ -68,23 +92,22 @@ jQuery(document).ready(function ($) {
 		nav: false,
 		autoplay: false,
 		dots: false,
-		margin: 20,
+		// autoWidth: true,
 		responsive: {
 			0: {
 				loop: true,
 				items: 1,
-				stagePadding: 50,
-				margin: 20,
+				stagePadding: 80,
+				margin: 17,
 			},
-			568: {
-				loop: true,
-				items: 1,
-				margin: 30,
-				stagePadding: 50,
+			768: {
+				items: 3,
+				margin: 44,
+				stagePadding: 0,
 			},
 			1024: {
-				margin: 60,
 				items: 3,
+				margin: 44,
 				stagePadding: 0,
 			},
 		}
@@ -205,7 +228,7 @@ jQuery(document).ready(function ($) {
 	/* SEARCH
 	-------------------------------------------------------------------------------------------------- */
 
-	$(".dropdown-wrap").on("click", function(e) {
+	$(".dropdown-wrap").on("click", function (e) {
 		$(this).toggleClass("show");
 
 		var dropdownItem = e.target;
@@ -224,14 +247,14 @@ jQuery(document).ready(function ($) {
 		// 	.removeClass("active");
 	});
 
-	$(".dropdown-item-option").on("click", function(e) {
+	$(".dropdown-item-option").on("click", function (e) {
 
 		var selected_value = $(this).html();
 
 		$('.dropdown-wrap').find(".dropdown-select-value").text(selected_value);
 	});
 
-	
+
 
 	$('.search-icon-close').on('click', function () {
 		$("#overlay").fadeOut(300);
@@ -249,7 +272,7 @@ jQuery(document).ready(function ($) {
 		$('.search-icon-close').removeClass('d-none');
 	});
 
-	$('.share-by-copy').on('click', function () {
+	$('#share-by-copy').on('click', function () {
 		let data_link = $(this).data('link');
 		navigator.clipboard.writeText(data_link);
 
@@ -286,11 +309,11 @@ jQuery(document).ready(function ($) {
 
 	//$('html,body').animate({ scrollTop: $("#content_item_wrap").offset().top }, 'slow');
 
-	
+
 	$("#view-more-content").click(function (event) {
-		$('.content-item-wrap').find('.content-item ').removeClass('visually-hidden-mobile');
-		$(this).addClass('visually-hidden-mobile');
+		$('#content_list').find('.content-item ').removeClass('hidden');
+		$(this).addClass('hidden');
 	});
-	
+
 
 });

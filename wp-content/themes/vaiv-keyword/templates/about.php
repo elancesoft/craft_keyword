@@ -187,7 +187,6 @@ get_header();
       }
     })
 
-
     // Add cursor
     // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
     var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
@@ -232,7 +231,6 @@ get_header();
       lastDataItem.dataContext.bullet = false;
       lastDataItem.bullets = [];
 
-
       var animation = newDataItem.animate({
         key: "locationX",
         to: 0.5,
@@ -249,7 +247,6 @@ get_header();
       }
     }
 
-
     // Make stuff animate on load
     // https://www.amcharts.com/docs/v5/concepts/animations/
     chart.appear(1000, 100);
@@ -259,7 +256,6 @@ get_header();
 </script>
 
 <!-- HTML -->
-
 <main id="primary" class="site-main-aboutus">
   <div class="container px-custom">
     <div id="aboutus-banner" class="aboutus-banner main-banner-section">
@@ -300,7 +296,6 @@ get_header();
         <div class="bubble"></div>
         <div class="bubble"></div>
       </div>
-
     </div>
 
     <div class="aboutus-description" data-aos="fade-up">

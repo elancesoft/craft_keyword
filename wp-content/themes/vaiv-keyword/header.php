@@ -28,16 +28,14 @@
 <?php
 // Connect to external db
 // require_once(ABSPATH . 'conn_external_db.php');
-
 ?>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('w-full font-noto font-normal text-12 text-gray-70'); ?>>
 	<?php wp_body_open(); ?>
-	<a id="top_button"><span>TOP</span></a>
-	<div id="page" class="site">
-		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'vaiv-keyword'); ?></a>
+	<a id="top_button" class="hidden"><span>TOP</span></a>
 
-		<div id="overlay">
+	<div id="page" class="overflow-hidden">
+		<div id="overlay" class="hidden">
 			<div class="overlay-sub">
 				<div class="container px-custom">
 					<div class="row">
@@ -91,12 +89,12 @@
 									<?php
 									foreach ($latest_post_from_each_category as $post_item) :
 										$the_img_src = get_field('image_for_main', $post_item->ID);
-										
+
 										$cat_slug = get_the_category($post_item->ID)[0]->slug;
 										$cat_title = get_the_category($post_item->ID)[0]->name;
 
 										$the_date = get_the_date("Y년 n월 j주", $post_item);
-										
+
 										if ($cat_slug == 'content-month') {
 											$the_date = get_the_date("Y년 n월 호", $post_item);
 										}
@@ -130,8 +128,38 @@
 		<div id="overlay-menu">&nbsp;</div>
 
 		<header id="masthead" class="site-header">
-			<div class="container-header">
-				<div class="row">
+			<div class="container mx-auto pt-[32px] pb-60 md:max-w-[845px] md:pt-[47px] md:pb-[85px] xl:max-w-[1280px] xl:pt-[74px] xl:pb-[118px] 2xl:max-w-[1800px]">
+				<div class="grid grid-cols-12">
+
+					<!-- Logo Section	 -->
+					<div class="col-span-2">
+						<div class="">
+							<?php the_custom_logo(); ?>
+						</div>
+					</div>
+
+					<!-- Menu Section -->
+					<div class="col-span-9">
+						<nav id="site-navigation" class="main-navigation">
+							<button class="menu-toggle md:hidden" aria-controls="primary-menu" aria-expanded="false"><i class="bi-list"></i></button>
+							<?php
+							wp_nav_menu(
+								array(
+									'theme_location' => 'menu-1',
+									'menu_id'        => 'primary-menu',
+								)
+							);
+							?>
+						</nav><!-- #site-navigation -->
+					</div>
+
+					<!-- Search Icon Section -->
+					<div class="flex items-center">
+						<button class="bg-search-icon bg-cover bg-no-repeat md:w-[18px] md:h-[16.7px] 2xl:w-[58px] 2xl:h-[54px]">&nbsp;</button>
+					</div>
+				</div>
+
+				<div class="row hidden">
 					<div class="col-6 col-sm-3 col-xl-2">
 						<div class="logo-wrap">
 							<div class="site-branding text-center text-xl-end">
