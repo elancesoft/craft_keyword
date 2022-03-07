@@ -71,15 +71,27 @@ require_once(ABSPATH . 'conn_external_db.php');
 
         $total_item = sizeof($upload_date);
 
-        if ($query->have_posts()) {
-          $index = 1;
-          while ($query->have_posts()) {
-            $query->the_post();
+        $brand_ranking_list = array();
+        $brand_ranking_list_item = array(
+          'upload_month' => '1',
+          'date' => '2022년 01월 4주',
+          'period' => '10.25 - 10.31',
+          'hashtag' => array ('뷰티', '식음', '기타')
+        );
 
+        for ($i = 1; $i <= 12; $i++) {
+          $brand_ranking_list[] = $brand_ranking_list_item;
+        }
+
+        if (sizeof($brand_ranking_list) > 0) {
+          $index = 1;
+          foreach ($brand_ranking_list as $item) {
             $class_border_top = '';
+            $class_text_color_item = 'text-gray-4c';
             if (($paged == 1) && ($index <= 3)) {
               if ($index == 1) {
                 $class_border_top = 'border-t border-t-gray-87';
+                $class_text_color_item = 'text-blue-0f';
               } else {
                 $class_border_top = 'md:border-t md:border-t-gray-87';
               }
@@ -88,18 +100,18 @@ require_once(ABSPATH . 'conn_external_db.php');
         ?>
             <div class="<?php echo $class_border_top;?> border-b border-b-gray-dd py-[12px] md:pt-[26px] md:pb-[12px] xl:py-30" data-aos="fade-up">
               <a href="<?php echo get_permalink(); ?>" class="inline-block">
-                <h3 class="font-roboto font-medium text-gray-9a opacity-25 text-40 md:text-40 xl:text-[77px]"><?php echo $upload_date; ?></h3>
-                <p class="font-medium text-15 text-gray-4c xl:text-27"><?php echo $the_date; ?></p>
+                <h3 class="font-roboto font-medium text-gray-9a opacity-25 text-40 md:text-40 xl:text-[77px]"><?php echo $item['upload_month']; ?></h3>
+                <p class="font-medium text-15 xl:text-27 <?php echo $class_text_color_item; ?>"><?php echo $item['date']; ?></p>
                 <div class="flex items-center">
-                  <div class="font-roboto text-15 text-gray-4c md:font-light xl:text-31"><?php echo $the_analysis_period; ?></div>
+                  <div class="font-roboto text-15 text-gray-4c md:font-light xl:text-31"><?php echo $item['period']; ?></div>
                   <?php if (($index == 1) && ($paged == 1)) { ?>
                     <span class="rounded-full px-1.5 bg-blue-0f ml-1 text-white text-11 xl:text-20">NEW</span>
                   <?php } ?>
                 </div>
               </a>
-              <div class="flex  text-gray-4c text-13 gap-3 mt-20 md:mt-[43px] xl:mt-[92px] xl:text-20 page-<?php echo $paged; ?>">
+              <div class="flex <?php echo $class_text_color_item; ?> text-13 gap-3 mt-20 md:mt-[43px] xl:mt-[92px] xl:text-20 page-<?php echo $paged; ?>">
                 <?php
-                foreach ($top3_tags as $tag_index => $tag) {
+                foreach ($item['hashtag'] as $tag_index => $tag) {
                   echo '<span># ' . $tag . '</span>';
                 }
                 ?>
