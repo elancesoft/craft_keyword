@@ -9,14 +9,14 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article class="text-center text-13 xl:text-27">
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php the_title( '<h1 class="text-22 md:text-20 xl:text-60 font-bold xl:font-medium text-blue-0f">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
 	<?php vaiv_keyword_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="mt-[8px] md:mt-[18px] xl:mt-[23px]">
 		<?php
 		the_content();
 

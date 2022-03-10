@@ -11,7 +11,7 @@
 get_header();
 ?>
 
-<main id="primary" class="container px-6 mx-auto md:px-0 md:max-w-2xl xl:container">
+<main id="primary" class="single-content-page container px-6 mx-auto md:px-0 md:max-w-2xl xl:container">
 	<div class="container">
 		<?php
 		while (have_posts()) :
@@ -51,13 +51,11 @@ get_header();
 
 				the_post_navigation(
 					array(
-						'prev_text' => '<span class="nav-subtitle"><i class="bi-chevron-left"></i> 이전글</span> <span class="nav-title">' . $prev_title . '</span>',
-						'next_text' => '<span class="nav-subtitle d-block d-md-none">다음글 <i class="bi-chevron-right"></i></span> <span class="nav-title">' . $next_title . '</span> <span class="nav-subtitle d-none d-md-inline-block">다음글 <i class="bi-chevron-right"></i></span>',
+						'prev_text' => '<span class="nav-subtitle block md:inline-block"><i class="bi-chevron-left"></i> 이전글</span> <span class="nav-title">' . $prev_title . '</span>',
+						'next_text' => '<span class="nav-subtitle block text-right md:hidden">다음글 <i class="bi-chevron-right"></i></span> <span class="nav-title">' . $next_title . '</span> <span class="nav-subtitle hidden md:inline-block">다음글 <i class="bi-chevron-right"></i></span>',
 						'in_same_term' => true,
 					)
 				);
-
-				
 			}
 		endwhile; // End of the loop.
 		?>

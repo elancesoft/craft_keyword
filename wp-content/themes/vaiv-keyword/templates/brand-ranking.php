@@ -26,7 +26,7 @@ require_once(ABSPATH . 'conn_external_db.php');
       </div>
     </div>
 
-    <div class="order-1 md:order-2 md:col-span-6 md:col-end-13" data-aos="fade-right">
+    <div class="order-1 md:order-2 md:col-span-6 md:col-end-13 md:flex md:items-end" data-aos="fade-right">
       <div class="brandrankinglist-thumbnail mb-md-50 mb-lg-0"><?php vaiv_keyword_post_thumbnail(); ?></div>
     </div>
   </div>
@@ -72,15 +72,22 @@ require_once(ABSPATH . 'conn_external_db.php');
         $total_item = sizeof($upload_date);
 
         $brand_ranking_list = array();
-        $brand_ranking_list_item = array(
-          'upload_month' => '1',
-          'date' => '2022년 01월 4주',
-          'period' => '10.25 - 10.31',
-          'hashtag' => array ('뷰티', '식음', '기타')
-        );
 
         for ($i = 1; $i <= 12; $i++) {
-          $brand_ranking_list[] = $brand_ranking_list_item;
+          $brand_ranking_list[] = array(
+            'ID' => $i,
+            'name' => 'Brand ' . $i,
+            'category' => 'Category Name ' . $i,
+            'description' => 'Description for this brand ' . $i,
+            'upload_month' => rand(1,12),
+            'date' => '2022년 01월 4주',
+            'period' => '10.25 - 10.31',
+            'keyword' => 'keyword tet ' . $i,
+            'sns_logo' => 'twitter',
+            'score' => rand(1, 100) / 10,
+            'logo' => 'https://some.craft.support/wp-content/uploads/2022/01/brand-6.png',
+            'hashtag' => array ('뷰티', '식음', '기타')
+          );
         }
 
         if (sizeof($brand_ranking_list) > 0) {

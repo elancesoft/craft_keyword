@@ -10,7 +10,6 @@ get_header();
 <style>
   #chartdiv {
     width: 100%;
-    height: 415px;
     max-width: 100%;
     position: absolute;
     bottom: 0;
@@ -256,139 +255,133 @@ get_header();
 </script>
 
 <!-- HTML -->
-<main id="primary" class="site-main-aboutus">
-  <div class="container px-custom">
-    <div id="aboutus-banner" class="aboutus-banner main-banner-section">
-      <div id="chartdiv"></div>
-      <div class="aboutus-banner-text text-center">
-        <?php
-        $banner_text = get_field('banner_text', get_the_ID());
-        $banner_title_line1 = get_field('banner_title_line1', get_the_ID());
-        $banner_title_line2 = get_field('banner_title_line2', get_the_ID());
-        ?>
-
-        <h1 class="entry-title">
-          <span class="main-color-black"><?php echo $banner_title_line1; ?></span><br>
-          <?php echo $banner_title_line2; ?>
-        </h1>
-        <div class="aboutus-banner-desc"><?php echo $banner_text; ?></div>
-      </div>
-
-      <div class="bubbles">
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-      </div>
-    </div>
-
-    <div class="aboutus-description" data-aos="fade-up">
+<main id="primary" class="single-content-page container px-6 mx-auto md:px-0 md:max-w-2xl xl:container">
+  <div class="relative min-h-[124px] md:min-h-[270px] xl:min-h-[415px] bg-aboutus bg-left-bottom bg-no-repeat bg-contain">
+    <div id="chartdiv" class="h-full"></div>
+    <div class="aboutus-banner-text text-center">
       <?php
-      while (have_posts()) :
-        the_post();
-
-        get_template_part('template-parts/content', 'page');
-
-        // If comments are open or we have at least one comment, load up the comment template.
-        if (comments_open() || get_comments_number()) :
-          comments_template();
-        endif;
-
-      endwhile; // End of the loop.
+      $banner_text = get_field('banner_text', get_the_ID());
+      $banner_title_line1 = get_field('banner_title_line1', get_the_ID());
+      $banner_title_line2 = get_field('banner_title_line2', get_the_ID());
       ?>
+
+      <h1 class="text-22 md:text-28 xl:text-60">
+        <span class="text-black font-light"><?php echo $banner_title_line1; ?></span><br>
+        <span class="text-blue-0f font-bold"><?php echo $banner_title_line2; ?></span>
+      </h1>
+      <div class="text-gray-4c text-13 md:text-14 xl:text-27 mt-24 md:mt-32 xl:mt-[36px]"><?php echo $banner_text; ?></div>
     </div>
 
-    <?php
-    // SHOW ACTIVITIES
-    if (have_rows('activity')) :
-      echo '<div class="aboutus-activity">';
-      echo '<div class="row">';
-      while (have_rows('activity')) : the_row();
-        // Load sub field value.
-        $the_title = get_sub_field('about_title');
-        $the_icon = get_sub_field('about_icon');
-        $the_desc = get_sub_field('about_description');
+    <div class="bubbles">
+      <div class="bubble w-10 h-10 left-1"></div>
+      <div class="bubble w-5 h-5 left-2"></div>
+      <div class="bubble w-11 h-11 left-3"></div>
+      <div class="bubble w-[50px] h-[50px] md:w-[70px] md:h-[70px] left-2"></div>
+      <div class="bubble w-[30px] h-[30px] md:w-[50px] md:h-[50px] left-1"></div>
+      <div class="bubble w-[50px] h-[50px] left-1"></div>
+      <div class="bubble w-[45px] h-[45px] left-3"></div>
+      <div class="bubble w-[25px] h-[25px] left-2"></div>
+      <div class="bubble w-[20px] h-[20px] left-1"></div>
+      <div class="bubble w-[30px] h-[30px] left-2"></div>
 
-        echo '
-          <div class="col-xl-4">
-            <div class="aboutus-activity-item aos-init aos-animate" data-aos="fade-right">
-              <div class="aboutus-activity-image"><img src="' . $the_icon['url'] . '" /></div>
-              <h3 class="aboutus-activity-title">' . $the_title . '</h3>
-              <div class="aboutus-activity-desc">' . $the_desc . '</div>
-            </div>
-          </div>
-          ';
-      endwhile;
-      echo '</div>';
-      echo '</div>';
-    endif;
+      <div class="bubble w-[40px] h-[40px] right-[200px]"></div>
+      <div class="bubble w-[20px] h-[20px] right-[190px]"></div>
+      <div class="bubble w-[40px] h-[40px] md:w-[50px] md:h-[50px] right-[180px]"></div>
+      <div class="bubble w-[35px] h-[35px] md:w-[80px] md:h-[80px] right-[170px]"></div>
+      <div class="bubble w-[30px] h-[30px] right-[100px]"></div>
+      <div class="bubble w-[45px] h-[45px] right-[120px]"></div>
+      <div class="bubble w-[40px] h-[40px] md:w-[70px] md:h-[70px] right-[130px]"></div>
+      <div class="bubble w-[25px] h-[25px] right-[140px]"></div>
+      <div class="bubble w-[20px] h-[20px] right-[150px]"></div>
+      <div class="bubble w-[45px] h-[45px] right-[160px]"></div>
+    </div>
+  </div>
+
+  <div class="mt-[84px] md:mt-[146px] xl:mt-[178px]" data-aos="fade-up">
+    <?php
+    while (have_posts()) :
+      the_post();
+
+      get_template_part('template-parts/content', 'page');
+
+      // If comments are open or we have at least one comment, load up the comment template.
+      if (comments_open() || get_comments_number()) :
+        comments_template();
+      endif;
+
+    endwhile; // End of the loop.
     ?>
+  </div>
 
-    <?php
-    // SHOW INTRODUCTION
-    if (have_rows('introductions')) :
-      echo '<div class="aboutus-introduction text-center text-md-start">';
-      echo '<h2 class="widget-title main-color-blue" data-aos="fade-up">활동 소개</h2>';
-      while (have_rows('introductions')) : the_row();
-        // Load sub field value.
-        $introduction_title = get_sub_field('introduction_title');
-        $introduction_description = get_sub_field('introduction_description');
-        $introduction_link = get_sub_field('introduction_link');
+  <?php
+  // SHOW ACTIVITIES
+  if (have_rows('activity')) :
+    echo '<div class="grid gap-y-[55px] md:gap-x-[50px] xl:gap-x-[140px] mt-40 md:mt-[55px] xl:mt-[66px] md:grid-cols-3">';
+    while (have_rows('activity')) : the_row();
+      // Load sub field value.
+      $the_title = get_sub_field('about_title');
+      $the_icon = get_sub_field('about_icon');
+      $the_desc = get_sub_field('about_description');
 
-        $introduction_link_html = '';
-        if (strlen($introduction_link) > 0) {
-          $introduction_link_html = '<p class="aboutus-introduction-link-more text-end text-md-start mt-3"><a href="' . $introduction_link . '" target="_blank">더 알아보기 <i class="bi-chevron-right"></i></a></p>';
-        }
+      echo '
+      <div class="text-center text-gray-41" data-aos="fade-right">
+        <div class="flex justify-center"><img class="h-[120px] md:h-[84px] xl:h-[130px]" src="' . $the_icon['url'] . '" /></div>
+        <h3 class="text-15 xl:text-25 font-medium mt-20 ">' . $the_title . '</h3>
+        <div class="text-12 xl:text-17 mt-2 xl:mt-[15px]">' . $the_desc . '</div>
+      </div>
+      ';
+    endwhile;
+    echo '</div>';
+  endif;
+  ?>
 
-        $table_attribute = '';
-        if (have_rows('atributes')) :
-          $table_attribute = '<div class="table-responsive mt-4 text-11 text-md-23">';
-          $table_attribute .= '<table class="table table-borderless align-middle">';
-          while (have_rows('atributes')) : the_row();
-            $attribute_title = get_sub_field('attribute_title');
-            $attribute_description = get_sub_field('attribute_description');
-            $attribute_link = get_sub_field('attribute_link');
+  <?php
+  // SHOW INTRODUCTION
+  if (have_rows('introductions')) :
+    echo '<div class="mt-[84px] md:mt-[94px] xl:mt-[106px]">';
+    echo '<h2 class="text-22 xl:text-60 text-blue-0f font-medium text-center xl:text-left" data-aos="fade-up">활동 소개</h2>';
+    while (have_rows('introductions')) : the_row();
+      // Load sub field value.
+      $introduction_title = get_sub_field('introduction_title');
+      $introduction_description = get_sub_field('introduction_description');
+      $introduction_link = get_sub_field('introduction_link');
 
-            $table_attribute .= '
-            <tr>
-              <td><a href="' . $attribute_link . '"><span class="main-color-blue">' . $attribute_title . '</span></a></td>
-              <td class="text-start"><a href="' . $attribute_link . '">' . $attribute_description . '</a></td>
-              <td class><a href="' . $attribute_link . '"><i class="bi-chevron-right"></i></a></td>
-            </tr>';
-          endwhile;
-          $table_attribute .= '</table>';
+      $introduction_link_html = '';
+      if (strlen($introduction_link) > 0) {
+        $introduction_link_html = '<p class="aboutus-introduction-link-more text-end text-md-start mt-3"><a href="' . $introduction_link . '" target="_blank">더 알아보기 <i class="bi-chevron-right"></i></a></p>';
+      }
+
+      $table_attribute = '';
+      if (have_rows('atributes')) :
+        $table_attribute .= '<div class="max-w-[320px] md:max-w-none mx-auto mt-20 xl:mt-50">';
+        while (have_rows('atributes')) : the_row();
+          $attribute_title = get_sub_field('attribute_title');
+          $attribute_description = get_sub_field('attribute_description');
+          $attribute_link = get_sub_field('attribute_link');
+
+          $table_attribute .= '<div class="flex mt-2 md:mt-4 xl:mt-32 gap-x-[17px] xl:gap-x-[35px] text-left">';
+          $table_attribute .= '
+            <div class="flex items-center text-11 md:text-14 xl:text-22 2xl:text-25 xl:font-medium text-blue-0f"><a href="' . $attribute_link . '"><span class="main-color-blue">' . $attribute_title . '</span></a></div>
+            <div class="flex grow items-center text-11 md:text-13 xl:text-20 2xl:text-23 text-gray-4c"><a href="' . $attribute_link . '">' . $attribute_description . '</a></div>
+            <div class="flex items-center md:text-13 xl:text-22 2xl:text-25"><a href="' . $attribute_link . '"><i class="bi-chevron-right"></i></a></div>
+          ';
           $table_attribute .= '</div>';
-        endif;
+        endwhile;
+        $table_attribute .= '</div>';
+      endif;
 
-        echo '
-        <div class="row mt-5" data-aos="fade-up">
-          <div class="col-md-3">
-            <h3 class="module-sub-title main-color-black bg-border d-inline-block pb-1 mb-3">' . $introduction_title . '</h3>
+      echo '
+        <div class="grid text-center md:text-left md:grid-cols-12 md:mt-[45px] xl:mt-70" data-aos="fade-up">
+          <div class="md:col-span-2 xl:col-span-3 2xl:col-span-2">
+            <h3 class="bg-border inline-block mt-[45px] md:mt-0 text-24 md:text-18 xl:text-[50px] text-gray-41">' . $introduction_title . '</h3>
           </div>
-          <div class="col-md-9">' . $introduction_description . $table_attribute . $introduction_link_html . '</div>
+          <div class="mt-[16px] md:mt-0 md:col-span-9 xl:col-span-8 2xl:col-span-9 md:col-end-13 text-13 md:text-15 xl:text-27 text-gray-4c">' . $introduction_description . $table_attribute . $introduction_link_html . '</div>
         </div>
         ';
-      endwhile;
-      echo '</div>';
-    endif;
-    ?>
-  </div><!-- container -->
+    endwhile;
+    echo '</div>';
+  endif;
+  ?>
 </main><!-- #main -->
 
 <?php

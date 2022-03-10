@@ -129,11 +129,6 @@ $link_share = get_permalink();
 		</div>
 
 
-
-
-
-
-
 		<div class="mt-[64px] md:mt-[48px] xl:mt-[140px]">
 			<!-- Tabs -->
 			<ul id="tabs" class="flex">

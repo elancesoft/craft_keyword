@@ -1,0 +1,2205 @@
+BRAND RANKING ITEM
+
+Array
+(
+    [0] => Array
+        (
+            [ID] => 1
+            [name] => Brand 1
+            [category] => Category Name 1
+            [description] => Description for this brand 1
+            [upload_month] => 11
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 1
+            [sns_logo] => twitter
+            [score] => 5.4
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [1] => Array
+        (
+            [ID] => 2
+            [name] => Brand 2
+            [category] => Category Name 2
+            [description] => Description for this brand 2
+            [upload_month] => 8
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 2
+            [sns_logo] => twitter
+            [score] => 9.1
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [2] => Array
+        (
+            [ID] => 3
+            [name] => Brand 3
+            [category] => Category Name 3
+            [description] => Description for this brand 3
+            [upload_month] => 11
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 3
+            [sns_logo] => twitter
+            [score] => 0.2
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [3] => Array
+        (
+            [ID] => 4
+            [name] => Brand 4
+            [category] => Category Name 4
+            [description] => Description for this brand 4
+            [upload_month] => 2
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 4
+            [sns_logo] => twitter
+            [score] => 9.7
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [4] => Array
+        (
+            [ID] => 5
+            [name] => Brand 5
+            [category] => Category Name 5
+            [description] => Description for this brand 5
+            [upload_month] => 6
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 5
+            [sns_logo] => twitter
+            [score] => 0.6
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [5] => Array
+        (
+            [ID] => 6
+            [name] => Brand 6
+            [category] => Category Name 6
+            [description] => Description for this brand 6
+            [upload_month] => 9
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 6
+            [sns_logo] => twitter
+            [score] => 4.2
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [6] => Array
+        (
+            [ID] => 7
+            [name] => Brand 7
+            [category] => Category Name 7
+            [description] => Description for this brand 7
+            [upload_month] => 4
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 7
+            [sns_logo] => twitter
+            [score] => 5.4
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [7] => Array
+        (
+            [ID] => 8
+            [name] => Brand 8
+            [category] => Category Name 8
+            [description] => Description for this brand 8
+            [upload_month] => 4
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 8
+            [sns_logo] => twitter
+            [score] => 0.5
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [8] => Array
+        (
+            [ID] => 9
+            [name] => Brand 9
+            [category] => Category Name 9
+            [description] => Description for this brand 9
+            [upload_month] => 4
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 9
+            [sns_logo] => twitter
+            [score] => 7.5
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [9] => Array
+        (
+            [ID] => 10
+            [name] => Brand 10
+            [category] => Category Name 10
+            [description] => Description for this brand 10
+            [upload_month] => 12
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 10
+            [sns_logo] => twitter
+            [score] => 7.3
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [10] => Array
+        (
+            [ID] => 11
+            [name] => Brand 11
+            [category] => Category Name 11
+            [description] => Description for this brand 11
+            [upload_month] => 9
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 11
+            [sns_logo] => twitter
+            [score] => 8.4
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [11] => Array
+        (
+            [ID] => 12
+            [name] => Brand 12
+            [category] => Category Name 12
+            [description] => Description for this brand 12
+            [upload_month] => 2
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 12
+            [sns_logo] => twitter
+            [score] => 4.1
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [12] => Array
+        (
+            [ID] => 13
+            [name] => Brand 13
+            [category] => Category Name 13
+            [description] => Description for this brand 13
+            [upload_month] => 12
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 13
+            [sns_logo] => twitter
+            [score] => 8.3
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [13] => Array
+        (
+            [ID] => 14
+            [name] => Brand 14
+            [category] => Category Name 14
+            [description] => Description for this brand 14
+            [upload_month] => 4
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 14
+            [sns_logo] => twitter
+            [score] => 4
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [14] => Array
+        (
+            [ID] => 15
+            [name] => Brand 15
+            [category] => Category Name 15
+            [description] => Description for this brand 15
+            [upload_month] => 4
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 15
+            [sns_logo] => twitter
+            [score] => 2.7
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [15] => Array
+        (
+            [ID] => 16
+            [name] => Brand 16
+            [category] => Category Name 16
+            [description] => Description for this brand 16
+            [upload_month] => 10
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 16
+            [sns_logo] => twitter
+            [score] => 2.1
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [16] => Array
+        (
+            [ID] => 17
+            [name] => Brand 17
+            [category] => Category Name 17
+            [description] => Description for this brand 17
+            [upload_month] => 2
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 17
+            [sns_logo] => twitter
+            [score] => 5.5
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [17] => Array
+        (
+            [ID] => 18
+            [name] => Brand 18
+            [category] => Category Name 18
+            [description] => Description for this brand 18
+            [upload_month] => 1
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 18
+            [sns_logo] => twitter
+            [score] => 1.2
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [18] => Array
+        (
+            [ID] => 19
+            [name] => Brand 19
+            [category] => Category Name 19
+            [description] => Description for this brand 19
+            [upload_month] => 5
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 19
+            [sns_logo] => twitter
+            [score] => 8.6
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [19] => Array
+        (
+            [ID] => 20
+            [name] => Brand 20
+            [category] => Category Name 20
+            [description] => Description for this brand 20
+            [upload_month] => 9
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 20
+            [sns_logo] => twitter
+            [score] => 5.1
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [20] => Array
+        (
+            [ID] => 21
+            [name] => Brand 21
+            [category] => Category Name 21
+            [description] => Description for this brand 21
+            [upload_month] => 9
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 21
+            [sns_logo] => twitter
+            [score] => 8.8
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [21] => Array
+        (
+            [ID] => 22
+            [name] => Brand 22
+            [category] => Category Name 22
+            [description] => Description for this brand 22
+            [upload_month] => 12
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 22
+            [sns_logo] => twitter
+            [score] => 9.7
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [22] => Array
+        (
+            [ID] => 23
+            [name] => Brand 23
+            [category] => Category Name 23
+            [description] => Description for this brand 23
+            [upload_month] => 4
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 23
+            [sns_logo] => twitter
+            [score] => 9
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [23] => Array
+        (
+            [ID] => 24
+            [name] => Brand 24
+            [category] => Category Name 24
+            [description] => Description for this brand 24
+            [upload_month] => 7
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 24
+            [sns_logo] => twitter
+            [score] => 3.2
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [24] => Array
+        (
+            [ID] => 25
+            [name] => Brand 25
+            [category] => Category Name 25
+            [description] => Description for this brand 25
+            [upload_month] => 2
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 25
+            [sns_logo] => twitter
+            [score] => 9.6
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [25] => Array
+        (
+            [ID] => 26
+            [name] => Brand 26
+            [category] => Category Name 26
+            [description] => Description for this brand 26
+            [upload_month] => 12
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 26
+            [sns_logo] => twitter
+            [score] => 5.7
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [26] => Array
+        (
+            [ID] => 27
+            [name] => Brand 27
+            [category] => Category Name 27
+            [description] => Description for this brand 27
+            [upload_month] => 11
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 27
+            [sns_logo] => twitter
+            [score] => 4.1
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [27] => Array
+        (
+            [ID] => 28
+            [name] => Brand 28
+            [category] => Category Name 28
+            [description] => Description for this brand 28
+            [upload_month] => 11
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 28
+            [sns_logo] => twitter
+            [score] => 3.9
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [28] => Array
+        (
+            [ID] => 29
+            [name] => Brand 29
+            [category] => Category Name 29
+            [description] => Description for this brand 29
+            [upload_month] => 9
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 29
+            [sns_logo] => twitter
+            [score] => 1.7
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [29] => Array
+        (
+            [ID] => 30
+            [name] => Brand 30
+            [category] => Category Name 30
+            [description] => Description for this brand 30
+            [upload_month] => 10
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 30
+            [sns_logo] => twitter
+            [score] => 1.2
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [30] => Array
+        (
+            [ID] => 31
+            [name] => Brand 31
+            [category] => Category Name 31
+            [description] => Description for this brand 31
+            [upload_month] => 3
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 31
+            [sns_logo] => twitter
+            [score] => 8.1
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [31] => Array
+        (
+            [ID] => 32
+            [name] => Brand 32
+            [category] => Category Name 32
+            [description] => Description for this brand 32
+            [upload_month] => 3
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 32
+            [sns_logo] => twitter
+            [score] => 8.2
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [32] => Array
+        (
+            [ID] => 33
+            [name] => Brand 33
+            [category] => Category Name 33
+            [description] => Description for this brand 33
+            [upload_month] => 2
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 33
+            [sns_logo] => twitter
+            [score] => 2.5
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [33] => Array
+        (
+            [ID] => 34
+            [name] => Brand 34
+            [category] => Category Name 34
+            [description] => Description for this brand 34
+            [upload_month] => 8
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 34
+            [sns_logo] => twitter
+            [score] => 9.6
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [34] => Array
+        (
+            [ID] => 35
+            [name] => Brand 35
+            [category] => Category Name 35
+            [description] => Description for this brand 35
+            [upload_month] => 10
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 35
+            [sns_logo] => twitter
+            [score] => 4.3
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [35] => Array
+        (
+            [ID] => 36
+            [name] => Brand 36
+            [category] => Category Name 36
+            [description] => Description for this brand 36
+            [upload_month] => 5
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 36
+            [sns_logo] => twitter
+            [score] => 5.5
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [36] => Array
+        (
+            [ID] => 37
+            [name] => Brand 37
+            [category] => Category Name 37
+            [description] => Description for this brand 37
+            [upload_month] => 11
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 37
+            [sns_logo] => twitter
+            [score] => 5.6
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [37] => Array
+        (
+            [ID] => 38
+            [name] => Brand 38
+            [category] => Category Name 38
+            [description] => Description for this brand 38
+            [upload_month] => 1
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 38
+            [sns_logo] => twitter
+            [score] => 7.7
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [38] => Array
+        (
+            [ID] => 39
+            [name] => Brand 39
+            [category] => Category Name 39
+            [description] => Description for this brand 39
+            [upload_month] => 10
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 39
+            [sns_logo] => twitter
+            [score] => 4.9
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [39] => Array
+        (
+            [ID] => 40
+            [name] => Brand 40
+            [category] => Category Name 40
+            [description] => Description for this brand 40
+            [upload_month] => 8
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 40
+            [sns_logo] => twitter
+            [score] => 5.7
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [40] => Array
+        (
+            [ID] => 41
+            [name] => Brand 41
+            [category] => Category Name 41
+            [description] => Description for this brand 41
+            [upload_month] => 10
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 41
+            [sns_logo] => twitter
+            [score] => 6.6
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [41] => Array
+        (
+            [ID] => 42
+            [name] => Brand 42
+            [category] => Category Name 42
+            [description] => Description for this brand 42
+            [upload_month] => 5
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 42
+            [sns_logo] => twitter
+            [score] => 8.4
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [42] => Array
+        (
+            [ID] => 43
+            [name] => Brand 43
+            [category] => Category Name 43
+            [description] => Description for this brand 43
+            [upload_month] => 6
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 43
+            [sns_logo] => twitter
+            [score] => 1.5
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [43] => Array
+        (
+            [ID] => 44
+            [name] => Brand 44
+            [category] => Category Name 44
+            [description] => Description for this brand 44
+            [upload_month] => 1
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 44
+            [sns_logo] => twitter
+            [score] => 8.9
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [44] => Array
+        (
+            [ID] => 45
+            [name] => Brand 45
+            [category] => Category Name 45
+            [description] => Description for this brand 45
+            [upload_month] => 2
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 45
+            [sns_logo] => twitter
+            [score] => 2.7
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [45] => Array
+        (
+            [ID] => 46
+            [name] => Brand 46
+            [category] => Category Name 46
+            [description] => Description for this brand 46
+            [upload_month] => 3
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 46
+            [sns_logo] => twitter
+            [score] => 9.8
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [46] => Array
+        (
+            [ID] => 47
+            [name] => Brand 47
+            [category] => Category Name 47
+            [description] => Description for this brand 47
+            [upload_month] => 4
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 47
+            [sns_logo] => twitter
+            [score] => 8.5
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [47] => Array
+        (
+            [ID] => 48
+            [name] => Brand 48
+            [category] => Category Name 48
+            [description] => Description for this brand 48
+            [upload_month] => 7
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 48
+            [sns_logo] => twitter
+            [score] => 4.1
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [48] => Array
+        (
+            [ID] => 49
+            [name] => Brand 49
+            [category] => Category Name 49
+            [description] => Description for this brand 49
+            [upload_month] => 3
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 49
+            [sns_logo] => twitter
+            [score] => 1.6
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [49] => Array
+        (
+            [ID] => 50
+            [name] => Brand 50
+            [category] => Category Name 50
+            [description] => Description for this brand 50
+            [upload_month] => 9
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 50
+            [sns_logo] => twitter
+            [score] => 7.3
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [50] => Array
+        (
+            [ID] => 51
+            [name] => Brand 51
+            [category] => Category Name 51
+            [description] => Description for this brand 51
+            [upload_month] => 9
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 51
+            [sns_logo] => twitter
+            [score] => 8.9
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [51] => Array
+        (
+            [ID] => 52
+            [name] => Brand 52
+            [category] => Category Name 52
+            [description] => Description for this brand 52
+            [upload_month] => 6
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 52
+            [sns_logo] => twitter
+            [score] => 3.4
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [52] => Array
+        (
+            [ID] => 53
+            [name] => Brand 53
+            [category] => Category Name 53
+            [description] => Description for this brand 53
+            [upload_month] => 9
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 53
+            [sns_logo] => twitter
+            [score] => 9.8
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [53] => Array
+        (
+            [ID] => 54
+            [name] => Brand 54
+            [category] => Category Name 54
+            [description] => Description for this brand 54
+            [upload_month] => 3
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 54
+            [sns_logo] => twitter
+            [score] => 2.9
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [54] => Array
+        (
+            [ID] => 55
+            [name] => Brand 55
+            [category] => Category Name 55
+            [description] => Description for this brand 55
+            [upload_month] => 5
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 55
+            [sns_logo] => twitter
+            [score] => 0.5
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [55] => Array
+        (
+            [ID] => 56
+            [name] => Brand 56
+            [category] => Category Name 56
+            [description] => Description for this brand 56
+            [upload_month] => 5
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 56
+            [sns_logo] => twitter
+            [score] => 7.1
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [56] => Array
+        (
+            [ID] => 57
+            [name] => Brand 57
+            [category] => Category Name 57
+            [description] => Description for this brand 57
+            [upload_month] => 1
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 57
+            [sns_logo] => twitter
+            [score] => 0.4
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [57] => Array
+        (
+            [ID] => 58
+            [name] => Brand 58
+            [category] => Category Name 58
+            [description] => Description for this brand 58
+            [upload_month] => 6
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 58
+            [sns_logo] => twitter
+            [score] => 8.7
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [58] => Array
+        (
+            [ID] => 59
+            [name] => Brand 59
+            [category] => Category Name 59
+            [description] => Description for this brand 59
+            [upload_month] => 10
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 59
+            [sns_logo] => twitter
+            [score] => 0.5
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [59] => Array
+        (
+            [ID] => 60
+            [name] => Brand 60
+            [category] => Category Name 60
+            [description] => Description for this brand 60
+            [upload_month] => 2
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 60
+            [sns_logo] => twitter
+            [score] => 2
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [60] => Array
+        (
+            [ID] => 61
+            [name] => Brand 61
+            [category] => Category Name 61
+            [description] => Description for this brand 61
+            [upload_month] => 7
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 61
+            [sns_logo] => twitter
+            [score] => 8.1
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [61] => Array
+        (
+            [ID] => 62
+            [name] => Brand 62
+            [category] => Category Name 62
+            [description] => Description for this brand 62
+            [upload_month] => 8
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 62
+            [sns_logo] => twitter
+            [score] => 6
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [62] => Array
+        (
+            [ID] => 63
+            [name] => Brand 63
+            [category] => Category Name 63
+            [description] => Description for this brand 63
+            [upload_month] => 10
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 63
+            [sns_logo] => twitter
+            [score] => 2.9
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [63] => Array
+        (
+            [ID] => 64
+            [name] => Brand 64
+            [category] => Category Name 64
+            [description] => Description for this brand 64
+            [upload_month] => 10
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 64
+            [sns_logo] => twitter
+            [score] => 2.1
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [64] => Array
+        (
+            [ID] => 65
+            [name] => Brand 65
+            [category] => Category Name 65
+            [description] => Description for this brand 65
+            [upload_month] => 11
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 65
+            [sns_logo] => twitter
+            [score] => 9.8
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [65] => Array
+        (
+            [ID] => 66
+            [name] => Brand 66
+            [category] => Category Name 66
+            [description] => Description for this brand 66
+            [upload_month] => 1
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 66
+            [sns_logo] => twitter
+            [score] => 1.5
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [66] => Array
+        (
+            [ID] => 67
+            [name] => Brand 67
+            [category] => Category Name 67
+            [description] => Description for this brand 67
+            [upload_month] => 6
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 67
+            [sns_logo] => twitter
+            [score] => 1.7
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [67] => Array
+        (
+            [ID] => 68
+            [name] => Brand 68
+            [category] => Category Name 68
+            [description] => Description for this brand 68
+            [upload_month] => 11
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 68
+            [sns_logo] => twitter
+            [score] => 8.6
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [68] => Array
+        (
+            [ID] => 69
+            [name] => Brand 69
+            [category] => Category Name 69
+            [description] => Description for this brand 69
+            [upload_month] => 5
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 69
+            [sns_logo] => twitter
+            [score] => 0.9
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [69] => Array
+        (
+            [ID] => 70
+            [name] => Brand 70
+            [category] => Category Name 70
+            [description] => Description for this brand 70
+            [upload_month] => 7
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 70
+            [sns_logo] => twitter
+            [score] => 9.8
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [70] => Array
+        (
+            [ID] => 71
+            [name] => Brand 71
+            [category] => Category Name 71
+            [description] => Description for this brand 71
+            [upload_month] => 7
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 71
+            [sns_logo] => twitter
+            [score] => 5.7
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [71] => Array
+        (
+            [ID] => 72
+            [name] => Brand 72
+            [category] => Category Name 72
+            [description] => Description for this brand 72
+            [upload_month] => 8
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 72
+            [sns_logo] => twitter
+            [score] => 2.9
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [72] => Array
+        (
+            [ID] => 73
+            [name] => Brand 73
+            [category] => Category Name 73
+            [description] => Description for this brand 73
+            [upload_month] => 3
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 73
+            [sns_logo] => twitter
+            [score] => 7.2
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [73] => Array
+        (
+            [ID] => 74
+            [name] => Brand 74
+            [category] => Category Name 74
+            [description] => Description for this brand 74
+            [upload_month] => 11
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 74
+            [sns_logo] => twitter
+            [score] => 0.7
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [74] => Array
+        (
+            [ID] => 75
+            [name] => Brand 75
+            [category] => Category Name 75
+            [description] => Description for this brand 75
+            [upload_month] => 1
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 75
+            [sns_logo] => twitter
+            [score] => 7.2
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [75] => Array
+        (
+            [ID] => 76
+            [name] => Brand 76
+            [category] => Category Name 76
+            [description] => Description for this brand 76
+            [upload_month] => 11
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 76
+            [sns_logo] => twitter
+            [score] => 6.4
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [76] => Array
+        (
+            [ID] => 77
+            [name] => Brand 77
+            [category] => Category Name 77
+            [description] => Description for this brand 77
+            [upload_month] => 4
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 77
+            [sns_logo] => twitter
+            [score] => 7.7
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [77] => Array
+        (
+            [ID] => 78
+            [name] => Brand 78
+            [category] => Category Name 78
+            [description] => Description for this brand 78
+            [upload_month] => 8
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 78
+            [sns_logo] => twitter
+            [score] => 9.9
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [78] => Array
+        (
+            [ID] => 79
+            [name] => Brand 79
+            [category] => Category Name 79
+            [description] => Description for this brand 79
+            [upload_month] => 6
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 79
+            [sns_logo] => twitter
+            [score] => 6.3
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [79] => Array
+        (
+            [ID] => 80
+            [name] => Brand 80
+            [category] => Category Name 80
+            [description] => Description for this brand 80
+            [upload_month] => 11
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 80
+            [sns_logo] => twitter
+            [score] => 7.6
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [80] => Array
+        (
+            [ID] => 81
+            [name] => Brand 81
+            [category] => Category Name 81
+            [description] => Description for this brand 81
+            [upload_month] => 12
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 81
+            [sns_logo] => twitter
+            [score] => 8.4
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [81] => Array
+        (
+            [ID] => 82
+            [name] => Brand 82
+            [category] => Category Name 82
+            [description] => Description for this brand 82
+            [upload_month] => 7
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 82
+            [sns_logo] => twitter
+            [score] => 3
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [82] => Array
+        (
+            [ID] => 83
+            [name] => Brand 83
+            [category] => Category Name 83
+            [description] => Description for this brand 83
+            [upload_month] => 1
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 83
+            [sns_logo] => twitter
+            [score] => 2.9
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [83] => Array
+        (
+            [ID] => 84
+            [name] => Brand 84
+            [category] => Category Name 84
+            [description] => Description for this brand 84
+            [upload_month] => 4
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 84
+            [sns_logo] => twitter
+            [score] => 2.5
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [84] => Array
+        (
+            [ID] => 85
+            [name] => Brand 85
+            [category] => Category Name 85
+            [description] => Description for this brand 85
+            [upload_month] => 10
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 85
+            [sns_logo] => twitter
+            [score] => 8.8
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [85] => Array
+        (
+            [ID] => 86
+            [name] => Brand 86
+            [category] => Category Name 86
+            [description] => Description for this brand 86
+            [upload_month] => 8
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 86
+            [sns_logo] => twitter
+            [score] => 3.5
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [86] => Array
+        (
+            [ID] => 87
+            [name] => Brand 87
+            [category] => Category Name 87
+            [description] => Description for this brand 87
+            [upload_month] => 5
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 87
+            [sns_logo] => twitter
+            [score] => 2
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [87] => Array
+        (
+            [ID] => 88
+            [name] => Brand 88
+            [category] => Category Name 88
+            [description] => Description for this brand 88
+            [upload_month] => 11
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 88
+            [sns_logo] => twitter
+            [score] => 4
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [88] => Array
+        (
+            [ID] => 89
+            [name] => Brand 89
+            [category] => Category Name 89
+            [description] => Description for this brand 89
+            [upload_month] => 7
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 89
+            [sns_logo] => twitter
+            [score] => 10
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [89] => Array
+        (
+            [ID] => 90
+            [name] => Brand 90
+            [category] => Category Name 90
+            [description] => Description for this brand 90
+            [upload_month] => 4
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 90
+            [sns_logo] => twitter
+            [score] => 4.1
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [90] => Array
+        (
+            [ID] => 91
+            [name] => Brand 91
+            [category] => Category Name 91
+            [description] => Description for this brand 91
+            [upload_month] => 7
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 91
+            [sns_logo] => twitter
+            [score] => 3.3
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [91] => Array
+        (
+            [ID] => 92
+            [name] => Brand 92
+            [category] => Category Name 92
+            [description] => Description for this brand 92
+            [upload_month] => 8
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 92
+            [sns_logo] => twitter
+            [score] => 8.8
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [92] => Array
+        (
+            [ID] => 93
+            [name] => Brand 93
+            [category] => Category Name 93
+            [description] => Description for this brand 93
+            [upload_month] => 11
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 93
+            [sns_logo] => twitter
+            [score] => 0.7
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [93] => Array
+        (
+            [ID] => 94
+            [name] => Brand 94
+            [category] => Category Name 94
+            [description] => Description for this brand 94
+            [upload_month] => 2
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 94
+            [sns_logo] => twitter
+            [score] => 7.5
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [94] => Array
+        (
+            [ID] => 95
+            [name] => Brand 95
+            [category] => Category Name 95
+            [description] => Description for this brand 95
+            [upload_month] => 8
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 95
+            [sns_logo] => twitter
+            [score] => 2.7
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [95] => Array
+        (
+            [ID] => 96
+            [name] => Brand 96
+            [category] => Category Name 96
+            [description] => Description for this brand 96
+            [upload_month] => 2
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 96
+            [sns_logo] => twitter
+            [score] => 2.3
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [96] => Array
+        (
+            [ID] => 97
+            [name] => Brand 97
+            [category] => Category Name 97
+            [description] => Description for this brand 97
+            [upload_month] => 9
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 97
+            [sns_logo] => twitter
+            [score] => 7.2
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [97] => Array
+        (
+            [ID] => 98
+            [name] => Brand 98
+            [category] => Category Name 98
+            [description] => Description for this brand 98
+            [upload_month] => 10
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 98
+            [sns_logo] => twitter
+            [score] => 5.2
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [98] => Array
+        (
+            [ID] => 99
+            [name] => Brand 99
+            [category] => Category Name 99
+            [description] => Description for this brand 99
+            [upload_month] => 2
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 99
+            [sns_logo] => twitter
+            [score] => 9.2
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+    [99] => Array
+        (
+            [ID] => 100
+            [name] => Brand 100
+            [category] => Category Name 100
+            [description] => Description for this brand 100
+            [upload_month] => 4
+            [date] => 2022년 01월 4주
+            [period] => 10.25 - 10.31
+            [keyword] => keyword tet 100
+            [sns_logo] => twitter
+            [score] => 5.2
+            [logo] => https://some.craft.support/wp-content/uploads/2022/01/brand-6.png
+            [hashtag] => Array
+                (
+                    [0] => 뷰티
+                    [1] => 식음
+                    [2] => 기타
+                )
+
+        )
+
+)
